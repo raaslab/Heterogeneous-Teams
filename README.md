@@ -1,1 +1,2 @@
 # Heterogeneous-Teams
+The code that is within this repository will be able to implement multiple stationary chargin stations (MSCS), single moving chargin station (SMCS), and multiple slower moving charging stations (MSMCS).
