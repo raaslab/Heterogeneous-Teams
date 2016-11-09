@@ -1,3 +1,14 @@
+% randomPoints
+% creates a random point within a circle of radius "rc" and center (x1, y1)
+% INPUTS
+% x1 = x corrdinate of center point
+% y1 = y corrdinate of center point
+% rc = radius of cirle centered at (x1, y1)
+% OUTPUTS
+% x = x corrdinate of random point
+% y = y corrdinate of random point
+
+
 function [x, y] = randomPoints(x1,y1,rc)
 %the function, must be on a folder in matlab path
 a=2*pi*rand;

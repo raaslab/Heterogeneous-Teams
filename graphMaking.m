@@ -1,4 +1,13 @@
-function graphMaking(numPoints)
+% graphMaking
+% makes a graph with random points
+% INPUTS
+% numPoints = number of points
+% OUTPUTS
+% x = array of x points
+% y = array of y points
+% plot with those points
+
+function [G, x, y] = graphMaking(numPoints)
 
 x = [];
 y = [];

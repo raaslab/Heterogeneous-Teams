@@ -2,4 +2,7 @@
 % testing of program
 % for my own work
 
-graphMaking(3);
+[G, x, y] = graphMaking(3);
+x
+y
+G
