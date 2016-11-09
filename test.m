@@ -1,17 +1,9 @@
 % test
 % testing of program
 % for my own work
-numPoints = 5;
+numPoints = 9;
 [G, x, y] = graphMaking(numPoints);
-for i = 1:numPoints
-    for j = i:numPoints
-        if i ~= j
-            s = [i];
-            t = [j];
-            G = addedge(G, s, t);
-        end
-    end
-end
+[G] = createEdges(G, numPoints);
 
 % x
 % y
