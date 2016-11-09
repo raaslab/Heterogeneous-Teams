@@ -19,9 +19,10 @@ end
 % x
 % y
 G = addnode(G,numPoints);
-G
-G.Nodes
-G.Edges
-plot(G, 'XData', x, 'YData', y)
+% G
+% G.Nodes
+% G.Edges
+% figure(3)
+% plot(G, 'XData', x, 'YData', y)
 
 end
