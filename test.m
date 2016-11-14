@@ -16,12 +16,12 @@ numBatteryLevels = 2;
 % y
 % G
 % G.Edges
-% figure(1)
-% plot(G)
-% figure(2)
-% plot(G, 'XData', x, 'YData', y)
-% figure(3)
-% scatter3(x3d, y3d, z3d)
+%  figure(1)
+%  plot(G)
+ figure(2)
+ plot(G, 'XData', x, 'YData', y)
+ figure(3)
+ scatter3(x3d, y3d, z3d)
 
 
 
