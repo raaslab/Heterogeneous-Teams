@@ -9,9 +9,7 @@ numBatteryLevels = 2;
 % code
 [G, x, y] = graphMaking(numPoints);
 [G] = createEdges(G, numPoints);
-tableMaking(x, y, numBatteryLevels);
-
-
+[T, x3d, y3d, z3d] = tableMaking(x, y, numBatteryLevels);
 
 % outputs
 % x
@@ -20,8 +18,10 @@ tableMaking(x, y, numBatteryLevels);
 % G.Edges
 % figure(1)
 % plot(G)
-figure(2)
-plot(G, 'XData', x, 'YData', y)
+% figure(2)
+% plot(G, 'XData', x, 'YData', y)
+% figure(3)
+% scatter3(x3d, y3d, z3d)
 
 
 
