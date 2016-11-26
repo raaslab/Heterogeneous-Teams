@@ -5,7 +5,7 @@
 % house keeping
 clear all;
 clc;
-
+tic;
 % variables
 numPointsInit = 6;
 numBatteryLevels = 4;
@@ -35,5 +35,7 @@ numPoints = numel(h.XData);
 % plot(G2, 'XData', x2, 'YData', y2);
 [V_adj, points] = makingV_adj(x2, y2);
 [V_Cluster] = makingV_Cluster(numPointsInit, numBatteryLevels);
+V_Cluster = num2cell(V_Cluster);
+[x_reshape, G_final,fval,exitflag,output] = call_gtsp_recursive_func(V_Cluster, V_adj);
 
-
+toc
