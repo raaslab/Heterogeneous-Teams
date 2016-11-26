@@ -2,6 +2,10 @@
 % testing of program
 % for my own work
 
+% house keeping
+clear all;
+clc;
+
 % variables
 numPoints = 3;
 numBatteryLevels = 2;
@@ -21,7 +25,7 @@ numBatteryLevels = 2;
  figure(2)
  plot(G, 'XData', x, 'YData', y)
  figure(3)
- scatter3(x3d, y3d, z3d)
+ h = scatter3(x3d, y3d, z3d)
 
 
 
