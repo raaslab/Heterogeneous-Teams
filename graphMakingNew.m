@@ -7,7 +7,7 @@
 % y = array of y points
 % plot with those points
 
-function [G, x, y] = graphMaking(numPoints)
+function [G, x, y] = graphMakingNew(numPoints)
 
 x = [];
 y = [];
