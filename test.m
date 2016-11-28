@@ -8,7 +8,7 @@ clc;
 tic;
 % variables
 numPointsInit = 5;
-numBatteryLevels = 6;
+numBatteryLevels = 3;
 
 % code
 [G1, x1, y1] = graphMakingNew(numPointsInit);
@@ -40,11 +40,11 @@ V_Cluster = num2cell(V_Cluster);
 
 
 [G3, x3, y3] = graphMakingWPoints(h.XData, h.YData);
-figure(1)
+figure(1);
 plot(G3, 'XData', x3, 'YData', y3)
-[edgeArray, S, T] = createEdgeArray(x_reshape);
-[G3] = createEdges(G3, edgeArray, S, T)
-plot(G3, 'XData', x3, 'YData', y3)
+[edgeArray, S, T] = createEdgeArray(x_reshape, numPointsInit, numBatteryLevels);
+[G3] = createEdges(G3, edgeArray, S, T, G_final.Edges.Weight)
+plot(G3, 'XData', x3, 'YData', y3, 'EdgeLabel', G_final.Edges.Weight)
 
 toc
 

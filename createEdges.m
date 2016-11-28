@@ -5,14 +5,14 @@
 % OUTPUTS
 % G = a graph with the edges implemented
 
-function [G] = createEdges(G, edgeArray, S, T)
+function [G] = createEdges(G, edgeArray, S, T, weights)
 
 
-sizeOfEdgeArray = numel(edgeArray)
-for i = 1:sizeOfEdgeArray
-    G = addedge(G, S, T)
+numOfEdges = numel(S)
+for i = 1:numOfEdges
+    G = addedge(G, S(i), T(i))
 end
-
+G.Edges.Weights = weights;
 
 
 end

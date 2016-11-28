@@ -10,7 +10,7 @@
 
 function [G, x, y] = graphMakingNew(x, y)
 
-G = graph;
+G = digraph;
 numPoints = numel(x);
 G = addnode(G, numPoints);
 

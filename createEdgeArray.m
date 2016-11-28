@@ -4,9 +4,11 @@
 % OUTPUTS
 % edgeArray = array of edges that need to be created
 
-function [edgeArray, i, j] = createEdgeArray(x_reshape)
+function [edgeArray, i, j] = createEdgeArray(x_reshape, numPoints, numLevels)
 
-[i, j] = find(x_reshape);
+totalPoints = numPoints*numLevels;
+correctEdges = x_reshape(:, 1:totalPoints);
+[i, j] = find(correctEdges);
 edgeArray = [i,j];
 
 
