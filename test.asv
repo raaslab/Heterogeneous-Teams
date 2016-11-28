@@ -12,7 +12,7 @@ numBatteryLevels = 6;
 
 % code
 [G1, x1, y1] = graphMakingNew(numPointsInit);
-[G1] = createEdgesFull(G1, numPointsInit);
+[G1] = createEdges(G1, numPointsInit);
 [T, x3d, y3d, z3d] = tableMaking(x1, y1, numBatteryLevels);
 
 % outputs
@@ -30,7 +30,7 @@ numBatteryLevels = 6;
 h = scatter3(x3d, y3d, z3d);
 numPoints = numel(h.XData);
 [G2, x2, y2] = graphMakingWPoints(h.XData, h.YData);
-[G2] = createEdgesFull(G2, numPoints);
+[G2] = createEdgesall(G2, numPoints);
 % figure(4)
 % plot(G2, 'XData', x2, 'YData', y2);
 [V_adj, points] = makingV_adj(x2, y2);
@@ -40,11 +40,7 @@ V_Cluster = num2cell(V_Cluster);
 
 
 [G3, x3, y3] = graphMakingWPoints(h.XData, h.YData);
-figure(1)
-plot(G3, 'XData', x3, 'YData', y3)
-[edgeArray, S, T] = createEdgeArray(x_reshape);
-[G3] = createEdges(G3, edgeArray, S, T)
-plot(G3, 'XData', x3, 'YData', y3)
+createEdges(G3, )
 
 toc
 

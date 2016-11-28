@@ -1,19 +1,18 @@
 % createEdges
-% creates all edges possible
 % INPUTS
-% G = graph
-% numPoints = number of points within the graph
+% G = a graph
+% arrayOfEdges = the array of connected edges
 % OUTPUTS
-% G = graph
+% G = a graph with the edges implemented
 
-function [G] = createEdges(G, numPoints)
-for i = 1:numPoints
-    for j = i:numPoints
-        if i ~= j
-            s = i;
-            t = j;
-            G = addedge(G, s, t);
-        end
-    end
+function [G] = createEdges(G, edgeArray, S, T)
+
+
+sizeOfEdgeArray = numel(edgeArray)
+for i = 1:sizeOfEdgeArray
+    G = addedge(G, S, T)
 end
+
+
+
 end
