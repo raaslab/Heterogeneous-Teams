@@ -20,13 +20,13 @@ numBatteryLevels = 3;
 % y
 % G
 % G.Edges
-%  figure(1)
-%  plot(G)
-% figure(2)
-% plot(G1, 'XData', x1, 'YData', y1)
+figure(1)
+plot(G1)
+figure(2)
+plot(G1, 'XData', x1, 'YData', y1)
 %  nodes = G1.Nodes
 %  edges = G1.Edges
-% figure(3)
+figure(3)
 h = scatter3(x3d, y3d, z3d);
 numPoints = numel(h.XData);
 [G2, x2, y2] = graphMakingWPoints(h.XData, h.YData);
@@ -40,7 +40,7 @@ V_Cluster = num2cell(V_Cluster);
 
 
 [G3, x3, y3] = graphMakingWPoints(h.XData, h.YData);
-figure(1);
+figure(5);
 plot(G3, 'XData', x3, 'YData', y3)
 [edgeArray, S, T] = createEdgeArray(x_reshape, numPointsInit, numBatteryLevels);
 [G3] = createEdges(G3, edgeArray, S, T, G_final.Edges.Weight)
