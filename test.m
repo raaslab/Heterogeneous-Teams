@@ -17,7 +17,7 @@ numBatteryLevels = 3;
 
 % outputs
 % x
-% y
+% y 
 % G
 % G.Edges
 figure(1)

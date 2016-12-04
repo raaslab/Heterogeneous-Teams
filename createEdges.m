@@ -3,7 +3,7 @@
 % G = a graph
 % arrayOfEdges = the array of connected edges
 % OUTPUTS
-% G = a graph with the edges implemented
+% G = a graph with the edges implemented and weights
 
 function [G] = createEdges(G, edgeArray, S, T, weights)
 

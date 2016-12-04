@@ -11,7 +11,7 @@ function [G, x, y] = graphMakingNew(numPoints)
 
 x = [];
 y = [];
-G = digraph;
+G = graph;
 for i = 1:numPoints
     [x(end+1), y(end+1)] = randomPoints(1,1,1);
 end

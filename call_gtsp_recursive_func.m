@@ -220,7 +220,7 @@ function [x_reshape, G_final,fval,exitflag,output] = call_gtsp_recursive_func(V_
     x_reshape = reshape(x, length(V_comp_upper), []);
 
     %% 
-    figure; 
+    figure(4); 
     G_final = graph(x_reshape(:,1:(end-1)).*V_comp_upper, store_name,'upper');
     G_final.Nodes.Cluster = V_Cluster;
     plot(G_final, 'EdgeLabel', G_final.Edges.Weight);
