@@ -1,7 +1,10 @@
 % createEdges
+% creates edges from S to T
 % INPUTS
 % G = a graph
-% arrayOfEdges = the array of connected edges
+% S = starting node for an edge in order in order matching with T
+% T = ending node for an edge in order matching with S
+% weigths = the weight of each edge
 % OUTPUTS
 % G = a graph with the edges implemented and weights
 

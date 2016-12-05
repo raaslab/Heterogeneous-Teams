@@ -1,0 +1,18 @@
+% makingSTW
+% makes the input arrays for creatEdges (S, T, W)
+% INPUTS
+%
+% OUTPUTS
+%
+
+function [S, T, weights] = makingSTW(numPoints, numLevels)
+
+totalPoints = numPoints * numLevels;
+for i = 1:totalPoints
+    for j = (-points-1):(points-1)
+       i 
+    end
+end
+
+
+end

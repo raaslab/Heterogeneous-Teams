@@ -1,4 +1,5 @@
 % graphMakingWPoints
+% creates a directional graph
 % INPUTS
 % x = array of x corrdinates
 % y = array of y corrdinates

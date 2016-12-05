@@ -30,8 +30,11 @@ figure(3)
 h = scatter3(x3d, y3d, z3d);
 numPoints = numel(h.XData);
 [G2, x2, y2] = graphMakingWPoints(h.XData, h.YData);
+
+[S, T, weights] = makingSTW(numPointsInit, numBatteryLevels);
+
 [G2] = createEdgesFull(G2, numPoints);
-% [G2] = createEdges(G2, edgeArray, S, T, G_final.Edges.Weight)
+% [G2] = createEdges(G2, S, T, G_final.Edges.Weight)
 % figure(4)
 % plot(G2, 'XData', x2, 'YData', y2);
 [V_adj, points] = makingV_adj(x2, y2);

@@ -1,4 +1,5 @@
 % createEdgeArray
+% creates an array of wanted edges
 % INPUTS
 % x_reshape = comes from GTSP solver
 % OUTPUTS
