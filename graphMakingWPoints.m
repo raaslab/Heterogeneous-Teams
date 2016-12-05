@@ -8,7 +8,7 @@
 % y = y after duplicated
 
 
-function [G, x, y] = graphMakingNew(x, y)
+function [G, x, y] = graphMakingWPoints(x, y)
 
 G = digraph;
 numPoints = numel(x);

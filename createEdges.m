@@ -5,7 +5,7 @@
 % OUTPUTS
 % G = a graph with the edges implemented and weights
 
-function [G] = createEdges(G, edgeArray, S, T, weights)
+function [G] = createEdges(G, S, T, weights)
 
 
 numOfEdges = numel(S)
