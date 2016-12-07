@@ -5,7 +5,6 @@
 % s = starting node of an edge that corresponds with nodes in numerical
 % order
 % t = end of edge that corresponds with "s"
-% weights = the weights that correspond with "(s, t) edge"
 % OUTPUTS
 % V_adj = input for GTSP solver
 % points = matrix of points
@@ -40,7 +39,7 @@ end
 
 
 
-points = points1;
+
 V_adj = cost2;
 
 end

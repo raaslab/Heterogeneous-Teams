@@ -17,7 +17,7 @@ numBatteryLevels = 3;
 
 % outputs
 % x
-% y 
+% y
 % G
 % G.Edges
 % figure(1)
@@ -32,25 +32,25 @@ figure(3)
 h = scatter3(x3d, y3d, z3d);
 numPoints = numel(h.XData);
 [G2, x2, y2] = graphMakingWPoints(h.XData, h.YData);
-[S, T, weights] = makingSTW(numPointsInit, numBatteryLevels);
+[S1, T1, weights] = makingSTW(numPointsInit, numBatteryLevels);
 
 % [G2] = createEdgesFull(G2, numPoints);
-[G2] = createEdges(G2, S, T, weights);
+[G2] = createEdges(G2, S1, T1, weights);
 figure(4)
 plot(G2, 'XData', x2, 'YData', y2);
-[V_adj, points] = makingV_adj(x2, y2); % NEED TO FIX BASED OFF OF NEW EDGES. THIS CREATES ALL EDGES ALL COSTS, BUT WE WANT ONLY THE EDGES WE HAVE TO HAVE COSTS
+[V_adj, points] = makingV_adj(x2, y2, S1, T1, weights); % NEED TO FIX BASED OFF OF NEW EDGES. THIS CREATES ALL EDGES ALL COSTS, BUT WE WANT ONLY THE EDGES WE HAVE TO HAVE COSTS
 [V_Cluster] = makingV_Cluster(numPointsInit, numBatteryLevels);
 V_Cluster = num2cell(V_Cluster);
 
 % GTSP solver
-[x_reshape, G_final,fval,exitflag,output] = call_gtsp_recursive_func(V_Cluster, V_adj);
+[x_reshape, G_final, fval, exitflag, output] = call_gtsp_recursive_func(V_Cluster, V_adj);
 
 
 [G3, x3, y3] = graphMakingWPoints(h.XData, h.YData);
 figure(5);
 plot(G3, 'XData', x3, 'YData', y3)
-[edgeArray, S, T] = createEdgeArray(x_reshape, numPointsInit, numBatteryLevels);
-[G3] = createEdges(G3, S, T, G_final.Edges.Weight)
+[edgeArray, S2, T2] = createEdgeArray(x_reshape, numPointsInit, numBatteryLevels);
+[G3] = createEdges(G3, S2, T2, G_final.Edges.Weight)
 plot(G3, 'XData', x3, 'YData', y3, 'EdgeLabel', G_final.Edges.Weight)
 
 toc
