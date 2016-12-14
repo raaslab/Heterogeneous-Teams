@@ -5,12 +5,14 @@
 % s = starting node of an edge that corresponds with nodes in numerical
 % order
 % t = end of edge that corresponds with "s"
+% weights = the weights that correspond with "(s, t) edge"
+% type = either symetric matrix (1) or non-symetric matrix(2)
 % OUTPUTS
 % V_adj = input for GTSP solver
 % points = matrix of points
 
 
-function [V_adj, points] = makingV_adj(x, y, s, t, weights)
+function [V_adj, points] = makingV_adj(x, y, s, t, weights, type)
 
 numOfNodes = numel(x);
 points1 = [x', y'];
@@ -25,6 +27,8 @@ for i = 1:numOfNodes
    end
 end
 
+
+% 
 numOfEdges = numel(s);
 
 for i = 1:numOfNodes
@@ -39,7 +43,7 @@ end
 
 
 
-
+points = points1;
 V_adj = cost2;
 
 end

@@ -10,12 +10,18 @@
 
 function [G] = createEdges(G, S, T, weights)
 
-
-numOfEdges = numel(S)
-for i = 1:numOfEdges
-    G = addedge(G, S(i), T(i))
+switch nargin
+    case 4
+        numOfEdges = numel(S);
+        for i = 1:numOfEdges
+            G = addedge(G, S(i), T(i));
+        end
+        G.Edges.Weights = weights;
+    case 3
+        numOfEdges = numel(S);
+        for i = 1:numOfEdges
+            G = addedge(G, S(i), T(i));
+        end
 end
-G.Edges.Weights = weights;
-
 
 end

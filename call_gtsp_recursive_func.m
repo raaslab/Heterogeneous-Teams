@@ -11,7 +11,11 @@ function [x_reshape, G_final,fval,exitflag,output] = call_gtsp_recursive_func(V_
     
     end
 
-    G_orig = graph(V_adj,node_name);
+    if issymmetric(V_adj)
+        G_orig = graph(V_adj,node_name);
+    else
+        G_orig = digraph(V_adj,node_name);
+    end
     
 %     figure;
 %     plot(G_orig, 'EdgeLabel', G_orig.Edges.Weight);
