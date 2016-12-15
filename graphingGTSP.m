@@ -11,7 +11,7 @@ function [G, xOut, yOut] = graphingGTSP(x, y, z, numPoints, numLevels)
 xOut = [];
 yOut = [];
 
-G = graph;
+G = digraph;
 % yOut = z;
 for i = 1:numLevels
     count = numPoints;
