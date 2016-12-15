@@ -28,36 +28,26 @@ for i = 1:totalPoints                       % Creates all possible edges
     end
 end
 
-
-count1=0;
-count2=0;
 totalMatches = numel(S);
 for i = 1:totalMatches                      % Gets rid of negative index's on edges
     if (1 <= T(i)) && (T(i) <= totalPoints)
-        count1 = count1+1;
-        if (S(i) ~= T(i)+1)
-            count2 = count2+1;
-            newS1(end+1) = S(i);
-            newT1(end+1) = T(i);
-            newWeights(end+1) = 1;
-        end
+        newS1(end+1) = S(i);
+        newT1(end+1) = T(i);
+        newWeights(end+1) = 1;
     end
 end
 
-
-count3 = 0;
 numS1 = numel(newS1);
 for i = 1:(numS1)
-%     for j = (i+1):numS1
-        if (x(newS1(i)) ~= x(newT1(i))) && (y(newS1(i)) ~= y(newT1(i)))
-            newS2(end+1) = newS1(i);
-            newT2(end+1) = newT1(i);
-            
-            count3 = count3 + 1;
-        end
-%     end
+    %     for j = (i+1):numS1
+    if (x(newS1(i)) ~= x(newT1(i))) && (y(newS1(i)) ~= y(newT1(i)))
+        newS2(end+1) = newS1(i);
+        newT2(end+1) = newT1(i);
+        
+    end
+    %     end
 end
-count3
+
 S = newS2';
 T = newT2';
 % S = S';

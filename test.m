@@ -7,8 +7,8 @@ clear all;
 clc;
 tic;
 % variables
-numPointsInit = 5;
-numBatteryLevels = 3;
+numPointsInit = 4;
+numBatteryLevels = 2;
 
 % code
 [G1, x1, y1] = graphMakingNew(numPointsInit);

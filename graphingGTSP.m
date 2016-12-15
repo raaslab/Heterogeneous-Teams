@@ -13,9 +13,9 @@ yOut = [];
 
 G = digraph;
 % yOut = z;
-for i = 1:numLevels
-    count = numPoints;
-    for j = 1:numPoints
+for i = 1:numPoints
+    count = numLevels;
+    for j = 1:numLevels
         xOut(end+1) = i;
         yOut(end+1) = count;
         count = count-1;
