@@ -3,7 +3,7 @@
 % this is not the actual code
 % DON'T ADD CLEAR OR CLC, this way you can use existing data
 
-graphingGTSP(x3d, y3d, z3d, numPointsInit, numBatteryLevels, S1, T1);
+graphingCluster(x3d, y3d, z3d, numPointsInit, numBatteryLevels, S1, T1);
 
 
 

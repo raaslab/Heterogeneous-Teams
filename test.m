@@ -34,6 +34,7 @@ numPoints = numel(h.XData);
 [G2, x2, y2] = graphMakingWPoints(h.XData, h.YData);
 % [S1, T1, weights] = makingSTW(numPointsInit, numBatteryLevels);
 [S1, T1, weights] = makingSTW(x2, y2, z3d, numPointsInit, numBatteryLevels);
+% graphingCluster(x3d, y3d, z3d, numPointsInit, numBatteryLevels, S1, T1);       % graph in cluster format
 
 [G2] = createEdgesFull(G2, numPoints);
 % [G2] = createEdges(G2, S1, T1, weights);
