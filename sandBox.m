@@ -1,4 +1,4 @@
-% testRandom
+% sandBox
 % used to test random functions
 % this is not the actual code
 % DON'T ADD CLEAR OR CLC, this way you can use existing data
