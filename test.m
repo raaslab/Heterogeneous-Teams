@@ -43,7 +43,7 @@ V_Cluster = num2cell(V_Cluster);                                                
 % GTSP solver
 [x_reshape, G_final, fval, exitflag, output] = call_gtsp_recursive_func(V_Cluster, V_adj);
 
-% recreating GTSP solution on plot
+% recreating GTSP solution on plot (UAV's tour)
 [G3, x3, y3] = graphMakingWPoints(h.XData, h.YData);
 figure(5);
 plot(G3, 'XData', x3, 'YData', y3)
@@ -51,6 +51,10 @@ plot(G3, 'XData', x3, 'YData', y3)
 [G3] = createEdges(G3, S2, T2, G_final.Edges.Weight);
 plot(G3, 'XData', x3, 'YData', y3, 'EdgeLabel', G_final.Edges.Weight)
 graphingCluster(x3d, y3d, z3d, numPointsInit, numBatteryLevels, S2, T2);        % graphing the cluster format of the solution
+
+% recreating GTSP solution on plot (UGV's tour)
+createUGVTour()
+
 
 toc
 
