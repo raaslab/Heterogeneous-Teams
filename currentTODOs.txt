@@ -3,7 +3,8 @@ TODO's
 % Create cluster plotter
 Create something that adds the starting/ending node. (the base station for the graph)
 % Create the tour of the UAV (created from the output of the GTSP graph)
-Create the tour of the UGV
+% Create the tour of the UGV
 Correct the UAV tour by correcting GTSP solver
-Add other characteristic to nodes to define levels in solver (add battery level characteristic so we can obtain the UGV)
+% Add other characteristic to nodes to define levels in solver (add battery level characteristic so we can obtain the UGV) (BECAME UNNECESSARY BECAUSE OF HOW I CREATED UGV TOUR)
+Create function that allows the program run on the robots
 
