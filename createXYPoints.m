@@ -4,7 +4,9 @@
 
 % OUTPUTS
 
-function [] = createXYPoints()
+function [x, y] = createXYPoints(x, y)
 
+x(end+1) = 0;
+y(end+1) = 0;
 
 end

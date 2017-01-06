@@ -46,7 +46,8 @@ v_Cluster = num2cell(v_Cluster);                                                
 [x_reshape, G_final, fval, exitflag, output] = call_gtsp_recursive_func(v_Cluster, v_Adj);
 
 % recreating GTSP solution on plot (UAV's tour)
-[G3, x3, y3] = graphMakingWPoints(h.XData, h.YData);
+[x3, y3] = createXYPoints(h.XData, h.YData);
+[G3, x3, y3] = graphMakingWPoints(x3, y3);
 figure(5);
 % plot(G3, 'XData', x3, 'YData', y3)
 [edgeArray, S2, T2] = createEdgeArray(x_reshape, numPointsInit, numBatteryLevels);

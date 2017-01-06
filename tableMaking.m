@@ -1,5 +1,14 @@
 % tableMaking
 % function creates a table to allow for the creation of the GTSP
+% INPUTS
+% x = x initial points
+% y = y initial points that correspond to x
+% numBatteryLevels
+% OUTPUTS
+% T = table that contains all information
+% x = x points
+% y = y points corresponding to x
+% z = z levels corresponding to x
 
 function [T, x, y, z] = tableMaking(x, y, numBatteryLevels)
 xNew = [];
