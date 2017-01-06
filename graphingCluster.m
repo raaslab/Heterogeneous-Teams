@@ -3,7 +3,6 @@
 % INPUTS
 % x = x corrdinates
 % y = y corrdinates
-% z = z corrdinates
 % numPoints = number of initial points in the graph
 % numLevels = number of initial level given for the graph
 % s = starting node for an edge
@@ -11,7 +10,7 @@
 % OUTPUTS
 % this function just plots the cluster so no output is needed
 
-function graphingCluster(x, y, z, numPoints, numLevels, s, t)
+function graphingCluster(x, y, numPoints, numLevels, s, t)
 
 xOut = [];
 yOut = [];
@@ -34,6 +33,7 @@ figure()                                                            % plots grap
 plot(G, 'XData', xOut, 'YData', yOut, 'LineStyle', '-.');
 
 
+
 yRec = 0;
 wRec = 1;
 hRec = numLevels+1;
@@ -41,7 +41,13 @@ for i = 1:numPoints                                                 % clusters t
     xRec = i-(wRec/2);                                              % parameters for creating clusters
     pos = [xRec, yRec, wRec, hRec];                                 % creates oval, but needs to be fixed
     rectangle('Position', pos, 'Curvature', [1 1])
+    xStr = num2str(x(i));
+    yStr = num2str(y(i));
+    str = sprintf('%s, %s', xStr, yStr);
+    text(xRec, yRec+hRec-(hRec/16), str, 'Color', 'red', 'Fontsize', 7);
 end
+
+
 
 
 end

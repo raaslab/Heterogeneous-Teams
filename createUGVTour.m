@@ -2,11 +2,19 @@
 % this function creates the tour for the UGV, which is a subset of the tour
 % created for the UAV. (GTSP solver output)
 % INPUT
-
+% s = starting node of an edge that corresponds with nodes in numerical
+% order
+% t = end of edge that corresponds with "s"
+% numPoints = number of nodes in a graph
+% numLevels = number of battery levels in a graph
 % OUTPUT
+% word = tells you if there was a charging edge found
+% indexNums = index of the edge array that corresponds to an edge that
+% charges
+% edgeEnd = matrix that holds the edges
 
 
-function [array, word, indexNums, sEnd, tEnd] = createUGVTour(s, t, numPoints, numLevels)
+function [word, indexNums, edgeEnd, tourUGV] = createUGVTour(s, t, numPoints, numLevels)
 array = zeros(numLevels, numPoints);
 totalPoints = numPoints * numLevels;
 word = 'empty';
@@ -29,7 +37,9 @@ for i = 1:numEdges
     end
 end
 
+edgeEnd = [sEnd; tEnd]';
 indexNums = indexEdgeNum;
+tourUGV = [tEnd];
 
 end
 
