@@ -6,7 +6,7 @@
 % v_Adj = v_Adj for GTSP solver without base station
 % OUTPUTS
 % v_Cluster = v_Cluster for GTSP solver with base station
-% v_Adj = v_Adj for GTSP solver with base station
+% v_Adj = v_Adj for GTSP solver without b
 
 function [v_Cluster, v_Adj] = createBaseStation(v_Cluster, v_Adj)
 

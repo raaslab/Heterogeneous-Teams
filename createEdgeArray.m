@@ -7,7 +7,7 @@
 
 function [edgeArray, i, j] = createEdgeArray(x_reshape, numPoints, numLevels)
 
-totalPoints = numPoints*numLevels;
+totalPoints = (numPoints*numLevels)+1;
 correctEdges = x_reshape(:, 1:totalPoints);
 [i, j] = find(correctEdges);
 edgeArray = [i,j];
