@@ -4,7 +4,7 @@
 
 % OUTPUTS
 
-function [x, y] = createXYPoints(x, y)
+function [x, y] = createBaseStationPoint(x, y)
 
 x(end+1) = 0;
 y(end+1) = 0;

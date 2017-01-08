@@ -11,9 +11,12 @@
 % y = y after duplicated
 
 
-function [G, x, y] = graphMakingWPoints(x, y, G)
+function [G, x, y] = graphMakingWPoints(x, y, G, id)
 
 switch nargin
+    case 4
+        idNew = arrayfun(@(x) num2str(x), id, 'UniformOutput', false);
+        G = addnode(G, idNew);
     case 3
         numPoints = numel(x);
         G = addnode(G, numPoints);

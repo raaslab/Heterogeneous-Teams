@@ -3,12 +3,13 @@
 % this is not the actual code
 % DON'T ADD CLEAR OR CLC, this way you can use existing data
 
-[vNewC, vNewA] = createBaseStation(v_Cluster, v_Adj);
-[x_reshapenew, G_finalnew, fvalnew, exitflagnew, outputnew] = call_gtsp_recursive_func(vNewC, vNewA);
+[xNew, yNew, array] = createUAVTour(x3, y3, S2, T2)
 
 
 
 
+% [vNewC, vNewA] = createBaseStation(v_Cluster, v_Adj);
+% [x_reshapenew, G_finalnew, fvalnew, exitflagnew, outputnew] = call_gtsp_recursive_func(vNewC, vNewA);
 % [word, index, edges, UGVTour] = createUGVTour(S2, T2, numPointsInit, numBatteryLevels);
 % word
 % index
