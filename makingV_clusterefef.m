@@ -15,5 +15,5 @@ for i = 1:numOfPoints
         count = count+1;
     end
 end
-
+hi
 end
