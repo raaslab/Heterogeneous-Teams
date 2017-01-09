@@ -12,15 +12,19 @@ function [G] = createEdges(G, S, T, weights)
 
 switch nargin
     case 4
+        SNew = arrayfun(@(x) num2str(x), S, 'UniformOutput', false);
+        TNew = arrayfun(@(x) num2str(x), T, 'UniformOutput', false);
         numOfEdges = numel(S);
         for i = 1:numOfEdges
-            G = addedge(G, S(i), T(i));
+            G = addedge(G, SNew(i), TNew(i));
         end
         G.Edges.Weights = weights;
     case 3
+        SNew = arrayfun(@(x) num2str(x), S, 'UniformOutput', false);
+        TNew = arrayfun(@(x) num2str(x), T, 'UniformOutput', false);
         numOfEdges = numel(S);
         for i = 1:numOfEdges
-            G = addedge(G, S(i), T(i));
+            G = addedge(G, SNew(i), TNew(i));
         end
 end
 

@@ -7,9 +7,14 @@ clear all;
 clc;
 tic;
 % variables
-numPointsInit = 5;
+numPointsInit = 6;
 numBatteryLevels = 3;
+nodeArray = [];
 
+for i = 1:numPointsInit*numBatteryLevels
+    nodeArray(end+1) = i;
+end
+nodeArray = nodeArray';
 % code
 [G1, x1, y1] = graphMakingNew(numPointsInit);
 [G1] = createEdgesFull(G1, numPointsInit);
@@ -30,7 +35,7 @@ numPoints = numel(h.XData);
 [G2, x2, y2] = graphMakingWPoints(h.XData, h.YData);
 % [S1, T1, weights] = makingSTW(numPointsInit, numBatteryLevels);
 [S1, T1, weights] = makingSTW(x2, y2, z3d, numPointsInit, numBatteryLevels);
-% graphingCluster(x1, y1, numPointsInit, numBatteryLevels, S1, T1, 0);        % graph in cluster format
+graphingCluster(x1, y1, numPointsInit, numBatteryLevels, S1, T1, 0, nodeArray);        % graph in cluster format
 
 [G2] = createEdgesFull(G2, numPoints);
 figure(4)
@@ -53,7 +58,7 @@ G3 = digraph;
 figure(5);
 [G3] = createEdges(G3, S2, T2, G_final.Edges.Weight);
 plot(G3, 'XData', x4, 'YData', y4, 'EdgeLabel', G_final.Edges.Weight)
-graphingCluster(x1, y1, numPointsInit, numBatteryLevels, S2, T2, 'yes');        % graphing the cluster format of the solution
+graphingCluster(x1, y1, numPointsInit, numBatteryLevels, S2, T2, 'yes', nodeArray);        % graphing the cluster format of the solution
 
 % recreating GTSP solution on plot (UGV's tour)
 % createUGVTour()

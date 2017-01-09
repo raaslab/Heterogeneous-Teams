@@ -17,9 +17,6 @@ switch nargin
     case 4
         idNew = arrayfun(@(x) num2str(x), id, 'UniformOutput', false);
         G = addnode(G, idNew);
-    case 3
-        numPoints = numel(x);
-        G = addnode(G, numPoints);
     case 2
         G = digraph;
         numPoints = numel(x);

@@ -10,7 +10,7 @@
 % OUTPUTS
 % this function just plots the cluster so no output is needed
 
-function graphingCluster(x, y, numPoints, numLevels, s, t, withBaseStation)
+function graphingCluster(x, y, numPoints, numLevels, s, t, withBaseStation, id)
 
 xOut = [];
 yOut = [];
@@ -26,7 +26,7 @@ for i = 1:numPoints
 end
 
 
-[G, xOut, yOut] = graphMakingWPoints(xOut, yOut, G);
+[G, xOut, yOut] = graphMakingWPoints(xOut, yOut, G, id);
 [G] = createEdges(G, s, t);
 
 if withBaseStation == 'yes'
