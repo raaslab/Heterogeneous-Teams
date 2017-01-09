@@ -3,6 +3,14 @@
 % this is not the actual code
 % DON'T ADD CLEAR OR CLC, this way you can use existing data
 
+[x5, y5, nodeArrayUGV] = createUGVTour(x3, y3, S2, T2, numPointsInit, numBatteryLevels);
+G4 = digraph;
+[G4, x5, y5] = graphMakingWPoints(x5, y5, G4, nodeArrayUGV);
+[S3, T3] = makingUGVst(nodeArrayUGV);
+[G4] = createEdges(G4, S3, T3);
+figure(6);
+plot(G4, 'XData', x5, 'YData', y5)
+graphingCluster(x1, y1, numPointsInit, numBatteryLevels, S3, T3, 'yes', nodeArray);        % graphing the cluster format of the solution
 
 
 

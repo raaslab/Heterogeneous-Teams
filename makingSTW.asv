@@ -1,9 +1,7 @@
 % makingSTW
 % makes the input arrays for creatEdges (S, T, W)
 % INPUTS
-% x = points corresponding to location which allows for no duplicate edges
-% y = points corresponding to x
-% z = not being used for code
+% x = 
 % numPoints = number of nodes in a graph
 % numLevels = number of battery levels in a graph
 % OUTPUTS
