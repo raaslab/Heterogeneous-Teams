@@ -3,18 +3,20 @@
 % this is not the actual code
 % DON'T ADD CLEAR OR CLC, this way you can use existing data
 
-[xNew, yNew, array] = createUAVTour(x3, y3, S2, T2)
+
+[word, index, edges, UGVTour] = createUGVTour(S2, T2, numPointsInit, numBatteryLevels);
+word
+index
+edges
+UGVTour
 
 
 
 
+
+% [xNew, yNew, array] = createUAVTour(x3, y3, S2, T2)
 % [vNewC, vNewA] = createBaseStation(v_Cluster, v_Adj);
 % [x_reshapenew, G_finalnew, fvalnew, exitflagnew, outputnew] = call_gtsp_recursive_func(vNewC, vNewA);
-% [word, index, edges, UGVTour] = createUGVTour(S2, T2, numPointsInit, numBatteryLevels);
-% word
-% index
-% edges
-% UGVTour
 % graphingCluster(x3d, y3d, z3d, numPointsInit, numBatteryLevels, S1, T1);
 % pos = [0.75, 0, 0.5, (numBatteryLevels+1)];       % creates oval, but needs to be fixed
 % rectangle('Position', pos, 'Curvature', [1 1])
