@@ -7,6 +7,7 @@
 % numLevels = number of initial level given for the graph
 % s = starting node for an edge
 % t = corresponding ending node for an edge with "s"
+% id = name of nodes within graph
 % OUTPUTS
 % this function just plots the cluster so no output is needed
 

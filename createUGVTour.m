@@ -15,6 +15,7 @@
 
 
 function [word, indexNums, edgeEnd, tourUGV] = createUGVTour(s, t, numPoints, numLevels)
+
 array = zeros(numLevels, numPoints);
 totalPoints = numPoints * numLevels;
 word = 'empty';

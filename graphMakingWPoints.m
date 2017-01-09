@@ -4,7 +4,8 @@
 % INPUTS
 % x = array of x corrdinates
 % y = array of y corrdinates
-% G = if there is a graph already made you want to add the points too.
+% G = if there is a graph already made you want to add the points too
+% id = name of nodes within the graph
 % OUTPUTS
 % G = graph
 % x = x after duplicated
