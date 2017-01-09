@@ -61,7 +61,6 @@ plot(G3, 'XData', x4, 'YData', y4, 'EdgeLabel', G_final.Edges.Weight)
 graphingCluster(x1, y1, numPointsInit, numBatteryLevels, S2, T2, 'yes', nodeArray);        % graphing the cluster format of the solution
 
 % recreating GTSP solution on plot (UGV's tour)
-% PROBLEM HERE NEED TO FIX S & T
 [x5, y5, nodeArrayUGV] = createUGVTour(x3, y3, S2, T2, numPointsInit, numBatteryLevels);
 G4 = digraph;
 [G4, x5, y5] = graphMakingWPoints(x5, y5, G4, nodeArrayUGV);
