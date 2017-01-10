@@ -41,7 +41,7 @@ for i = 1:numEdges
 end
 
 tEnd(end+1) = (numPoints * numLevels)+1;
-tEnd = union(tEnd, []);
+tEnd = union(tEnd, [], 'stable');
 numOfNodesUsed = numel(tEnd);
 
 for i = 1:numOfNodesUsed
