@@ -4,6 +4,7 @@
 
 % house keeping
 clear all;
+close all;
 clc;
 tic;
 % variables

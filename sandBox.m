@@ -1,7 +1,7 @@
 % sandBox
 % used to test random functions
 % this is not the actual code
-% DON'T ADD CLEAR OR CLC, this way you can use existing data
+% DON'T ADD CLEAR OR CLC OR CLOSE, this way you can use existing data
 
 [x5, y5, nodeArrayUGV] = createUGVTour(x3, y3, S2, T2, numPointsInit, numBatteryLevels);
 G4 = digraph;
