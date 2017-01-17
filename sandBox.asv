@@ -3,31 +3,32 @@
 % this is not the actual code
 % DON'T ADD CLEAR OR CLC OR CLOSE, this way you can use existing data
 
-gtspSolver(v_Cluster, v_Adj, numPointsInit)
+% gtspSolver(v_Cluster, v_Adj)
+
+
+[sizeOfv_Adj, ~] = size(v_Adj);
+[sand1, sand2] = find(v_Adj(1, :), 1);
+newSand2 = sand2;
+array1 = [sand1];
+array2 = [newSand2];
+for i = 1:numPointsInit-2
+    oldSand2 = newSand2;
+    [~, sand2] = find(v_Adj(newSand2, newSand2:end), 1);
+    newSand2 = sand2+oldSand2-1;
+    array1(end+1) = oldSand2;
+    array2(end+1) = newSand2;
+end
+
+numEdges = numel)
+for i = 1:
+    
+    
+    
+end
 
 
 
 
-% [sizeOfv_Adj, ~] = size(v_Adj);
-% [sand1, sand2] = find(v_Adj(1, :), 1);
-% newSand2 = sand2;
-% array1 = [sand1];
-% array2 = [newSand2];
-% for i = 1:numPointsInit-2
-%     oldSand2 = newSand2;
-%     [~, sand2] = find(v_Adj(newSand2, newSand2:end), 1);
-%     newSand2 = sand2+oldSand2-1;
-%     array1(end+1) = oldSand2;
-%     array2(end+1) = newSand2;
-% end
-% array1(end+1) = newSand2;
-% array2(end+1) = 1;
-% 
-% cost = 0;
-% numEdges = numel(array1);
-% for i = 1:numEdges
-%     cost = cost + v_Adj(array1(i), array2(i));
-% end
 % [x5, y5, nodeArrayUGV] = createUGVTour(x3, y3, S2, T2, numPointsInit, numBatteryLevels);
 % G4 = digraph;
 % [G4, x5, y5] = graphMakingWPoints(x5, y5, G4, nodeArrayUGV);

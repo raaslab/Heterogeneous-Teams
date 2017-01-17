@@ -119,12 +119,12 @@ Adj_G_comp(Adj_G_comp_ind(:)) = G_comp.Edges.Weight(:);
 diag_ind = sub2ind(size(Adj_G_comp), 1:length(Adj_G_comp),1:length(Adj_G_comp));
 
 %convert to atsp
-[atspAdjMatrix infcost]  = gtsp_to_atsp(Adj_G_comp, cell2mat(G_comp.Nodes.Cluster), alpha_noon, beta_noon, G_comp);
+[atspAdjMatrix, infcost]  = gtsp_to_atsp(Adj_G_comp, cell2mat(G_comp.Nodes.Cluster), alpha_noon, beta_noon, G_comp);
 
 % symTSP = atsp_to_tsp(atspAdjMatrix, infcost);
 %\todo make atspAdjMatrix diagonal =0 or omitself loops and I have made
 %0 cost edges to 0.01 cost, do something about that.
-[X_t Y_s] = meshgrid(1:length(G_comp.Nodes.Name), 1:length(G_comp.Nodes.Name));
+[X_t, Y_s] = meshgrid(1:length(G_comp.Nodes.Name), 1:length(G_comp.Nodes.Name));
 G_atsp = digraph(Y_s,X_t, atspAdjMatrix(:), G_comp.Nodes.Name,'OmitSelfLoops');  % the command below omits zero cost edges that is why it's done like this
 %G_atsp = digraph(atspAdjMatrix, G_comp.Nodes.Name);
 str_1node = cellfun(@(x,y) sprintf('1;%s', x), G_atsp.Edges.EndNodes(:,1),'uni', 0);
@@ -148,7 +148,7 @@ edges_totsp = G_atsp2_tsp.numedges;
 [Out_sol, time_concorde_struct] = TSP_tour_Dat(G_atsp2_tsp,'/home/ashishkb/softwares/concorde/concorde/TSP/concorde');
 
 Out_solName = G_atsp2_tsp.Nodes.Name(Out_sol);
-
+%-------------------------------------------------------------------------%
 %vertexSequenceOrdered = get_concorde_result(symTSP,cell2mat(G_comp.Nodes.Cluster));
 
 Out_solName = Out_solName(cell2mat(cellfun(@(x) ismember('1',x(1)) , Out_solName,'uni',0)));

@@ -1,0 +1,26 @@
+% createAlphaNoon
+% creates Alpha_noon for GTSP solver
+% INPUTS
+
+% OUTPUTS
+
+
+function [alpha] = createAlphaNoon(v_Cluster, v_Adj, num)
+
+[sizeOfv_Adj, ~] = size(v_Adj);
+[sand1, sand2] = find(v_Adj(1, :), 1);
+newSand2 = sand2;
+array1 = [sand1];
+array2 = [newSand2];
+for i = 1:sizeOfv_Adj
+    oldSand2 = newSand2;
+    [~, sand2] = find(v_Adj(newSand2, newSand2:end), 1);
+    newSand2 = sand2+oldSand2-1;
+    array1(end+1) = oldSand2;
+    array2(end+1) = newSand2;
+end
+
+
+
+
+end

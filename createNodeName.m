@@ -16,8 +16,8 @@ end
 
 G = digraph(v_Adj, node_Name);
 
-figure;
-P_init = plot(G, 'EdgeLabel', G.Edges.Weight);
-title('Given Graph');
+% figure;
+% plot(G, 'EdgeLabel', G.Edges.Weight);
+% title('Given Graph');
 
 end
