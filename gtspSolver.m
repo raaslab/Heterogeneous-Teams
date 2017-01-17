@@ -7,8 +7,7 @@
 % OUTPUTS
 
 
-
-function [] = gtspSolver(v_Cluster, v_Adj, numPoints)
+function [outfin_sol, outfin_cost, Out_solName, Out_sol, G_init, edges_totsp, nodes_totsp, time_concorde_struct] = gtspSolver(v_Cluster, v_Adj, numPoints)
 
 
 [G_init] = createNodeName(v_Adj);
@@ -42,29 +41,26 @@ G_atsp2_tsp = addedge(G_atsp2_tsp, str_1node,str_3node,G_atsp.Edges.Weight(:)); 
 nodes_totsp = G_atsp2_tsp.numnodes;
 edges_totsp = G_atsp2_tsp.numedges;
 %-------------------------------------------------------------------------%
-[Out_sol, time_concorde_struct] = TSP_tour_Dat(G_atsp2_tsp,'/home/klyu/software/concorde/concorde/TSP/concorde');          % need to make sure this is the right path
+[Out_sol, ~] = TSP_tour_Dat(G_atsp2_tsp,'/home/klyu/software/concorde/concorde/TSP/concorde');          % need to make sure this is the right path
 %-------------------------------------------------------------------------%
 Out_solName = G_atsp2_tsp.Nodes.Name(Out_sol);
 
 Out_solName = Out_solName(cell2mat(cellfun(@(x) ismember('1',x(1)) , Out_solName,'uni',0)));
-cnter = 1;
+center = 1;
 for i =1:length(Out_solName)
-    split_Out{cnter}= Out_solName{i}(3:end);
-    cnter  = cnter+1;
+    split_Out{center}= Out_solName{i}(3:end);
+    center  = center+1;
 end
 
 %%
 % cycle so that first and last clusters are same
-
 cyclic = 1; % assumed not cyclic no split
 cur_cycle_checked = 1;
 
 while (cyclic == 1)
-    
     % repeat_check = find(~cellfun(@isempty,strfind(temp_fin_sol, temp_fin_sol{1}))); %test if there is a repeat
     conc_nod_first = strtok(strtok(split_Out{1}, '-'),'V');  %connected nod first
     conc_nod_last = strtok(strtok(split_Out{end}, '-'),'V');  % connected last last
-    
     conc_clus_first = strsplit(split_Out{1}, '-');  %connected cluster first
     conc_clus_last = strsplit(split_Out{end}, '-');  % connected cluster last
     if((isequal(conc_clus_first{2},conc_clus_last{2}))|| (isequal(conc_nod_first,conc_nod_last)))
@@ -78,43 +74,37 @@ while (cyclic == 1)
         cyclic = 0; % it is cyclic already
     end
     cur_cycle_checked = cur_cycle_checked+1;
-    
 end
 
 %%
-% split_Out{cnter} = split_Out{1};
-%seq_clus = [1,3,5,2,4,4,6,6];
-%seq_forw = true(1,length(seq_clus));
 node_num_forw = [];
 test_prev_forw = 'o';
-cnter = 1;
+center = 1;
 % checking forward set for solution as we can have solution in both
 % direction of split_Out
 for i = 1:length(split_Out) % random initialisation
     if(isequal(test_prev_forw, split_Out{i}(regexp(split_Out{i},'-','start'):end)))
         %seq_forw(i) = false;
     else
-        node_num_forw(cnter) =  str2num(split_Out{i}(2:(regexp(split_Out{i},'-','start')-1)));
-        cnter = cnter + 1;
+        node_num_forw(center) =  str2num(split_Out{i}(2:(regexp(split_Out{i},'-','start')-1)));
+        center = center + 1;
     end
-    
     test_prev_forw = split_Out{i}(regexp(split_Out{i},'-','start'):end);
     
 end
+
 % checking for backward set
-cnter = 1;
+center = 1;
 node_num_back = [];
 test_prev_back = 't'; % random initialisation
 for i = length(split_Out):-1:1
     if(isequal(test_prev_back,split_Out{i}(regexp(split_Out{i},'-','start'):end)))
         %seq_forw(i) = false;
     else
-        node_num_back(cnter) = str2num( split_Out{i}(2:(regexp(split_Out{i},'-','start')-1)));
-        cnter = cnter + 1;
+        node_num_back(center) = str2num( split_Out{i}(2:(regexp(split_Out{i},'-','start')-1)));
+        center = center + 1;
     end
-    
     test_prev_back = split_Out{i}(regexp(split_Out{i},'-','start'):end);
-    
 end
 
 s_forw(1:(length(node_num_forw)-1)) = node_num_forw(1:(end-1));
