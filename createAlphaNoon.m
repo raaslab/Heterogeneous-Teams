@@ -8,24 +8,24 @@
 
 function [alpha] = createAlphaNoon(v_Adj, numPoints)
 
-[sand1, sand2] = find(v_Adj(1, :), 1);
-newSand2 = sand2;
-array1 = [sand1];
-array2 = [newSand2];
+[x, y] = find(v_Adj(1, :), 1);
+newY = y;
+s = [x];
+t = [newY];
 for i = 1:numPoints-2
-    oldSand2 = newSand2;
-    [~, sand2] = find(v_Adj(newSand2, newSand2:end), 1);
-    newSand2 = sand2+oldSand2-1;
-    array1(end+1) = oldSand2;
-    array2(end+1) = newSand2;
+    oldY = newY;
+    [~, y] = find(v_Adj(newY, newY:end), 1);
+    newY = y+oldY-1;
+    s(end+1) = oldY;
+    t(end+1) = newY;
 end
-array1(end+1) = newSand2;
-array2(end+1) = 1;
+s(end+1) = newY;
+t(end+1) = 1;
 
 cost = 0;
-numEdges = numel(array1);
+numEdges = numel(s);
 for i = 1:numEdges
-    cost = cost + v_Adj(array1(i), array2(i));
+    cost = cost + v_Adj(s(i), t(i));
 end
 
 alpha = cost;
