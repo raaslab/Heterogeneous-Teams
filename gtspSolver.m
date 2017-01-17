@@ -42,7 +42,7 @@ G_atsp2_tsp = addedge(G_atsp2_tsp, str_1node,str_3node,G_atsp.Edges.Weight(:)); 
 nodes_totsp = G_atsp2_tsp.numnodes;
 edges_totsp = G_atsp2_tsp.numedges;
 %-------------------------------------------------------------------------%
-[Out_sol, time_concorde_struct] = TSP_tour_Dat(G_atsp2_tsp,'/home/klyu/softwares/concorde/concorde/TSP/concorde');          % need to make sure this is the right path
+[Out_sol, time_concorde_struct] = TSP_tour_Dat(G_atsp2_tsp,'/home/klyu/software/concorde/concorde/TSP/concorde');          % need to make sure this is the right path
 %-------------------------------------------------------------------------%
 Out_solName = G_atsp2_tsp.Nodes.Name(Out_sol);
 
