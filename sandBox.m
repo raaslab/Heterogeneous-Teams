@@ -3,7 +3,7 @@
 % this is not the actual code
 % DON'T ADD CLEAR OR CLC OR CLOSE, this way you can use existing data
 
-gtspSolver(v_Cluster, v_Adj, numPointsInit)
+gtspSolver(v_Cluster, v_Adj, numPointsInit, xOut, yOut)
 
 
 

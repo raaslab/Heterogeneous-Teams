@@ -8,7 +8,7 @@ close all;
 clc;
 tic;
 % variables
-numPointsInit = 6;
+numPointsInit = 3;
 numBatteryLevels = 3;
 nodeArray = [];
 
@@ -36,7 +36,7 @@ numPoints = numel(h.XData);
 [G2, x2, y2] = graphMakingWPoints(h.XData, h.YData);
 % [S1, T1, weights] = makingSTW(numPointsInit, numBatteryLevels);
 [S1, T1, weights] = makingSTW(x2, y2, z3d, numPointsInit, numBatteryLevels);
-graphingCluster(x1, y1, numPointsInit, numBatteryLevels, S1, T1, 0, nodeArray);            % graph in cluster format
+[xOut, yOut] = graphingCluster(x1, y1, numPointsInit, numBatteryLevels, S1, T1, 0, nodeArray);            % graph in cluster format
 
 [G2] = createEdgesFull(G2, numPoints);
 figure(4)
@@ -50,7 +50,7 @@ v_Cluster = num2cell(v_Cluster);                                                
 [x_reshape, G_final, fval, exitflag, output] = call_gtsp_recursive_func(v_Cluster, v_Adj);
 %-------------------------------------------------------------------------%
 % recreating GTSP solution on plot (UAV's tour)
-[v_Cluster, v_Adj] = createBaseStation(v_Cluster, v_Adj);                                  % creates the base station for v_Adj and v_Cluster
+% [v_Cluster, v_Adj] = createBaseStation(v_Cluster, v_Adj);                                  % creates the base station for v_Adj and v_Cluster
 %-------------------------------------------------------------------------%
 [x3, y3] = createBaseStationPoint(h.XData, h.YData);                                       % creates the base station point
 [edgeArray, S2, T2] = createEdgeArray(x_reshape, numPointsInit, numBatteryLevels);

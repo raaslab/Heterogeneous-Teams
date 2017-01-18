@@ -11,7 +11,7 @@
 % OUTPUTS
 % this function just plots the cluster so no output is needed
 
-function graphingCluster(x, y, numPoints, numLevels, s, t, withBaseStation, id)
+function [xOut, yOut] = graphingCluster(x, y, numPoints, numLevels, s, t, withBaseStation, id)
 
 xOut = [];
 yOut = [];
@@ -26,7 +26,6 @@ for i = 1:numPoints
     end
 end
 
-
 [G, xOut, yOut] = graphMakingWPoints(xOut, yOut, G, id);
 [G] = createEdges(G, s, t);
 
@@ -37,8 +36,6 @@ end
 
 figure()                                                            % plots graph
 plot(G, 'XData', xOut, 'YData', yOut, 'LineStyle', '-.');
-
-
 
 yRec = 0;
 wRec = 1;
@@ -52,9 +49,6 @@ for i = 1:numPoints                                                 % clusters t
     str = sprintf('%s, %s', xStr, yStr);
     text(xRec, yRec+hRec-(hRec/16), str, 'Color', 'red', 'Fontsize', 7);
 end
-
-
-
 
 end
 

@@ -5,8 +5,8 @@
 % OUTPUTS
 
 
-function [beta] = createBetaNoon(alpha)
+function [beta] = createBetaNoon(alpha, numPoints)
 
-beta = (alpha * 3) + alpha;
+beta = (alpha * numPoints) + alpha;
 
 end
