@@ -11,7 +11,7 @@ given_nodes = length(v_Adj);
 node_Name = cell(1, given_nodes);
 
 for i = 1:given_nodes
-   node_Name{i}  = sprintf('V%d', i);
+   node_Name{i}  = sprintf('%d', i);
 end
 
 G = digraph(v_Adj, node_Name);

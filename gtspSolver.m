@@ -7,8 +7,7 @@
 % OUTPUTS
 
 
-function [Out_sol, G_init, weights] = gtspSolver(v_Cluster, v_Adj, numPoints, xOut, yOut)
-
+function [finalMatrix, G_init, weights] = gtspSolver(v_Cluster, v_Adj, numPoints, xOut, yOut)
 
 [G_init] = createNodeName(v_Adj);
 
@@ -54,8 +53,9 @@ edges_totsp = G_atsp2_tsp.numedges;
 % Out_solName = G_atsp2_tsp.Nodes.Name(Out_sol);
 % Out_solName = Out_solName(cell2mat(cellfun(@(x) ismember('1',x(1)) , Out_solName,'uni',0)));
 
-[output] = concordeReconvert(G_atsp2_tsp, Out_sol);
+[finalMatrix, finalTour] = concordeReconvert(G_atsp2_tsp, Out_sol);
 
+[weights] = getWeights(G_init, finalMatrix, finalTour);
 % G_final = graph(output(:,1:(end-1)).*V_comp_upper, store_name,'upper');
 % G_final.Nodes.Cluster = V_Cluster;
 % plot(G_final, 'EdgeLabel', G_final.Edges.Weight);
