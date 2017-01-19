@@ -7,7 +7,7 @@
 % OUTPUTS
 
 
-function [outfin_sol, outfin_cost, Out_solName, Out_sol, G_init, edges_totsp, nodes_totsp, time_concorde_struct] = gtspSolver(v_Cluster, v_Adj, numPoints, xOut, yOut)
+function [Out_sol, G_init, weights] = gtspSolver(v_Cluster, v_Adj, numPoints, xOut, yOut)
 
 
 [G_init] = createNodeName(v_Adj);
@@ -37,13 +37,13 @@ G_atsp = digraph;
 %-------------------------------------------------------------------------%
 G_atsp2_tsp = graph([], []);
 
-str_1node_intra = cellfun(@(x,y) sprintf('%s;1', x), G_atsp.Nodes.Name,'uni', 0);
-str_2node_intra = cellfun(@(x,y) sprintf('%s;2', x), G_atsp.Nodes.Name,'uni', 0);
-str_3node_intra = cellfun(@(x,y) sprintf('%s;3', x), G_atsp.Nodes.Name,'uni', 0);
+str_1node_intra = cellfun(@(x,y) sprintf('%s.1', x), G_atsp.Nodes.Name,'uni', 0);
+str_2node_intra = cellfun(@(x,y) sprintf('%s.2', x), G_atsp.Nodes.Name,'uni', 0);
+str_3node_intra = cellfun(@(x,y) sprintf('%s.3', x), G_atsp.Nodes.Name,'uni', 0);
 G_atsp2_tsp = addedge(G_atsp2_tsp, [str_1node_intra;str_2node_intra], [str_2node_intra;str_3node_intra], zeros(2*G_atsp.numnodes,1));
 
-str_1node = cellfun(@(x,y) sprintf('%s;1', x), G_atsp.Edges.EndNodes(:,1),'uni', 0);
-str_3node = cellfun(@(x,y) sprintf('%s;3', x), G_atsp.Edges.EndNodes(:,2),'uni', 0);
+str_1node = cellfun(@(x,y) sprintf('%s.1', x), G_atsp.Edges.EndNodes(:,1),'uni', 0);
+str_3node = cellfun(@(x,y) sprintf('%s.3', x), G_atsp.Edges.EndNodes(:,2),'uni', 0);
 G_atsp2_tsp = addedge(G_atsp2_tsp, str_1node,str_3node,G_atsp.Edges.Weight(:));
 
 nodes_totsp = G_atsp2_tsp.numnodes;
@@ -51,12 +51,13 @@ edges_totsp = G_atsp2_tsp.numedges;
 
 [Out_sol, ~] = TSP_tour_Dat(G_atsp2_tsp,'/home/klyu/software/concorde/concorde/TSP/concorde');
 
-Out_solName = G_atsp2_tsp.Nodes.Name(Out_sol);
-Out_solName = Out_solName(cell2mat(cellfun(@(x) ismember('1',x(1)) , Out_solName,'uni',0)));
+% Out_solName = G_atsp2_tsp.Nodes.Name(Out_sol);
+% Out_solName = Out_solName(cell2mat(cellfun(@(x) ismember('1',x(1)) , Out_solName,'uni',0)));
 
+[output] = concordeReconvert(G_atsp2_tsp, Out_sol);
 
-
-
-
+% G_final = graph(output(:,1:(end-1)).*V_comp_upper, store_name,'upper');
+% G_final.Nodes.Cluster = V_Cluster;
+% plot(G_final, 'EdgeLabel', G_final.Edges.Weight);
 
 end
