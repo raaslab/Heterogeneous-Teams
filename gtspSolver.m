@@ -37,13 +37,13 @@ G_atsp = digraph;
 %-------------------------------------------------------------------------%
 G_atsp2_tsp = graph([], []);
 
-str_1node_intra = cellfun(@(x,y) sprintf('1;%s', x), G_atsp.Nodes.Name,'uni', 0);
-str_2node_intra = cellfun(@(x,y) sprintf('2;%s', x), G_atsp.Nodes.Name,'uni', 0);
-str_3node_intra = cellfun(@(x,y) sprintf('3;%s', x), G_atsp.Nodes.Name,'uni', 0);
+str_1node_intra = cellfun(@(x,y) sprintf('%s;1', x), G_atsp.Nodes.Name,'uni', 0);
+str_2node_intra = cellfun(@(x,y) sprintf('%s;2', x), G_atsp.Nodes.Name,'uni', 0);
+str_3node_intra = cellfun(@(x,y) sprintf('%s;3', x), G_atsp.Nodes.Name,'uni', 0);
 G_atsp2_tsp = addedge(G_atsp2_tsp, [str_1node_intra;str_2node_intra], [str_2node_intra;str_3node_intra], zeros(2*G_atsp.numnodes,1));
 
-str_1node = cellfun(@(x,y) sprintf('1;%s', x), G_atsp.Edges.EndNodes(:,1),'uni', 0);
-str_3node = cellfun(@(x,y) sprintf('3;%s', x), G_atsp.Edges.EndNodes(:,2),'uni', 0);
+str_1node = cellfun(@(x,y) sprintf('%s;1', x), G_atsp.Edges.EndNodes(:,1),'uni', 0);
+str_3node = cellfun(@(x,y) sprintf('%s;3', x), G_atsp.Edges.EndNodes(:,2),'uni', 0);
 G_atsp2_tsp = addedge(G_atsp2_tsp, str_1node,str_3node,G_atsp.Edges.Weight(:));
 
 nodes_totsp = G_atsp2_tsp.numnodes;
