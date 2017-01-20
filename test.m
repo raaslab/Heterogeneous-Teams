@@ -8,7 +8,7 @@ close all;
 clc;
 tic;
 % variables
-numPointsInit = 3;
+numPointsInit = 5;
 numBatteryLevels = 3;
 nodeArray = [];
 
@@ -48,7 +48,7 @@ v_Cluster = num2cell(v_Cluster);                                                
 
 % GTSP solver
 % [x_reshape, G_final, fval, exitflag, output] = call_gtsp_recursive_func(v_Cluster, v_Adj);
-[finalMatrix, G_init, weights] = gtspSolver(v_Cluster, v_Adj, numPointsInit, xOut, yOut);
+[finalMatrix, G_init, edgeWeightsFinal] = gtspSolver(v_Cluster, v_Adj, numPointsInit, xOut, yOut);
 %-------------------------------------------------------------------------%
 % recreating GTSP solution on plot (UAV's tour)
 %-------------------------------------------------------------------------%
@@ -57,10 +57,12 @@ v_Cluster = num2cell(v_Cluster);                                                
 [x4, y4, nodeArrayUAV] = createUAVTour(x3, y3, S2, T2);
 G3 = digraph;
 [G3, x4, y4] = graphMakingWPoints(x4, y4, G3, nodeArrayUAV);
-[G3] = createEdges(G3, S2, T2, weights');
+[G3] = createEdges(G3, S2, T2, edgeWeightsFinal(:, 3));
+weightsFinal = cell2mat(edgeWeightsFinal(:, 3));
 figure(5);
-plot(G3, 'XData', x4, 'YData', y4, 'EdgeLabel', weights)
+plot(G3, 'XData', x4, 'YData', y4, 'EdgeLabel', weightsFinal)
 graphingCluster(x1, y1, numPointsInit, numBatteryLevels, S2, T2, 'yes', nodeArray);        % graphing the cluster format of the solution
+title('UAV Tour');
 
 % recreating GTSP solution on plot (UGV's tour)
 [x5, y5, nodeArrayUGV] = createUGVTour(x3, y3, S2, T2, numPointsInit, numBatteryLevels);
@@ -68,10 +70,10 @@ G4 = digraph;
 [G4, x5, y5] = graphMakingWPoints(x5, y5, G4, nodeArrayUGV);
 [S3, T3] = makingUGVst(nodeArrayUGV);
 [G4] = createEdges(G4, S3, T3);
-figure(6);
+figure(7);
 plot(G4, 'XData', x5, 'YData', y5)
 graphingCluster(x1, y1, numPointsInit, numBatteryLevels, S3, T3, 'yes', nodeArray);        % graphing the cluster format of the solution
-
+title('UGV Tour');
 
 toc
 

@@ -8,11 +8,9 @@
 % G_finish = final graph to plot if necessary
 % cost = final weight matrix that will be used to show the costs of edges
 
-function [G_finish, cost] = getWeights(G, edgeMatrix, tour)
+function [G_finish, costArray] = getWeights(G, edgeMatrix, tour)
 
 sizeOfTour = numel(tour);
-% weights = [row, col];
-% weightMatrix = [];
 G_newNode = G;
 newNode = sizeOfTour;
 newNode = num2str(newNode);
@@ -50,22 +48,39 @@ end
 
 row(end+1) = tour(end);
 col(end+1) = tour(1);
-
 row = arrayfun(@(x) num2str(x), row, 'UniformOutput', false);
 col = arrayfun(@(x) num2str(x), col, 'UniformOutput', false);
 
 G_finish = G_newEdges;
-indexOut = findedge(G_finish, row, col);
+weights = G_finish.Edges.Weight;
 
+indexOut = findedge(G_finish, row, col);
 sizeOfIndex = numel(indexOut);
 cost = [];
-weights = G_finish.Edges.Weight;
 for i = 1:sizeOfIndex
     if indexOut(i) ~=0
         cost(end+1) = weights(indexOut(i));
     else
         cost(end+1) = 0;
     end
+end
+
+% checks if the tour is backwards or not
+if find(cost)
+    costArray = [row', col', num2cell(cost')];
+    
+else
+    indexOut = findedge(G_finish, col, row);
+    cost = [];
+    for i = 1:sizeOfIndex
+        if indexOut(i) ~=0
+            cost(end+1) = weights(indexOut(i));
+        else
+            cost(end+1) = 0;
+        end
+    end
+    costArray = [col', row', num2cell(cost')];
+    
 end
 
 
