@@ -57,10 +57,9 @@ v_Cluster = num2cell(v_Cluster);                                                
 [x4, y4, nodeArrayUAV] = createUAVTour(x3, y3, S2, T2);
 G3 = digraph;
 [G3, x4, y4] = graphMakingWPoints(x4, y4, G3, nodeArrayUAV);
-[G3] = createEdges(G3, S2, T2, edgeWeightsFinal(:, 3));
-weightsFinal = cell2mat(edgeWeightsFinal(:, 3));
+[G3] = createEdges(G3, edgeWeightsFinal(:, 1), edgeWeightsFinal(:, 2), edgeWeightsFinal(:, 3));
 figure(5);
-plot(G3, 'XData', x4, 'YData', y4, 'EdgeLabel', weightsFinal)
+plot(G3, 'XData', x4, 'YData', y4, 'EdgeLabel', G3.Edges.Weight)
 graphingCluster(x1, y1, numPointsInit, numBatteryLevels, S2, T2, 'yes', nodeArray);        % graphing the cluster format of the solution
 title('UAV Tour');
 

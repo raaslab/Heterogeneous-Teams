@@ -10,16 +10,16 @@
 % yNew = simplified original points that correspond to x
 % tourUAV = nodes for the UAV tour
 
-function [xNew, yNew, tourUAV] = createUAVTour(x, y, s, t)
+function [xNew, yNew, nodesVisited] = createUAVTour(x, y, s, t)
 
-tourUAV = union(s, t);
+nodesVisited = union(s, t);
 xNew = [];
 yNew = [];
-numOfNodesUsed = numel(tourUAV);
+numOfNodesUsed = numel(nodesVisited);
 
 for i = 1:numOfNodesUsed
-    xNew(end+1) = x(tourUAV(i));
-    yNew(end+1) = y(tourUAV(i));
+    xNew(end+1) = x(nodesVisited(i));
+    yNew(end+1) = y(nodesVisited(i));
 end
 
 
