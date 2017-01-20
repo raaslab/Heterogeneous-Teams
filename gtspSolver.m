@@ -55,7 +55,7 @@ edges_totsp = G_atsp2_tsp.numedges;
 
 [finalMatrix, finalTour] = concordeReconvert(G_atsp2_tsp, Out_sol);
 
-[weights] = getWeights(G_init, finalMatrix, finalTour);
+[G_final, weights] = getWeights(G_init, finalMatrix, finalTour);
 % G_final = graph(output(:,1:(end-1)).*V_comp_upper, store_name,'upper');
 % G_final.Nodes.Cluster = V_Cluster;
 % plot(G_final, 'EdgeLabel', G_final.Edges.Weight);
