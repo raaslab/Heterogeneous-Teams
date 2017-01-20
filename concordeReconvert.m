@@ -1,9 +1,11 @@
 % gtspReconvert
 % converts concorde back to my gtsp to output from gtspSolver
 % INPUTS
-%
+% G = graph that gives points for tour
+% tour = tour that needs to be converted back to GTSP
 % OUTPUTS
-%
+% matrix = the matrix that will allow for creation of UAV/UGV tour
+% finalTour = final tour shown with nodeID's
 
 function [matrix, finalTour] = concordeReconvert(G, tour)
 

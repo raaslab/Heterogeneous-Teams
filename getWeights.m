@@ -1,8 +1,12 @@
 % getWeights
-
+% gets the correct weights for the tour
 % INPUTS
-
+% G = graph that has correct weights
+% edgeMatrix = matrix that shows which edges are being used
+% tour = shows the final output tour
 % OUTPUTS
+% G_finish = final graph to plot if necessary
+% cost = final weight matrix that will be used to show the costs of edges
 
 function [G_finish, cost] = getWeights(G, edgeMatrix, tour)
 

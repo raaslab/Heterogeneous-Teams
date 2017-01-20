@@ -4,8 +4,13 @@
 % v_Cluster = matrix that shows the node to cluster relationship
 % v_Adj = matrix that shows the node to node (edge) relationships and the
 % costs
+% numPoints = number of inital points for creation of alpha_noon & beta_noon
+% xOut = x point locations
+% yOut = y point locations corresponding to x
 % OUTPUTS
-
+% finalMatrix = the matrix that will be used to create UAV/UGV tours
+% G_init = used for plotting purposes outside of the function
+% weights = weights corresponding to the edges in finalMatrix
 
 function [finalMatrix, G_init, weights] = gtspSolver(v_Cluster, v_Adj, numPoints, xOut, yOut)
 
