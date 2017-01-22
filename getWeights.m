@@ -10,33 +10,34 @@
 
 function [G_finish, costArray] = getWeights(G, edgeMatrix, tour)
 
-sizeOfTour = numel(tour);
+numOfNodes = numel(G.Nodes)+1;
 G_newNode = G;
-newNode = sizeOfTour;
+newNode = numOfNodes;
 newNode = num2str(newNode);
 G_newNode = addnode(G_newNode, newNode);
 row = [];
 col = [];
+sizeOfTour = numel(tour);
 
-% adding baseStation to X
+% adding baseStation to other node
 s = [];
 t = [];
 w = [];
-for i = 1:sizeOfTour
-    s(end+1) = sizeOfTour;
+for i = 1:numOfNodes
+    s(end+1) = numOfNodes;
     t(end+1) = i;
     w(end+1) = 0;
 end
 
 G_newEdges = addedge(G_newNode, s, t, w);
 
-% adding X to baseStation
+% adding other node to baseStation
 s = [];
 t = [];
 w = [];
-for i = 1:sizeOfTour-1
+for i = 1:numOfNodes-1
     s(end+1) = i;
-    t(end+1) = sizeOfTour;
+    t(end+1) = numOfNodes;
     w(end+1) = 0;
 end
 G_newEdges = addedge(G_newEdges, s, t, w);
@@ -46,8 +47,6 @@ for i = 1:sizeOfTour-1
     col(end+1) = tour(i+1);
 end
 
-row(end+1) = tour(end);
-col(end+1) = tour(1);
 row = arrayfun(@(x) num2str(x), row, 'UniformOutput', false);
 col = arrayfun(@(x) num2str(x), col, 'UniformOutput', false);
 

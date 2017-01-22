@@ -8,7 +8,7 @@ close all;
 clc;
 tic;
 % variables
-numPointsInit = 5;
+numPointsInit = 4;
 numBatteryLevels = 3;
 nodeArray = [];
 
@@ -48,7 +48,7 @@ v_Cluster = num2cell(v_Cluster);                                                
 
 % GTSP solver
 % [x_reshape, G_final, fval, exitflag, output] = call_gtsp_recursive_func(v_Cluster, v_Adj);
-[finalMatrix, G_init, edgeWeightsFinal] = gtspSolver(v_Cluster, v_Adj, numPointsInit, xOut, yOut);
+[finalMatrix, G_init, edgeWeightsFinal] = gtspSolver(v_Cluster, v_Adj, numPointsInit, numBatteryLevels, xOut, yOut);
 %-------------------------------------------------------------------------%
 % recreating GTSP solution on plot (UAV's tour)
 %-------------------------------------------------------------------------%

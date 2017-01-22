@@ -2,6 +2,8 @@
 % creates an array of wanted edges
 % INPUTS
 % x_reshape = comes from GTSP solver
+% numPoints = number of nodes in a graph
+% numLevels = number of battery levels in a graph
 % OUTPUTS
 % edgeArray = array of edges that need to be created
 
