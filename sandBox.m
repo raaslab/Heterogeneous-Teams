@@ -3,11 +3,13 @@
 % this is not the actual code
 % DON'T ADD CLEAR OR CLC OR CLOSE, this way you can use existing data
 
-gtspSolver(v_Cluster, v_Adj, numPointsInit, xOut, yOut)
+[edgeArray, S2, T2] = createEdgeArray(finalMatrix, numPointsInit, numBatteryLevels);
 
 
 
 
+
+% gtspSolver(v_Cluster, v_Adj, numPointsInit, xOut, yOut)
 % [sizeOfv_Adj, ~] = size(v_Adj);
 % [sand1, sand2] = find(v_Adj(1, :), 1);
 % newSand2 = sand2;

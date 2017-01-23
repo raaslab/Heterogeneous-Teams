@@ -19,39 +19,71 @@ function [xNew, yNew, tourUGV] = createUGVTour(x, y, s, t, numPoints, numLevels)
 array = zeros(numLevels, numPoints);
 totalPoints = numPoints * numLevels;
 word = 'empty';
-xNew = [];
-yNew = [];
+xNew1 = [];
+yNew1 = [];
+xNew2 = [];
+yNew2 = [];
 
 for i = 1:totalPoints
     array(i) = i;
 end
 
 numEdges = numel(s);
-indexEdgeNum = [];
-sEnd = [];
-tEnd = [];
+indexEdgeNum1 = [];
+sEnd1 = [];
+tEnd1 = [];
 
 for i = 1:numEdges
-    if any(array(3, :) == s(i)) && any(array(1, :) == t(i))
+    if any(array(numLevels, :) == s(i)) && any(array(1, :) == t(i))
         word = 'yes';
-        indexEdgeNum(end+1) = i;
-        sEnd(end+1) = s(i);
-        tEnd(end+1) = t(i);
+        indexEdgeNum1(end+1) = i;
+        sEnd1(end+1) = s(i);
+        tEnd1(end+1) = t(i);
     end
 end
 
-tEnd(end+1) = (numPoints * numLevels)+1;
-tEnd = union(tEnd, [], 'stable');
-numOfNodesUsed = numel(tEnd);
+tEnd1(end+1) = (numPoints * numLevels)+1;
+tEnd1 = union(tEnd1, [], 'stable');
+numOfNodesUsed = numel(tEnd1);
 
 for i = 1:numOfNodesUsed
-    xNew(end+1) = x(tEnd(i));
-    yNew(end+1) = y(tEnd(i));
+    xNew1(end+1) = x(tEnd1(i));
+    yNew1(end+1) = y(tEnd1(i));
 end
 
 
-indexNums = indexEdgeNum;
-tourUGV = tEnd;
+indexEdgeNum2 = [];
+sEnd2 = [];
+tEnd2 = [];
+for i = 1:numEdges
+    if any(array(numLevels, :) == t(i)) && any(array(1, :) == s(i))
+        word = 'yes';
+        indexEdgeNum2(end+1) = i;
+        sEnd2(end+1) = t(i);
+        tEnd2(end+1) = s(i);
+    end
+end
+
+tEnd2(end+1) = (numPoints * numLevels)+1;
+tEnd2 = union(tEnd2, [], 'stable');
+numOfNodesUsed = numel(tEnd2);
+
+for i = 1:numOfNodesUsed
+    xNew2(end+1) = x(tEnd2(i));
+    yNew2(end+1) = y(tEnd2(i));
+end
+
+if numel(tEnd2) > numel(tEnd1)
+    indexNums = indexEdgeNum2;
+    tourUGV = tEnd2;
+    xNew = xNew2;
+    yNew = yNew2;
+else
+    indexNums = indexEdgeNum1;
+    tourUGV = tEnd1;
+    xNew = xNew1;
+    yNew = yNew1;
+end
 
 end
 

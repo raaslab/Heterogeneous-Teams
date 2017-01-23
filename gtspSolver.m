@@ -11,8 +11,9 @@
 % finalMatrix = the matrix that will be used to create UAV/UGV tours
 % G_init = used for plotting purposes outside of the function
 % weights = weights corresponding to the edges in finalMatrix
+% finalTour = the finished transformed tour
 
-function [finalMatrix, G_init, weights] = gtspSolver(v_Cluster, v_Adj, numPoints, numLevels, xOut, yOut)
+function [finalMatrix, G_init, weights, finalTour] = gtspSolver(v_Cluster, v_Adj, numPoints, numLevels, xOut, yOut)
 
 [G_init] = createNodeName(v_Adj);
 
