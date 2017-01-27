@@ -8,7 +8,7 @@ close all;
 clc;
 tic;
 % variables
-numPointsInit = 5;
+numPointsInit = 10;
 numBatteryLevels = 3;
 nodeArray = [];
 

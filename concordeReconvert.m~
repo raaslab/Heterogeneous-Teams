@@ -11,7 +11,7 @@
 % matrix = the matrix that will allow for creation of UAV/UGV tour
 % finalTour = final tour shown with nodeID's
 
-function [matrix, finalTour] = concordeReconvert(G, tour, v_Cluster, v_Adj, numLevels)
+function [matrix, finalTour1] = concordeReconvert(G, tour, v_Cluster, v_Adj, numLevels)
 
 tableOfPoints = G.Nodes;
 cellOfPoints = table2array(tableOfPoints);
@@ -31,8 +31,10 @@ clusterTour1 = union(newTour, [], 'stable');
 clusterTour2 = flipud(clusterTour1);
 numOfOnlyPoints = numel(clusterTour1);
 correctS1 = [];
+correctT1 = [];
 indexOfClusters1 = [];
 correctS2 = [];
+correctT2 = [];
 indexOfClusters2 = [];
 
 
@@ -65,6 +67,7 @@ end
 
 finalTour1 = correctS1;
 finalTour2 = correctS2;
+finalTour = [];
 
 sizeOfFinalTour = numel(finalTour1);
 numOfBaseStation = max(finalTour1);
@@ -80,14 +83,34 @@ end
 locOfBase = find(finalTour == numOfBaseStation);
 finalTour = circshift(finalTour, sizeOfFinalTour - locOfBase + 1);
 
-correctS = finalTour;
-correctT = finalTour;
-correctT = circshift(correctT, -1);
-numOfEdges = numel(correctS);
-matrix = zeros(numOfOnlyPoints);
 
+% % numOfBaseStation = numel(clusterTour1);
+% % sizeOfFinalTour = numel(finalTour1);
+% locationOfBase = find(finalTour1 == numOfBaseStation);
+% if(sizeOfFinalTour == locationOfBase)
+%     if(mod(finalTour1(1), numLevels) ~= 1)
+%         finalTour1 = fliplr(finalTour1);
+%     end
+% else
+%     if(mod(finalTour1(locationOfBase + 1), numLevels) ~=1)
+%         finalTour1 = fliplr(finalTour1);
+%     end
+% end
+% 
+% if(sizeOfFinalTour == locationOfBase)
+%     ;
+% else
+%     finalTourBaseEnd = circshift(finalTour1, sizeOfFinalTour-locationOfBase);
+% end
+
+correctS1 = finalTour;
+correctT1 = finalTour;
+correctT1 = circshift(correctT1, 1);
+numOfEdges = numel(correctS1);
+%-------------------------------------------------------------------------%
+matrix = zeros(numOfOnlyPoints);
 for i = 1:numOfEdges
-    matrix(correctS(i), correctT(i)) = 1;
+    matrix(correctS1(i), correctT1(i)) = 1;
 end
 
 end
