@@ -53,7 +53,7 @@ end
 [s_gadget2 t_gadget2] = findedge(G_gadget2);
 s_gadget2 = s_gadget2 - 1;
 t_gadget2 = t_gadget2 - 1;
-weights_mat = round((G_gadget2.Edges.Weight(:)));%-26000000)*100); %[156967]%15030730
+weights_mat = round(G_gadget2.Edges.Weight(:));%-26000000)*100); %[156967]%15030730
 %weights_mat = weights_mat-32900;
 weights_mat(weights_mat<0)=0;
 G_gadget2_edges = [s_gadget2(:) t_gadget2(:) weights_mat(:)];

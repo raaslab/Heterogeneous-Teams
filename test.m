@@ -8,8 +8,8 @@ close all;
 clc;
 tic;
 % variables
-numPointsInit = 10;
-numBatteryLevels = 3;
+numPointsInit = 7;
+numBatteryLevels = 2;
 nodeArray = [];
 
 for i = 1:numPointsInit*numBatteryLevels

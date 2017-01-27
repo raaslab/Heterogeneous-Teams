@@ -11,9 +11,13 @@ function [G, x, y] = graphMakingNew(numPoints)
 
 x = [];
 y = [];
+% randomPoint = [];
 G = graph;
 for i = 1:numPoints
-    [x(end+1), y(end+1)] = randomPoints(1,1,1);
+    randomPoint = randi(100,1,2);
+    x(end+1) = randomPoint(:, 1);
+    y(end+1) = randomPoint(:, 2);
+    
 end
 
 % x
