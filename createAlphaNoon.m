@@ -5,10 +5,11 @@
 % numPoints = number of initial points
 % OUTPUTS
 % alpha = the penalty in noon_bean solver
+% problem = means there was an error and this is not a valid run
 
 function [alpha, problem] = createAlphaNoon(v_Adj, numPoints)
 
-problem = 'fine';
+problem = 1;
 [x, y] = find(v_Adj(1, :), 1);
 newY = y;
 s = [x];
@@ -18,7 +19,7 @@ for i = 1:numPoints-2
     [~, y] = find(v_Adj(newY, newY:end), 1);
     newY = y+oldY-1;
     if isempty(newY)
-        problem = 'error';
+        problem = 0;
         break;
     end
     s(end+1) = oldY;

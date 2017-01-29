@@ -12,6 +12,7 @@
 % G_init = used for plotting purposes outside of the function
 % weights = weights corresponding to the edges in finalMatrix
 % finalTour = the finished transformed tour
+% problem = means there was an error and this is not a valid run
 
 function [finalMatrix, G_init, weights, finalTour, problem] = gtspSolver(v_Cluster, v_Adj, numPoints, numLevels, xOut, yOut)
 

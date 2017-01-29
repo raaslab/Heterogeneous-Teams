@@ -8,8 +8,8 @@ for k = 1:5                     % number of runs
     for i = 5:3:20              % number of points
         for j = 3:5             % number of levels
             filename = [num2str(i) '_' num2str(j) '_' num2str(k)];
-            ansTime = test(i, j, filename);
-            time(end+1) = ansTime;
+            [ansTime, problem] = test(i, j, filename);
+            time(end+1, :) = [double(i), double(j), double(k), ansTime, double(problem)];
         end
     end
 end

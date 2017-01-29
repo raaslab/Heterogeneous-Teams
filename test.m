@@ -8,7 +8,7 @@
 % clc;
 
 
-function [time] = test(numPointsInit, numBatteryLevels, filename)
+function [time, problem] = test(numPointsInit, numBatteryLevels, filename)
 
 tic;
 
