@@ -13,11 +13,11 @@
 % weights = weights corresponding to the edges in finalMatrix
 % finalTour = the finished transformed tour
 
-function [finalMatrix, G_init, weights, finalTour] = gtspSolver(v_Cluster, v_Adj, numPoints, numLevels, xOut, yOut)
+function [finalMatrix, G_init, weights, finalTour, problem] = gtspSolver(v_Cluster, v_Adj, numPoints, numLevels, xOut, yOut)
 
 [G_init] = createNodeName(v_Adj);
 
-[alpha_noon] = createAlphaNoon(v_Adj, numPoints);
+[alpha_noon, problem] = createAlphaNoon(v_Adj, numPoints);
 [beta_noon] = createBetaNoon(alpha_noon, numPoints);
 
 [s, t] = findedge(G_init);

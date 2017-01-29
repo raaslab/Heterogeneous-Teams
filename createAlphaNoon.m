@@ -6,8 +6,9 @@
 % OUTPUTS
 % alpha = the penalty in noon_bean solver
 
-function [alpha] = createAlphaNoon(v_Adj, numPoints)
+function [alpha, problem] = createAlphaNoon(v_Adj, numPoints)
 
+problem = 'fine';
 [x, y] = find(v_Adj(1, :), 1);
 newY = y;
 s = [x];
@@ -16,11 +17,17 @@ for i = 1:numPoints-2
     oldY = newY;
     [~, y] = find(v_Adj(newY, newY:end), 1);
     newY = y+oldY-1;
+    if isempty(newY)
+        problem = 'error';
+        break;
+    end
     s(end+1) = oldY;
     t(end+1) = newY;
 end
-s(end+1) = newY;
-t(end+1) = 1;
+if (isempty(newY)==0)
+    s(end+1) = newY;
+    t(end+1) = 1;
+end
 
 cost = 0;
 numEdges = numel(s);
