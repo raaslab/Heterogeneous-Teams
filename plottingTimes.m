@@ -1,7 +1,9 @@
 % plottingTimes
 % this should plot the times/erros/all points
 
-load matlab.mat
+
+function [] = plottingTimes(totalAverageTimes)
+
 clear('neg')
 clear('pos')
 clear('x')
@@ -18,3 +20,5 @@ pos = circshift(pos, -1);
 
 % err = 8*ones(size(y));
 errorbar(x, y, neg, pos)
+
+end
