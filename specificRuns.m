@@ -4,10 +4,10 @@
 
 
 
-i = 17;
-j = 5;
-k = 5;
-location = 87;
+i = 20;
+j = 3;
+k = 2;
+location = 34;
 filename = [num2str(i) '_' num2str(j) '_' num2str(k)];
 [ansTime, problem] = test(i, j, filename);
 time(location, :) = [double(i), double(j), double(k), ansTime, double(problem)];
