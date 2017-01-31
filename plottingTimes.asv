@@ -1,0 +1,12 @@
+% plottingTimes
+% this should plot the times/erros/all points
+
+load matlab.mat
+numOfTimes = numel(totalAverageTimes(:, 1));
+
+x = 1:numOfTimes-1;
+y = totalAverageTimes(:, 4);
+
+
+% err = 8*ones(size(y));
+errorbar(x, y, err)
