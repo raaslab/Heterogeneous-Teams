@@ -54,9 +54,8 @@ v_Cluster = num2cell(v_Cluster);                                                
 % GTSP solver
 % [x_reshape, G_final, fval, exitflag, output] = call_gtsp_recursive_func(v_Cluster, v_Adj);
 [finalMatrix, G_init, edgeWeightsFinal, finalTour, problem] = gtspSolver(v_Cluster, v_Adj, numPointsInit, numBatteryLevels, xOut, yOut);
-%-------------------------------------------------------------------------%
+
 % recreating GTSP solution on plot (UAV's tour)
-%-------------------------------------------------------------------------%
 [x3, y3] = createBaseStationPoint(h.XData, h.YData);                                       % creates the base station point
 [edgeArray, S2, T2] = createEdgeArray(finalMatrix, numPointsInit, numBatteryLevels);
 [x4, y4, nodeArrayUAV] = createUAVTour(x3, y3, S2, T2);
@@ -69,7 +68,7 @@ graphingCluster(x1, y1, numPointsInit, numBatteryLevels, S2, T2, 'yes', nodeArra
 title('UAV Tour');
 
 % recreating GTSP solution on plot (UGV's tour)
-[x5, y5, nodeArrayUGV] = createUGVTour(x3, y3, S2, T2, numPointsInit, numBatteryLevels);
+[x5, y5, nodeArrayUGV] = createUGVTour(x3, y3, finalTour, numBatteryLevels);
 G4 = digraph;
 [G4, x5, y5] = graphMakingWPoints(x5, y5, G4, nodeArrayUGV);
 [S3, T3] = makingUGVst(nodeArrayUGV);

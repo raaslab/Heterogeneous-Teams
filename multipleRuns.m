@@ -1,4 +1,6 @@
 % runs mutliple tests to allow for plotting of a lot of runs
+% the workspace should be stored after and then used for
+% creatingTotalAverageTimes.m and specificRuns.m
 
 % time = test(7, 3, filename)
 tic

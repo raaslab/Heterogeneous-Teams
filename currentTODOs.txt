@@ -4,10 +4,16 @@ TODO's
 % Create something that adds the starting/ending node. (the base station for the graph)
 % Create the tour of the UAV (created from the output of the GTSP graph)
 % Create the tour of the UGV
-Correct the UAV tour by correcting GTSP solver
+% Correct the UAV tour by correcting GTSP solver
 % Add other characteristic to nodes to define levels in solver (add battery level characteristic so we can obtain the UGV) (BECAME UNNECESSARY BECAUSE OF HOW I CREATED UGV TOUR)
-Create function that allows the program run on the robots
+% Create function that allows the program run on the robots (ended up not doing this because we aren't doing online yet)
 % createBaseStation function
-createUAVTour function
-figure out bugs that came from createBaseStation.m
+% createUAVTour function
+% figure out bugs that came from createBaseStation.m
+Run specificRuns.m first to figure out if everything is working correctly, the UAV and UGV tour
+Run multipleRuns.m second to get all the correct .mat files and information
+Finish function graphClusterOrdered.m
+Finish function plotsForPaper.m
+Clearn up the workspace files so that they have more meaningful names
+
 

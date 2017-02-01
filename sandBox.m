@@ -6,6 +6,9 @@
 
 
 
+
+
+% [ans1, ans2, ans3] = createUGVTour(x3, y3, finalTour, numPointsInit, numBatteryLevels);
 % numOfBaseStation = numel(clusterTour);
 % numOfFinalTour = numel(finalTour);
 % locationOfBase = find(finalTour == numOfBaseStation);
