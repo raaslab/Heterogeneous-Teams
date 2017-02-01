@@ -4,15 +4,6 @@
 % DON'T ADD CLEAR OR CLC OR CLOSE, this way you can use existing data
 
 
-t = 0:0.01:2;
-y= sin(t);
-figure(1);
-plot(y) 
-figure(2);
-plot(t,y);
-
-
-
 
 
 % numOfBaseStation = numel(clusterTour);
