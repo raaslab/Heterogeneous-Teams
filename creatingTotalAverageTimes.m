@@ -2,7 +2,7 @@
 % this creates teh variable totalAverageTimes, which allows us to see the
 % different average times for the different combinations
 
-% load matlab.mat
+load matlab1.mat
 points = union(time(:, 1), []);
 levels = union(time(:, 2), []);
 runs = union(time(:, 3), []);
