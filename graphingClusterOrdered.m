@@ -4,7 +4,7 @@
 
 
 
-function [ output_args ] = graphingClusterOrdered( input_args )
+function [] = graphingClusterOrdered(tour, numPoints, numLevels)
 
 
 end

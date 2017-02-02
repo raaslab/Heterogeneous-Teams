@@ -8,6 +8,9 @@
 % s = starting node for an edge
 % t = corresponding ending node for an edge with "s"
 % id = name of nodes within graph
+% withBaseStation = character array that states if it has a base station
+% 'yes' or it doesn't have one anything else
+% id
 % OUTPUTS
 % this function just plots the cluster so no output is needed
 
@@ -29,7 +32,7 @@ end
 [G, xOut, yOut] = graphMakingWPoints(xOut, yOut, G, id);
 [G] = createEdges(G, s, t);
 
-if withBaseStation == 'yes'
+if strcmp(withBaseStation, 'yes')
     xOut(end+1) = 0;
     yOut(end+1) = 0;
 end
