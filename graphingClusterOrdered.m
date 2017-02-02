@@ -5,8 +5,6 @@
 
 
 function [ output_args ] = graphingClusterOrdered( input_args )
-%GRAPHINGCLUSTERORDERED Summary of this function goes here
-%   Detailed explanation goes here
 
 
 end
