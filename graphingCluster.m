@@ -10,7 +10,7 @@
 % id = name of nodes within graph
 % withBaseStation = character array that states if it has a base station
 % 'yes' or it doesn't have one anything else
-% id
+% id = the names of the points
 % OUTPUTS
 % this function just plots the cluster so no output is needed
 

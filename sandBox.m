@@ -4,6 +4,7 @@
 % DON'T ADD CLEAR OR CLC OR CLOSE, this way you can use existing data
 
 
+graphingClusterOrdered(x1, y1, numPointsInit, numBatteryLevels, S2, T2, v_Cluster, v_Adj, finalTour)
 
 
 
