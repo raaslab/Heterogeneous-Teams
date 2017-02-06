@@ -4,11 +4,12 @@
 % DON'T ADD CLEAR OR CLC OR CLOSE, this way you can use existing data
 
 
-graphingClusterOrdered(x1, y1, numPointsInit, numBatteryLevels, S2, T2, v_Cluster, v_Adj, finalTour)
 
 
 
 
+
+% graphingClusterOrdered(x1, y1, numPointsInit, numBatteryLevels, S2, T2, v_Cluster, v_Adj, finalTour)
 % [ans1, ans2, ans3] = createUGVTour(x3, y3, finalTour, numPointsInit, numBatteryLevels);
 % numOfBaseStation = numel(clusterTour);
 % numOfFinalTour = numel(finalTour);

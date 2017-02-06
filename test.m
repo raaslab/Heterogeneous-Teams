@@ -21,6 +21,7 @@ for i = 1:numPointsInit*numBatteryLevels
     nodeArray(end+1) = i;
 end
 nodeArray = nodeArray';
+
 % code
 [G1, x1, y1] = graphMakingNew(numPointsInit);
 [G1] = createEdgesFull(G1, numPointsInit);

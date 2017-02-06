@@ -3,9 +3,9 @@
 % INPUTS
 % numPoints = number of points
 % OUTPUTS
+% G = graph with points below
 % x = array of x points
 % y = array of y points
-% plot with those points
 
 function [G, x, y] = graphMakingNew(numPoints)
 

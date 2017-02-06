@@ -1,6 +1,9 @@
 % plottingTimes
 % this should plot the times/erros/all points
-
+% INPUTS
+% totalAverageTimes = array of averagetimes
+% OUTPUTS
+% this creates a figure of the average times
 
 function [] = plottingTimes(totalAverageTimes)
 
