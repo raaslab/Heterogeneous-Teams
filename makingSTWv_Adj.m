@@ -1,5 +1,5 @@
 % makingSTWv_Adj
-% this function will create edges based off of the disntace and not have an
+% this function will create all s, t, weights, and v_Adj based off of the disntace and not have an
 % edge to every battery level
 % INPUTS
 % area = is one dimension of the total area where the points are made (row
