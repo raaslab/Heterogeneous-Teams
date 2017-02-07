@@ -31,9 +31,9 @@ Adj_G_init(Adj_G_init_ind(:)) = G_init.Edges.Weight(:);
 
 % [X_t, Y_s] = meshgrid(1:length(G_init.Nodes.Name), 1:length(G_init.Nodes.Name));
 [v_Cluster, atspAdjMatrix] = createBaseStation(v_Cluster, atspAdjMatrix, alpha_noon, beta_noon, numPoints, numLevels);                                  % creates the base station for v_Adj and v_Cluster
-[row, column, ~] = find(atspAdjMatrix>-1);
+[row, column, ~] = find(atspAdjMatrix > -1);
 G_atsp = digraph;
-[G_atsp] = createEdgesGTSP(G_atsp, row, column, atspAdjMatrix, xOut, yOut);
+[G_atsp] = createEdgesGTSP(G_atsp, row, column, atspAdjMatrix);
 %-------------------------------------------------------------------------%
 
 % ADD BASE STATION

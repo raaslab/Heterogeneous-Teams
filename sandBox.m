@@ -4,7 +4,7 @@
 % DON'T ADD CLEAR OR CLC OR CLOSE, this way you can use existing data
 
 
-
+makingSTWv_Adj(area, x1, y1, numPointsInit, numBatteryLevels, v_Adj, v_Cluster)
 
 
 
