@@ -41,11 +41,13 @@ numPoints = numel(h.XData);
 
 % creates new graph with existing points
 [G2, x2, y2] = graphMakingWPoints(h.XData, h.YData);
+[v_Cluster] = makingV_cluster(numPointsInit, numBatteryLevels);
+v_Cluster = num2cell(v_Cluster);                                                           % formating
 % [S1, T1, weights] = makingSTW(numPointsInit, numBatteryLevels);
 %-------------------------------------------------------------------------%
 % [S1, T1, weights] = makingSTW(x2, y2, z3d, numPointsInit, numBatteryLevels);
 %-------------------------------------------------------------------------%
-[S1, T1, weights, v_Adj] = makingSTWv_Adj(area, x1, y1, numPointsInit, numBatteryLevels, v_Adj, v_Cluster);
+[S1, T1, weights, v_Adj] = makingSTWv_Adj(area, x1, y1, numPointsInit, numBatteryLevels, v_Cluster);
 
 [xOut, yOut] = graphingCluster(x1, y1, numPointsInit, numBatteryLevels, S1, T1, 0, nodeArray);            % graph in cluster format
 
@@ -55,8 +57,6 @@ plot(G2, 'XData', x2, 'YData', y2);
 %-------------------------------------------------------------------------%
 % [v_Adj, points] = makingV_adj(x2, y2, S1, T1, weights, 'directed');                        % change to symetric or non-symetric based off of case
 %-------------------------------------------------------------------------%
-[v_Cluster] = makingV_cluster(numPointsInit, numBatteryLevels);
-v_Cluster = num2cell(v_Cluster);                                                           % formating
 % [v_Cluster, v_Adj] = createBaseStation(v_Cluster, v_Adj);                                  % creates the base station for v_Adj and v_Cluster
 
 % GTSP solver
@@ -89,6 +89,6 @@ title('UGV Tour');
 time = toc;
 f = fullfile('/home/klyu/Heterogeneous-Teams/answers', filename);
 save(f);
-close all;
+% close all;
 end
 

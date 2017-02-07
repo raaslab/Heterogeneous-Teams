@@ -12,7 +12,7 @@
 % OUTPUTS
 
 
-function [sNew, tNew, weights, v_AdjNew] =  makingSTWv_Adj(area, x, y, numPoints, numLevels, v_Adj, v_Cluster)
+function [sNew, tNew, weights, v_AdjNew] =  makingSTWv_Adj(area, x, y, numPoints, numLevels, v_Cluster)
 
 maxDistance = sqrt(area^2+area^2);
 maxDistancePerLevel = maxDistance/numLevels;
@@ -31,7 +31,7 @@ for i = 1:numPoints
 end
 
 allDistancesRounded = ceil(allDistances./maxDistancePerLevel);
-outputv_Adj = v_Adj;
+% outputv_Adj = v_Adj;
 
 totalPoints = numPoints * numLevels;
 tempv_AdjFinal = Inf(totalPoints);
