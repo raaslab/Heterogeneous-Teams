@@ -42,13 +42,19 @@ numPoints = numel(h.XData);
 % creates new graph with existing points
 [G2, x2, y2] = graphMakingWPoints(h.XData, h.YData);
 % [S1, T1, weights] = makingSTW(numPointsInit, numBatteryLevels);
-[S1, T1, weights] = makingSTW(x2, y2, z3d, numPointsInit, numBatteryLevels);
+%-------------------------------------------------------------------------%
+% [S1, T1, weights] = makingSTW(x2, y2, z3d, numPointsInit, numBatteryLevels);
+%-------------------------------------------------------------------------%
+[S1, T1, weights, v_Adj] = makingSTWv_Adj(area, x1, y1, numPointsInit, numBatteryLevels, v_Adj, v_Cluster);
+
 [xOut, yOut] = graphingCluster(x1, y1, numPointsInit, numBatteryLevels, S1, T1, 0, nodeArray);            % graph in cluster format
 
 [G2] = createEdgesFull(G2, numPoints);
 figure(4)
 plot(G2, 'XData', x2, 'YData', y2);
-[v_Adj, points] = makingV_adj(x2, y2, S1, T1, weights, 'directed');                        % change to symetric or non-symetric based off of case
+%-------------------------------------------------------------------------%
+% [v_Adj, points] = makingV_adj(x2, y2, S1, T1, weights, 'directed');                        % change to symetric or non-symetric based off of case
+%-------------------------------------------------------------------------%
 [v_Cluster] = makingV_cluster(numPointsInit, numBatteryLevels);
 v_Cluster = num2cell(v_Cluster);                                                           % formating
 % [v_Cluster, v_Adj] = createBaseStation(v_Cluster, v_Adj);                                  % creates the base station for v_Adj and v_Cluster
