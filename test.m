@@ -89,6 +89,6 @@ title('UGV Tour');
 time = toc;
 f = fullfile('/home/klyu/Heterogeneous-Teams/answers', filename);
 save(f);
-% close all;
+close all;
 end
 

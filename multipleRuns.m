@@ -6,7 +6,7 @@
 tic
 time = [];
 
-for k = 1:5                     % number of runs
+for k = 1:1                     % number of runs
     for i = 5:3:20              % number of points
         for j = 3:5             % number of levels
             fileName = [num2str(i) '_' num2str(j) '_' num2str(k)];
