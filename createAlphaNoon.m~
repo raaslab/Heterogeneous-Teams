@@ -9,11 +9,9 @@
 
 function [alpha, problem] = createAlphaNoon(v_Adj, numPoints, v_Cluster, numLevels)
 
-problem = 1;
-v_Cluster = cell2mat(v_Cluster);
-
 switch nargin
     case 2
+        problem = 1;
         [x, y] = find(v_Adj(1, :), 1);
         newY = y;
         s = [x];
@@ -42,18 +40,19 @@ switch nargin
         
         alpha = cost;
         
-    case 4
+    case 3
         totalCost = 0;
         for i = 1:numPoints-1
-            fin = 0;
             pointA = find(v_Cluster == i);
             pointB = find(v_Cluster ==i+1);
             for j = 1:numLevels
                 for k = 1:numLevels
                     cost = v_Adj(pointA(j), pointB(k));
                     if cost ~= 0
-                        totalCost = totalCost +cost;
+                        totalcost = totalcost +cost;
                         fin = 1;
+                    else
+                        break;
                     end
                 end
                 if fin == 1
@@ -61,14 +60,13 @@ switch nargin
                 end
             end
         end
-        fin = 0;
         pointA = find(v_Cluster == i+1);
         pointB = find(v_Cluster == 1);
         for j = 1:numLevels
             for k = 1:numLevels
-                cost = v_Adj(pointA(j), pointB(k));
+                cost = v_Adj(pointAj, k);
                 if cost ~= 0
-                    totalCost = totalCost +cost;
+                    totalcost = totalcost +cost;
                     fin = 1;
                 else
                     break;
@@ -78,7 +76,6 @@ switch nargin
                 break;
             end
         end
-        alpha = totalCost;
         
 end
 end

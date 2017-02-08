@@ -18,7 +18,8 @@ function [finalMatrix, G_init, weights, finalTour, problem] = gtspSolver(v_Clust
 
 [G_init] = createNodeName(v_Adj);
 
-[alpha_noon, problem] = createAlphaNoon(v_Adj, numPoints);
+% [alpha_noon, problem] = createAlphaNoon(v_Adj, numPoints);
+[alpha_noon, problem] = createAlphaNoon(v_Adj, numPoints, v_Cluster, numLevels);
 [beta_noon] = createBetaNoon(alpha_noon, numPoints);
 
 [s, t] = findedge(G_init);

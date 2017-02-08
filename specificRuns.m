@@ -4,8 +4,8 @@
 
 
 
-i = 8;
-j = 3;
+i = 28;
+j = 4;
 k = 1;
 location =  89;
 % filename = [num2str(i) '_' num2str(j) '_' num2str(k)];

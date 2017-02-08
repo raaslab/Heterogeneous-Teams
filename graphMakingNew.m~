@@ -10,23 +10,22 @@
 
 function [G, x, y] = graphMakingNew(numPoints, area)
 
-% x = [];
-% y = [];
+x = [];
+y = [];
 % randomPoint = [];
 G = graph;
-% for i = 1:numPoints
-%     randomPoint = randi(area,1,2);
-%     x(end+1) = randomPoint(:, 1);
-%     y(end+1) = randomPoint(:, 2);
-%     
-% end
+for i = 1:numPoints
+    randomPoint = randi(area,1,2);
+    x(end+1) = randomPoint(:, 1);
+    y(end+1) = randomPoint(:, 2);
+    
+end
 
-x = randperm(area, numPoints);
-y = randperm(area, numPoints);
+randperm(100, numPoints
 
 % x
 % y
-G = addnode(G, numPoints);
+G = addnode(G,numPoints);
 % G
 % G.Nodes
 % G.Edges
