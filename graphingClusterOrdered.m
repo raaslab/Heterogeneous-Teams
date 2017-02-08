@@ -48,7 +48,7 @@ xOut(end+1) = 0;
 yOut(end+1) = 0;
 
 figure(4)                                                            % plots graph
-plot(G, 'XData', xOut, 'YData', yOut, 'LineStyle', '-.');
+plot(G, 'XData', xOut, 'YData', yOut, 'LineStyle', '-.', 'LineWidth', 2, 'MarkerSize', 2);
 
 yRec = 0;
 wRec = 1;

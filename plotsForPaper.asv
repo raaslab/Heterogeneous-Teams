@@ -9,9 +9,6 @@ title({'Initial Graph Without Edge Costs', 'Edges are Euclidean Distances Betwee
 xlabel('x Position', 'FontSize', 14)
 ylabel('y Position', 'FontSize', 14)
 axis([0 100 0 100])
-box on;
-grid on;
-axis equal;
 
 % UAV tour
 figure(2);
@@ -20,20 +17,14 @@ title('Final UAV tour', 'FontSize', 14)
 xlabel('x Position', 'FontSize', 14)
 ylabel('y Position', 'FontSize', 14)
 axis([0 100 0 100])
-box on;
-grid on;
-axis equal;
 
 % UGV tour
 figure(3);
-plot(G4, 'XData', x5, 'YData', y5, 'LineWidth', 2, 'MarkerSize', 2)
+plot(G4, 'XData', x5, 'YData', y5)
 title('Final UGV tour', 'FontSize', 14)
 xlabel('x Position', 'FontSize', 14)
 ylabel('y Position', 'FontSize', 14)
 axis([0 100 0 100])
-box on;
-grid on;
-axis equal;
 
 % UAV cluster tour ordered
 graphingClusterOrdered(x3, y3, numPointsInit, numBatteryLevels, S2, T2, v_Cluster, finalTour)

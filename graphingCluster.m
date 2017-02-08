@@ -38,7 +38,7 @@ if strcmp(withBaseStation, 'yes')
 end
 
 figure()                                                            % plots graph
-plot(G, 'XData', xOut, 'YData', yOut, 'LineStyle', '-.');
+plot(G, 'XData', xOut, 'YData', yOut, 'LineStyle', '-.', 'LineWidth', 2, 'MarkerSize', 2);
 
 yRec = 0;
 wRec = 1;
