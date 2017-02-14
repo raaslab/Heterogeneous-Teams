@@ -9,7 +9,7 @@
 
 
 
-function [sNew, tNew, weights, v_AdjNew] = makingSTWv_AdjGeneral(area, x, y, numPoints, numLevels, v_Cluster, timeTO, timeL, rechargeRate)
+function [sNew, tNew, weights, v_AdjNew] = makingSTWv_AdjGeneral(area, x, y, numPoints, numLevels, v_Cluster, timeTO, timeL, rechargeRate, UGVSpeed)
 
 maxDistance = sqrt(area^2+area^2);
 maxDistancePerLevel = maxDistance/numLevels;
@@ -31,7 +31,7 @@ for i = 1:numberOfEdges
     end
 end
 % creating charging edges (UAV riding UGV and charging/ bat' >= bat)
-[type2] = makingSTWType2(numPoints, numLevels, type1, v_Cluster, timeTO, timeL, allDistances, v_ClusterLevels, rechargeRate);
+[type2] = makingSTWType2(numPoints, numLevels, type1, v_Cluster, timeTO, timeL, allDistances, v_ClusterLevels, rechargeRate, UGVSpeed);
 
 % creating charge vertex edges (UAV flying to vertex and then charging on UGV at
 % vertex/ bat' can be anything compared to bat)
