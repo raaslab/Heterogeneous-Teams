@@ -3,8 +3,10 @@
 % this is not the actual code
 % DON'T ADD CLEAR OR CLC OR CLOSE, this way you can use existing data
 
-
-makingSTWGeneral(area, x1, y1, numPointsInit, numBatteryLevels, v_Cluster)
+timeTO = 1;
+timeL = 2;
+rechargeRate = 3;
+makingSTWv_AdjGeneral(area, x1, y1, numPointsInit, numBatteryLevels, v_Cluster, timeTO, timeL, rechargeRate)
 
 
 % makingSTWv_Adj(area, x1, y1, numPointsInit, numBatteryLevels, v_Adj, v_Cluster)

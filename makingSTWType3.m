@@ -6,7 +6,7 @@
 % OUTPUTS
 
 
-function [type3] = makingSTWType3(area, x, y, numPoints, numLevels, v_Cluster, timeTO, timeL);
+function [type3] = makingSTWType3(numPoints, numLevels, type1, v_Cluster, timeTO, timeL, allDistances, v_ClusterLevels, rechargeRate)
 
 
 

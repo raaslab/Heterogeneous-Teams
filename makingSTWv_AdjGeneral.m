@@ -9,7 +9,7 @@
 
 
 
-function [sNew, tNew, weights, v_AdjNew] = makingSTWGeneral(area, x, y, numPoints, numLevels, v_Cluster, timeTO, timeL)
+function [sNew, tNew, weights, v_AdjNew] = makingSTWv_AdjGeneral(area, x, y, numPoints, numLevels, v_Cluster, timeTO, timeL, rechargeRate)
 
 maxDistance = sqrt(area^2+area^2);
 maxDistancePerLevel = maxDistance/numLevels;
@@ -31,11 +31,11 @@ for i = 1:numberOfEdges
     end
 end
 % creating charging edges (UAV riding UGV and charging/ bat' >= bat)
-[type2] = makingSTWType2(numPoints, numLevels, v_Cluster, timeTO, timeL, allDistances);
+[type2] = makingSTWType2(numPoints, numLevels, type1, v_Cluster, timeTO, timeL, allDistances, v_ClusterLevels, rechargeRate);
 
 % creating charge vertex edges (UAV flying to vertex and then charging on UGV at
 % vertex/ bat' can be anything compared to bat)
-[type3] = makingSTWType3(area, x, y, numPoints, numLevels, v_Cluster, timeTO, timeL);
+[type3] = makingSTWType3(numPoints, numLevels, type1, v_Cluster, timeTO, timeL, allDistances, v_ClusterLevels, rechargeRate);
 
 numberOfEdges = numel(type1);
 v_AdjNew = type1;

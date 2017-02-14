@@ -28,13 +28,6 @@ for i = 1:totalPoints
     end
 end
 
-for i = 1:totalPoints
-    for j = 1:totalPoints
-        if v_Cluster(i) == v_Cluster(j)
-           type2(i, j) = Inf; 
-        end
-    end
-end
 
 
 end

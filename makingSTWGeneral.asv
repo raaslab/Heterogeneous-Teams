@@ -24,12 +24,14 @@ v_ClusterLevels = v_ClusterLevels';
 
 % creating flying edges (only UAV and bat' < bat)
 [sNew, tNew, weights, type1, allDistances] =  makingSTWv_Adj(area, x, y, numPoints, numLevels, v_Cluster);
-numberOf
+numberOfEdges = numel(type1);
 for i = 1:numberOfEdges
-    
+    if type1(i) == 0
+        type1(i) = Inf;
+    end
 end
 % creating charging edges (UAV riding UGV and charging/ bat' >= bat)
-[type2] = makingSTWType2(numPoints, numLevels, v_Cluster, timeTO, timeL, allDistances);
+[type2] = makingSTWType2(numPoints, numLevels, v_Cluster, timeTO, timeL, allDistances, v_ClusterLevels, rechargeTime);
 
 % creating charge vertex edges (UAV flying to vertex and then charging on UGV at
 % vertex/ bat' can be anything compared to bat)
