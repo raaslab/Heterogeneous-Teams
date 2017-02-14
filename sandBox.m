@@ -4,11 +4,10 @@
 % DON'T ADD CLEAR OR CLC OR CLOSE, this way you can use existing data
 
 
-makingSTWv_Adj(area, x1, y1, numPointsInit, numBatteryLevels, v_Adj, v_Cluster)
+makingSTWGeneral(area, x1, y1, numPointsInit, numBatteryLevels, v_Cluster)
 
 
-
-
+% makingSTWv_Adj(area, x1, y1, numPointsInit, numBatteryLevels, v_Adj, v_Cluster)
 % graphingClusterOrdered(x1, y1, numPointsInit, numBatteryLevels, S2, T2, v_Cluster, v_Adj, finalTour)
 % [ans1, ans2, ans3] = createUGVTour(x3, y3, finalTour, numPointsInit, numBatteryLevels);
 % numOfBaseStation = numel(clusterTour);
