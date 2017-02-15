@@ -57,10 +57,8 @@ for i = 1:sizeOfTourUGV
     yNew(end+1) = y(tourUGV(i));
 end
 
-
-
-
-
-
+xNew = union(xNew, [], 'stable');
+yNew = union(yNew, [], 'stable');
+tourUGV = union(tourUGV, [], 'stable');
 
 end

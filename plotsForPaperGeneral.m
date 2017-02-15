@@ -29,9 +29,9 @@ numEdges = numel(G4.Edges);
 % end
 % s = [7, 4];     % testcase.mat
 % t = [5, 1];     % testcase.mat
-s = [2, 7];     % testcase2.mat
-t = [5, 6];     % testcase2.mat
-highlight(h2, s, t, 'EdgeColor', 'r');
+% s = [2, 7];     % testcase2.mat
+% t = [5, 6];     % testcase2.mat
+% highlight(h2, s, t, 'EdgeColor', 'r');
 
 % UGV tour
 % hold on;
