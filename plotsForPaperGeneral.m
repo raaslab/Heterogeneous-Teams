@@ -27,8 +27,10 @@ numEdges = numel(G4.Edges);
 % for i = 0:numEdges-1
 %     highlight(h2, [G4.Edges.EndNodes(i*2+1), G4.Edges.EndNodes(i*2+2)], 'NodeColor', 'r', 'Marker', 's', 'MarkerSize', 3)
 % end
-s = [2, 7];     % testcase.mat
-t = [5, 6];     % testcase.mat
+% s = [7, 4];     % testcase.mat
+% t = [5, 1];     % testcase.mat
+s = [2, 7];     % testcase2.mat
+t = [5, 6];     % testcase2.mat
 highlight(h2, s, t, 'EdgeColor', 'r');
 
 % UGV tour
