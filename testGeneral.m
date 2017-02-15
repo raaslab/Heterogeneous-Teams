@@ -75,7 +75,7 @@ graphingCluster(x1, y1, numPointsInit, numBatteryLevels, S2, T2, 'yes', nodeArra
 title('UAV Tour');
 
 % recreating GTSP solution on plot (UGV's tour)
-[x5, y5, nodeArrayUGV] = createUGVTour(x3, y3, finalTour, numBatteryLevels);
+[x5, y5, nodeArrayUGV] = createUGVTourTypes(x3, y3, finalTour, numPointsInit, numBatteryLevels, v_Type, finalMatrix);
 G4 = digraph;
 [G4, x5, y5] = graphMakingWPoints(x5, y5, G4, nodeArrayUGV);
 [S3, T3] = makingUGVst(nodeArrayUGV);
