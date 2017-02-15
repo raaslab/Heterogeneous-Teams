@@ -1,4 +1,4 @@
-% plotsForPaper
+% plotsForPaperGeneral
 % this creates all plots needed for one run. You need to load a .mat first
 % contained within ./answers/
 
@@ -15,7 +15,7 @@ axis equal;
 
 % UAV tour
 figure(2);
-plot(G3, 'XData', x4, 'YData', y4, 'EdgeLabel', G3.Edges.Weight, 'LineWidth', 2, 'MarkerSize', 2)        % creates the final UAV tour
+h2 = plot(G3, 'XData', x4, 'YData', y4, 'LineWidth', 2, 'MarkerSize', 2)        % creates the final UAV tour
 title('Final UAV tour', 'FontSize', 14)
 xlabel('x Position', 'FontSize', 14)
 ylabel('y Position', 'FontSize', 14)
@@ -23,10 +23,18 @@ axis([0 100 0 100])
 box on;
 grid on;
 axis equal;
+numEdges = numel(G4.Edges);
+% for i = 0:numEdges-1
+%     highlight(h2, [G4.Edges.EndNodes(i*2+1), G4.Edges.EndNodes(i*2+2)], 'NodeColor', 'r', 'Marker', 's', 'MarkerSize', 3)
+% end
+s = [2, 7];     % testcase.mat
+t = [5, 6];     % testcase.mat
+highlight(h2, s, t, 'EdgeColor', 'r');
 
 % UGV tour
+% hold on;
 figure(3);
-plot(G4, 'XData', x5, 'YData', y5, 'LineWidth', 2, 'MarkerSize', 2)
+h3 = plot(x5, y5, '-.rs', 'LineWidth', 1, 'MarkerSize', 2, 'MarkerEdgeColor', 'r')
 title('Final UGV tour', 'FontSize', 14)
 xlabel('x Position', 'FontSize', 14)
 ylabel('y Position', 'FontSize', 14)
