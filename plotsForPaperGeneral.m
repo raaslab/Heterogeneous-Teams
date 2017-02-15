@@ -36,7 +36,7 @@ highlight(h2, s, t, 'EdgeColor', 'r');
 % UGV tour
 % hold on;
 figure(3);
-h3 = plot(x5, y5, '-.rs', 'LineWidth', 1, 'MarkerSize', 2, 'MarkerEdgeColor', 'r')
+plot(G4, 'XData', x5, 'YData', y5, 'LineWidth', 2, 'MarkerSize', 2)
 title('Final UGV tour', 'FontSize', 14)
 xlabel('x Position', 'FontSize', 14)
 ylabel('y Position', 'FontSize', 14)
