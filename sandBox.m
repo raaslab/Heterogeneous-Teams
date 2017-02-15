@@ -7,8 +7,7 @@ timeTO = 1;
 timeL = 2;
 rechargeRate = 4;
 UGVSpeed = 1;
-makingSTWv_AdjGeneral(area, x1, y1, numPointsInit, numBatteryLevels, v_Cluster, timeTO, timeL, rechargeRate, UGVSpeed)
-
+[v_AdjNew, v_Type] = makingSTWv_AdjGeneral(area, x1, y1, numPointsInit, numBatteryLevels, v_Cluster, timeTO, timeL, rechargeRate, UGVSpeed);
 
 % makingSTWv_Adj(area, x1, y1, numPointsInit, numBatteryLevels, v_Adj, v_Cluster)
 % graphingClusterOrdered(x1, y1, numPointsInit, numBatteryLevels, S2, T2, v_Cluster, v_Adj, finalTour)

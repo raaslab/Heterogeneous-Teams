@@ -12,7 +12,6 @@ v_Cluster = cell2mat(v_Cluster);
 totalPoints = numPoints * numLevels;
 v_AdjNew(1:totalPoints, 1:totalPoints) = Inf;
 
-
 for i = 1:totalPoints
     for j = 1:totalPoints
         if v_ClusterLevels(j) >= v_ClusterLevels(i)
@@ -32,10 +31,9 @@ end
 for i = 1:totalPoints
     for j = 1:totalPoints
         if v_Cluster(i) == v_Cluster(j)
-           v_AdjNew(i, j) = Inf; 
+            v_AdjNew(i, j) = Inf;
         end
     end
 end
-
 
 end

@@ -7,12 +7,7 @@
 % OUTPUTS
 
 
-
-
-function [sNew, tNew, weights, v_AdjNew] = makingSTWv_AdjGeneral(area, x, y, numPoints, numLevels, v_Cluster, timeTO, timeL, rechargeRate, UGVSpeed)
-
-maxDistance = sqrt(area^2+area^2);
-maxDistancePerLevel = maxDistance/numLevels;
+function [v_AdjNew, v_Type, sNew, tNew, weights] = makingSTWv_AdjGeneral(area, x, y, numPoints, numLevels, v_Cluster, timeTO, timeL, rechargeRate, UGVSpeed)
 
 v_ClusterLevels = [];
 for i = 1:numPoints
@@ -35,9 +30,39 @@ v_ClusterLevels = v_ClusterLevels';
 numOfTotalPoints = numPoints * numLevels;
 numberOfEdges = numel(type1);
 v_AdjNew(1:numOfTotalPoints, 1:numOfTotalPoints) = Inf;
+v_Type(1:numOfTotalPoints, 1:numOfTotalPoints) = 0;
+
 for i = 1:numberOfEdges
     compare = [type1(i), type2(i), type3(i)];
-   v_AdjNew(i) = min(compare); 
+    [v_AdjNew(i), v_Type(i)]= min(compare);
+end
+
+for i = 1:numberOfEdges
+    if v_AdjNew(i) == Inf
+        v_AdjNew(i) = 0;
+    end
+end
+
+v_Cluster = cell2mat(v_Cluster);
+for i = 1:numOfTotalPoints
+    for j = 1:numOfTotalPoints
+        if v_Cluster(i) == v_Cluster(j)
+            v_Type(i, j) = 0;
+        end
+    end
+end
+
+sNew = [];
+tNew = [];
+weights = [];
+for i = 1:numOfTotalPoints
+    for j = 1:numOfTotalPoints
+        if v_AdjNew(i, j) ~= 0
+            sNew(end+1) = i;
+            tNew(end+1) = j;
+            weights(end+1) = v_AdjNew(i, j);
+        end
+    end
 end
 
 
