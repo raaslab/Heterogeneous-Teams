@@ -9,8 +9,9 @@
 function [v_AdjNew] = makingSTWType2(numPoints, numLevels, v_Adj, v_Cluster, timeTO, timeL, distances, v_ClusterLevels, rRate, UGVratio)
 
 v_Cluster = cell2mat(v_Cluster);
-v_AdjNew = v_Adj;
 totalPoints = numPoints * numLevels;
+v_AdjNew(1:totalPoints, 1:totalPoints) = Inf;
+
 
 for i = 1:totalPoints
     for j = 1:totalPoints

@@ -5,7 +5,7 @@
 
 timeTO = 1;
 timeL = 2;
-rechargeRate = 3;
+rechargeRate = 4;
 UGVSpeed = 1;
 makingSTWv_AdjGeneral(area, x1, y1, numPointsInit, numBatteryLevels, v_Cluster, timeTO, timeL, rechargeRate, UGVSpeed)
 

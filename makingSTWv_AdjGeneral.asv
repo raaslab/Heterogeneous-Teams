@@ -23,8 +23,14 @@ end
 v_ClusterLevels = v_ClusterLevels';
 
 % creating flying edges (only UAV and bat' < bat)
-[type1, allDistances] = makingSTWType1(area, x, y, numPoints, numLevels, v_Cluster, v_ClusterLevels);
-
+[sNew, tNew, weights, type1, allDistances] =  makingSTWv_Adj(area, x, y, numPoints, numLevels, v_Cluster);
+numberOfEdges = numel(type1);
+for i = 1:numberOfEdges
+    if type1(i) == 0
+        type1(i) = Inf;
+    end
+end
+[type1] = makgingSTWTyp3
 % creating charging edges (UAV riding UGV and charging/ bat' >= bat)
 [type2] = makingSTWType2(numPoints, numLevels, type1, v_Cluster, timeTO, timeL, allDistances, v_ClusterLevels, rechargeRate, UGVSpeed);
 
@@ -32,12 +38,10 @@ v_ClusterLevels = v_ClusterLevels';
 % vertex/ bat' can be anything compared to bat)
 [type3] = makingSTWType3(numPoints, numLevels, type1, v_Cluster, timeTO, timeL, allDistances, v_ClusterLevels, rechargeRate);
 
-numOfTotalPoints = numPoints * numLevels;
 numberOfEdges = numel(type1);
-v_AdjNew(1:numOfTotalPoints, 1:numOfTotalPoints) = Inf;
+v_AdjNew = type1;
 for i = 1:numberOfEdges
-    compare = [type1(i), type2(i), type3(i)];
-   v_AdjNew(i) = min(compare); 
+   v_AdjNew = min(type1(i), type2(i), type3(i)); 
 end
 
 
