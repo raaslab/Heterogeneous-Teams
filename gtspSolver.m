@@ -28,20 +28,17 @@ Adj_G_init = full(adjacency(G_init));
 Adj_G_init_ind = sub2ind(size(Adj_G_init), s(:),t(:));
 Adj_G_init(Adj_G_init_ind(:)) = G_init.Edges.Weight(:);
 
-[atspAdjMatrix, ~]  = gtsp_to_atsp(Adj_G_init, cell2mat(v_Cluster), alpha_noon, beta_noon, G_init);
+%-------------------------------------------------------------------------%
+[atspAdjMatrix, ~]  = gtsp_to_atsp(Adj_G_init, cell2mat(v_Cluster), alpha_noon, beta_noon, G_init);     % this add's nodes for some reason
+%-------------------------------------------------------------------------%
 
 % [X_t, Y_s] = meshgrid(1:length(G_init.Nodes.Name), 1:length(G_init.Nodes.Name));
 [v_Cluster, atspAdjMatrix] = createBaseStation(v_Cluster, atspAdjMatrix, alpha_noon, beta_noon, numPoints, numLevels);                                  % creates the base station for v_Adj and v_Cluster
 [row, column, ~] = find(atspAdjMatrix > -1);
 G_atsp = digraph;
 [G_atsp] = createEdgesGTSP(G_atsp, row, column, atspAdjMatrix);
-%-------------------------------------------------------------------------%
 
-% ADD BASE STATION
-% ADD ONE NODE WITH EDGES TO EVERY POINT (COST==ALPHA+BETA) AND FROM EVERY
-% POINT (COST==0)
 
-%-------------------------------------------------------------------------%
 G_atsp2_tsp = graph([], []);
 
 str_1node_intra = cellfun(@(x,y) sprintf('%s.1', x), G_atsp.Nodes.Name,'uni', 0);
@@ -58,14 +55,11 @@ edges_totsp = G_atsp2_tsp.numedges;
 
 [Out_sol, ~] = TSP_tour_Dat(G_atsp2_tsp,'/home/klyu/software/concorde/concorde/TSP/concorde');
 
-% Out_solName = G_atsp2_tsp.Nodes.Name(Out_sol);
-% Out_solName = Out_solName(cell2mat(cellfun(@(x) ismember('1',x(1)) , Out_solName,'uni',0)));
-
 [finalMatrix, finalTour] = concordeReconvert(G_atsp2_tsp, Out_sol, v_Cluster, atspAdjMatrix, numLevels);
 
-[G_final, weights] = getWeights(G_init, finalMatrix, finalTour);
-% G_final = graph(output(:,1:(end-1)).*V_comp_upper, store_name,'upper');
-% G_final.Nodes.Cluster = V_Cluster;
-% plot(G_final, 'EdgeLabel', G_final.Edges.Weight);
+%-------------------------------------------------------------------------%
+[G_final, weights] = getWeights(G_init, finalMatrix, finalTour);        % weights for some reason don't seem right
+%-------------------------------------------------------------------------%
+
 
 end

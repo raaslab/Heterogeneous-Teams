@@ -40,15 +40,7 @@ end
 for i = 1:numberOfEdges
     if v_AdjNew(i) == Inf
         v_AdjNew(i) = 0;
-    end
-end
-
-v_Cluster = cell2mat(v_Cluster);
-for i = 1:numOfTotalPoints
-    for j = 1:numOfTotalPoints
-        if v_Cluster(i) == v_Cluster(j)
-            v_Type(i, j) = 0;
-        end
+        v_Type(i) = 0;
     end
 end
 
@@ -64,6 +56,5 @@ for i = 1:numOfTotalPoints
         end
     end
 end
-
 
 end
