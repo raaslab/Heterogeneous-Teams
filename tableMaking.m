@@ -19,20 +19,29 @@ yTemp = transpose(y);
 xTempSize = size(xTemp);
 levels = [];
 
-for i = 1:xTempSize
+if xTempSize(1) == 1
+    correctSize = xTempSize(2);
+end
+
+for i = 1:correctSize
     levels(end+1) = numBatteryLevels;
 end
-levelsTemp = transpose(levels);
 
+levelsOrientation = size(levels);
+xTemporientation = size(xTemp);
+
+if levelsOrientation(1) ~= xTemporientation(1)
+    levels = transpose(levels);
+end
 %groupNames = {'g1'; 'g2'; 'g3'};
-T = table(xTemp, yTemp, levelsTemp);
+T = table(xTemp, yTemp, levels);
 
-%creating multiple x's, y's, & z's\
-for j = 1:xTempSize
+%creating multiple x's, y's, & z's
+for j = 1:correctSize
     for i = 1:numBatteryLevels
-       xNew(end+1) = xTemp(j);
-       yNew(end+1) = yTemp(j);
-       zNew(end+1) = i;
+        xNew(end+1) = xTemp(j);
+        yNew(end+1) = yTemp(j);
+        zNew(end+1) = i;
     end
 end
 
