@@ -86,7 +86,7 @@ graphingCluster(x1, y1, numPointsInit, numBatteryLevels, S3, T3, 'yes', nodeArra
 title('UGV Tour');
 
 time = toc;
-f = fullfile('/home/klyu/Heterogeneous-Teams/answersfinal', filename);
+f = fullfile('/home/klyu/Heterogeneous-Teams/answersfinal2010', filename);
 save(f);
 close all;
 end

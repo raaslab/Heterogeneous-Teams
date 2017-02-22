@@ -21,6 +21,8 @@ levels = [];
 
 if xTempSize(1) == 1
     correctSize = xTempSize(2);
+else
+    correctSize = xTempSize(1);
 end
 
 for i = 1:correctSize
