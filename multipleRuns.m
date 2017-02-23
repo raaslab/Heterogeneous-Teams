@@ -6,11 +6,12 @@
 tic
 time = [];
 
-for k = 1:1                     % number of runs
-    for i = 5:3:20              % number of points
-        for j = 3:5             % number of levels
+for k = 1:10                     % number of runs
+    for i = 5:20              % number of points
+        for j = 3:7             % number of levels
             fileName = [num2str(i) '_' num2str(j) '_' num2str(k)];
-            [ansTime, problem] = test(i, j, fileName);
+%           [ansTime, problem] = test(i, j, fileName);
+	    [ansTime, problem] = testGeneral(i, j, filename, tTO, tL, rRate, UGVS, G, x, y);
             time(end+1, :) = [double(i), double(j), double(k), ansTime, double(problem)];
         end
     end
