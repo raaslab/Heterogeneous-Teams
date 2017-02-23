@@ -11,8 +11,9 @@
 % matrix = the matrix that will allow for creation of UAV/UGV tour
 % finalTour = final tour shown with nodeID's
 
-function [matrix, finalTour] = concordeReconvert(G, tour, v_Cluster, v_Adj, numLevels)
+function [matrix, finalTour, problem] = concordeReconvert(G, tour, v_Cluster, v_Adj, numLevels)
 
+problem = 0;
 tableOfPoints = G.Nodes;
 cellOfPoints = table2array(tableOfPoints);
 doubleOfPoints = arrayfun(@(x) str2double(x), cellOfPoints, 'UniformOutput', false);
@@ -75,13 +76,15 @@ finalTour2 = circshift(finalTour2, sizeOfFinalTour - locOfBase + 1);
 basePOne = finalTour1(2);
 basePTwo = finalTour2(2);
 if(mod(basePOne, numLevels) == 1 && mod(basePTwo, numLevels) == 1)
-    'error';
+    problem = 1;
+    finalTour = finalTour1;
 elseif(mod(basePOne, numLevels) == 1)
     finalTour = finalTour1;
 elseif(mod(basePTwo, numLevels) == 1)
     finalTour = finalTour2;
 else
-    'error';
+    problem = 2;
+    finalTour = finalTour1;
 end
 
 correctS = finalTour;

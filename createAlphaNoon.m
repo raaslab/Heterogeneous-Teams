@@ -9,7 +9,7 @@
 
 function [alpha, problem] = createAlphaNoon(v_Adj, numPoints, v_Cluster, numLevels)
 
-problem = 1;
+problem = 0;
 v_Cluster = cell2mat(v_Cluster);
 
 switch nargin
@@ -23,7 +23,7 @@ switch nargin
             [~, y] = find(v_Adj(newY, newY:end), 1);
             newY = y+oldY-1;
             if isempty(newY)
-                problem = 0;
+                problem = 1;
                 break;
             end
             s(end+1) = oldY;
