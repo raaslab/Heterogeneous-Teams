@@ -17,7 +17,7 @@ function [v_Cluster, v_Adj] = createBaseStation(v_Cluster, v_Adj, alpha, beta, n
 clusterNum = max([v_Cluster{:}])+1;
 v_Cluster(end+1) = {clusterNum};
 
-v_Adj(end+1, :) = 0;
+v_Adj(:, end+1) = 0;
 totalPoints = numPoints*numLevels;
 tempCostArray = [];
 for i = 1:totalPoints
@@ -28,7 +28,7 @@ for i = 1:totalPoints
     end
 end
 tempCostArray(end+1) = -1;
-v_Adj(:, end+1) = tempCostArray';
+v_Adj(end+1, :) = tempCostArray';
 
 
 

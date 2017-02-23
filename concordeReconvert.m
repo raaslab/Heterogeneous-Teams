@@ -70,15 +70,19 @@ sizeOfFinalTour = numel(finalTour1);
 numOfBaseStation = max(finalTour1);
 locOfBase = find(finalTour1 == numOfBaseStation);
 finalTour1 = circshift(finalTour1, sizeOfFinalTour - locOfBase + 1);
+locOfBase = find(finalTour2 == numOfBaseStation);
+finalTour2 = circshift(finalTour2, sizeOfFinalTour - locOfBase + 1);
 basePOne = finalTour1(2);
-basePTwo = finalTour1(3);
-if(mod(basePOne, numLevels) == 1 && mod(basePTwo, numLevels))
+basePTwo = finalTour2(2);
+if(mod(basePOne, numLevels) == 1 && mod(basePTwo, numLevels) == 1)
+    'error';
+elseif(mod(basePOne, numLevels) == 1)
     finalTour = finalTour1;
-else
+elseif(mod(basePTwo, numLevels) == 1)
     finalTour = finalTour2;
+else
+    'error';
 end
-locOfBase = find(finalTour == numOfBaseStation);
-finalTour = circshift(finalTour, sizeOfFinalTour - locOfBase + 1);
 
 correctS = finalTour;
 correctT = finalTour;
