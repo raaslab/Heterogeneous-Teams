@@ -13,7 +13,7 @@ G = graph;
 x = 0;
 y = 0;
 
-for k = 1:10                     % number of runs
+for k = 1:10                  % number of runs
     for i = 5:20              % number of points
         for j = 3:7             % number of levels
             fileName = [num2str(i) '_' num2str(j) '_' num2str(k)];
