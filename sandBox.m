@@ -3,11 +3,17 @@
 % this is not the actual code
 % DON'T ADD CLEAR OR CLC OR CLOSE, this way you can use existing data
 
-timeTO = 1;
-timeL = 2;
-rechargeRate = 4;
-UGVSpeed = 1;
-[v_AdjNew, v_Type] = makingSTWv_AdjGeneral(area, x1, y1, numPointsInit, numBatteryLevels, v_Cluster, timeTO, timeL, rechargeRate, UGVSpeed);
+
+[v_Adj] = createBaseStationSimple(v_Cluster, v_Adj, numPoints, numLevels)
+
+
+
+
+% timeTO = 1;
+% timeL = 2;
+% rechargeRate = 4;
+% UGVSpeed = 1;
+% [v_AdjNew, v_Type] = makingSTWv_AdjGeneral(area, x1, y1, numPointsInit, numBatteryLevels, v_Cluster, timeTO, timeL, rechargeRate, UGVSpeed);
 
 % makingSTWv_Adj(area, x1, y1, numPointsInit, numBatteryLevels, v_Adj, v_Cluster)
 % graphingClusterOrdered(x1, y1, numPointsInit, numBatteryLevels, S2, T2, v_Cluster, v_Adj, finalTour)

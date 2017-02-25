@@ -73,15 +73,46 @@ locOfBase = find(finalTour1 == numOfBaseStation);
 finalTour1 = circshift(finalTour1, sizeOfFinalTour - locOfBase + 1);
 locOfBase = find(finalTour2 == numOfBaseStation);
 finalTour2 = circshift(finalTour2, sizeOfFinalTour - locOfBase + 1);
-basePOne = finalTour1(2);
-basePTwo = finalTour2(2);
-if(mod(basePOne, numLevels) == 1 && mod(basePTwo, numLevels) == 1)
+% basePOne = finalTour1(2);
+% basePTwo = finalTour2(2);
+numOfPointsInTour = numel(finalTour1);
+tour1 = 0;
+tour2 = 0;
+
+for i = 1:numOfPointsInTour-1
+    if v_Adj(finalTour1(i), finalTour1(i+1)) == -1
+        tour1 = 1;
+    end
+end
+for i = 1:numOfPointsInTour-1
+    if v_Adj(finalTour2(i), finalTour2(i+1)) == -1
+        tour2 = 1;
+    end
+end
+
+if tour1 == 1 && tour2 == 1
     problem = 1;
     finalTour = finalTour1;
-elseif(mod(basePOne, numLevels) == 1)
-    finalTour = finalTour1;
-elseif(mod(basePTwo, numLevels) == 1)
+elseif tour1 ~= 1 && tour2 ~= 1
+    tour1min = [];
+    tour2min = [];
+    for i = 1:numOfPointsInTour-1
+        tour1min(end+1) = v_Adj(finalTour1(i), finalTour1(i+1));
+    end
+    for i = 1:numOfPointsInTour-1
+        tour2min(end+1) = v_Adj(finalTour2(i), finalTour2(i+1));
+    end
+    toursForComparison = [tour1min, tour2min];
+    finalTourToUse = min(toursForComparison);
+    if finalTourToUse == 1
+        finalTour = finalTour1;
+    else
+        finalTour = finalTour2;
+    end
+elseif tour1 == 1
     finalTour = finalTour2;
+elseif tour2 == 1
+    finalTour = finalTour1;
 else
     problem = 2;
     finalTour = finalTour1;
