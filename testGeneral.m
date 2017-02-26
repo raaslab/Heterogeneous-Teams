@@ -15,7 +15,7 @@ tic;
 % variables
 % numPointsInit = 7;
 % numBatteryLevels = 2;
-area = 50; % value used for graphMakingNew for defining the random numbers created
+area = 25; % value used for graphMakingNew for defining the random numbers created
 nodeArray = [];
 
 for i = 1:numPointsInit*numBatteryLevels
