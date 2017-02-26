@@ -14,8 +14,8 @@ x = 0;
 y = 0;
 
 for k = 1:100                  % number of runs
-    for i = 10:5:50              % number of points
-        for j = 10:10:30             % number of levels
+    for i = 7:20              % number of points
+        for j = 3:10             % number of levels
             fileName = [num2str(i) '_' num2str(j) '_' num2str(k)];
             % [ansTime, problem] = test(i, j, fileName);
             [ansTime, problem1, problem2] = testGeneral(i, j, fileName, tTO, tL, rRate, UGVS, G, x, y);
