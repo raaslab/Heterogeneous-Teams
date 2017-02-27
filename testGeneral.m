@@ -24,7 +24,7 @@ end
 nodeArray = nodeArray';
 
 % code
-% [G1, x1, y1] = graphMakingNew(numPointsInit, area);
+[G1, x1, y1] = graphMakingNew(numPointsInit, area);
 [G1] = createEdgesFull(G1, numPointsInit);
 [T, x3d, y3d, z3d] = tableMaking(x1, y1, numBatteryLevels);
 

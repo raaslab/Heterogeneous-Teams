@@ -4,16 +4,16 @@
 
 
 
-i = 20;
-j = 10;
-% k = 1;
-tTO = 4;
-tL = 4;
-rRate = 4;
-UGVS = 4;
-% location =  18;
-% filename = [num2str(i) '_' num2str(j) '_' num2str(k)];
-filename = ['20_10_4_4_4_4'];
-[ansTime, problem1, problem2] = testGeneral(i, j, filename, tTO, tL, rRate, UGVS, G, x, y);
-% time(location, :) = [double(i), double(j), double(k), ansTime, double(problem)];
+i = 16;
+j = 9;
+k = 9;
+tTO = 0;
+tL = 0;
+rRate = 0;
+UGVS = 1;
+location =  975;
+filename = [num2str(i) '_' num2str(j) '_' num2str(k)];
+% filename = ['20_10_4_4_4_4'];
+[ansTime, problem2] = testGeneral(i, j, filename, tTO, tL, rRate, UGVS, G, x, y);
+time(location, :) = [double(i), double(j), double(k), ansTime, double(problem2)];
 % time = [double(i), double(j), double(k), ansTime, double(problem)];
