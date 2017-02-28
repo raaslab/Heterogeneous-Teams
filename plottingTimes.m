@@ -7,38 +7,32 @@
 
 function [] = plottingTimes(totalAverageTimes)
 
-clear('neg')
-clear('pos')
-clear('x')
-clear('y')
-
-totalAverageTimes(1, :) = [];
-numOfTimes = numel(totalAverageTimes(:, 1));
-x = 1:numOfTimes;
-xNames = [];
-y = totalAverageTimes(:, 4);
-neg = totalAverageTimes(:, 5);
-pos = totalAverageTimes(:, 6);
-
-
-for i = 1:numOfTimes             % number of levels
-    name = totalAverageTimes(i, 1) + (.1*totalAverageTimes(i, 2));
-    xNames(end+1) = name;
+figure;
+hold on;
+for i = 3:10
+    location = find(totalAverageTimes(:, 2) == i);
+    numOfPoints = numel(location);
+    x = [];
+    y = [];
+    neg = [];
+    pos = [];
+    for j = 1:numOfPoints
+        x(end+1) = totalAverageTimes(location(j), 1);
+        y(end+1) = totalAverageTimes(location(j), 4);
+        neg(end+1) = totalAverageTimes(location(j), 5);
+        pos(end+1) = totalAverageTimes(location(j), 6);
+    end
+    label = num2str(i);
+    plotData = plot(x, y, 'DisplayName', label);
+    %     plotData = errorbar(x, y, neg, pos);
+    hold on;
 end
 
-xNames = num2str(xNames);
-
-
-
-% err = 8*ones(size(y));
-
+lgd = legend('show');
+title(lgd,'Battery Levels')
 title('Computational Time')
-xlabel({'Graph Input Cases', '(Initial Points, Number Of Packages)'})
+xlabel({'Number of Initial Poitns'})
 ylabel({'Time', '(Seconds)'})
-
-plot(x, y);
-% set(gca, 'Xticks', x, 'XTickLabels', xNames)
-hold on
-plotData = errorbar(x, y, neg, pos);
+axis([6 21 0 750]);
 
 end

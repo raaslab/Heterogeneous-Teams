@@ -8,7 +8,7 @@ scatter(x1, y1, 'filled', 'd')
 title({'Initial Graph Without Edge Costs', 'Edges are Euclidean Distances Between Points'}, 'FontSize', 14)
 xlabel('x Position', 'FontSize', 14)
 ylabel('y Position', 'FontSize', 14)
-axis([0 100 0 100])
+axis([0 25 0 25])
 box on;
 grid on;
 axis equal;
@@ -19,7 +19,7 @@ h2 = plot(G3, 'XData', x4, 'YData', y4, 'LineWidth', 2, 'MarkerSize', 2)        
 title('Final UAV tour', 'FontSize', 14)
 xlabel('x Position', 'FontSize', 14)
 ylabel('y Position', 'FontSize', 14)
-axis([0 100 0 100])
+axis([0 25 0 25])
 box on;
 grid on;
 axis equal;
@@ -27,20 +27,22 @@ numEdges = numel(G4.Edges);
 % for i = 0:numEdges-1
 %     highlight(h2, [G4.Edges.EndNodes(i*2+1), G4.Edges.EndNodes(i*2+2)], 'NodeColor', 'r', 'Marker', 's', 'MarkerSize', 3)
 % end
-% s = [7, 4];     % testcase.mat
-% t = [5, 1];     % testcase.mat
-% s = [2, 7];     % testcase2.mat
-% t = [5, 6];     % testcase2.mat
-% highlight(h2, s, t, 'EdgeColor', 'r');
+% type2
+s = [12,10,1];     % testcase.mat
+t = [10,6,8];     % testcase.mat
+highlight(h2, s, t, 'EdgeColor', 'r');
+%type3
+p = [];
+highlight(h2, p, 'NodeColor', 'g', 'MarkerSize', 4)
 
 % UGV tour
-% hold on;
+hold on;
 figure(3);
 plot(G4, 'XData', x5, 'YData', y5, 'LineWidth', 2, 'MarkerSize', 2)
 title('Final UGV tour', 'FontSize', 14)
 xlabel('x Position', 'FontSize', 14)
 ylabel('y Position', 'FontSize', 14)
-axis([0 100 0 100])
+axis([0 25 0 25])
 box on;
 grid on;
 axis equal;
