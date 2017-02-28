@@ -29,6 +29,7 @@ for i = 3:10
 end
 
 lgd = legend('show');
+lgd.Location = 'northwest';
 title(lgd,'Battery Levels')
 title('Computational Time')
 xlabel({'Number of Initial Poitns'})
