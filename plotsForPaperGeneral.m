@@ -14,7 +14,7 @@ grid on;
 axis equal;
 
 % UAV tour
-figure(2);
+figure(9);
 h2 = plot(G3, 'XData', x4, 'YData', y4, 'LineWidth', 3, 'MarkerSize', 6)        % creates the final UAV tour
 title('Final UAV tour', 'FontSize', 20)
 xlabel('x Position', 'FontSize', 20)
