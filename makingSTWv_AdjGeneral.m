@@ -3,7 +3,7 @@
 % points. There are 3 types of edges that can be use, but are constrained
 % by certain properties
 % INPUTS
-
+% UGVSpeed = the absolute value of the UGV speed (has to be greater than equal to 1)
 % OUTPUTS
 
 

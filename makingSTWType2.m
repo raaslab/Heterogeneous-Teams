@@ -2,7 +2,7 @@
 % makes charge edges which are edges that contain UGV carrying UAV to allow
 % for charging on the move
 % INPUTS
-
+% UGVratio = the ratio of UGVSpeed/UAVSpeed (has to be greater than or equal to 1)
 % OUTPUTS
 
 

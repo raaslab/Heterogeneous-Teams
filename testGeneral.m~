@@ -1,9 +1,6 @@
 % testGeneral
 % testing of program
 % for my own work
-% INPUTS
-% UGVSpeed = the absolute value of the UGV speed (has to be greater than equal to 1)
-% OUTPUTS
 
 % house keeping
 % clear all;

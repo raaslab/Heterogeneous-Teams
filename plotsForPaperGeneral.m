@@ -8,7 +8,7 @@ scatter(x1, y1, 'filled', 'd')
 title({'Initial Graph Without Edge Costs', 'Edges are Euclidean Distances Between Points'}, 'FontSize', 14)
 xlabel('x Position', 'FontSize', 14)
 ylabel('y Position', 'FontSize', 14)
-axis([0 40 0 40])
+axis([0 60 0 60])
 box on;
 grid on;
 axis equal;
@@ -19,7 +19,7 @@ h2 = plot(G3, 'XData', x4, 'YData', y4, 'LineWidth', 3, 'MarkerSize', 6)        
 title('Final UAV tour', 'FontSize', 20)
 xlabel('x Position', 'FontSize', 20)
 ylabel('y Position', 'FontSize', 20)
-axis([0 40 0 40])
+axis([0 60 0 60])
 box on;
 grid on;
 axis equal;
@@ -42,7 +42,7 @@ plot(G4, 'XData', x5, 'YData', y5, 'LineWidth', 2, 'MarkerSize', 2)
 title('Final UGV tour', 'FontSize', 14)
 xlabel('x Position', 'FontSize', 14)
 ylabel('y Position', 'FontSize', 14)
-axis([0 40 0 40])
+axis([0 60 0 60])
 box on;
 grid on;
 axis equal;
