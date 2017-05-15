@@ -1,6 +1,9 @@
 % testGeneral
 % testing of program
 % for my own work
+% INPUTS
+% UGVSpeed = the absolute value of the UGV speed (has to be greater than equal to 1)
+% OUTPUTS
 
 % house keeping
 % clear all;
@@ -86,7 +89,7 @@ graphingCluster(x1, y1, numPointsInit, numBatteryLevels, S3, T3, 'yes', nodeArra
 title('UGV Tour');
 
 time = toc;
-f = fullfile('/home/klyu/Heterogeneous-Teams/systemPaper', filename);
+f = fullfile('/home/klyu/-Teams/systemPaper', filename);
 save(f);
 close all;
 end

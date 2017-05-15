@@ -89,7 +89,7 @@ graphingCluster(x1, y1, numPointsInit, numBatteryLevels, S3, T3, 'yes', nodeArra
 title('UGV Tour');
 
 time = toc;
-f = fullfile('/home/klyu/Heterogeneous-Teams/systemPaper', filename);
+f = fullfile('/home/klyu/gitRepos/Heterogeneous-Teams/systemPaper', filename);
 save(f);
 close all;
 end
