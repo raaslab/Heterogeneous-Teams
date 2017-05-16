@@ -119,7 +119,8 @@ for i = 1:numOfEdges
     startNode = G3.Edges.EndNodes(locationOfEdge+numOfEdges);
     
 end
-
+corrdinatesOfSites = corrdinatesOfSites';
+uavSites = 1:numPointsInit;
 
 time = toc;
 f = fullfile('/home/klyu/lab/Heterogeneous-Teams/systemPaper', filename);
