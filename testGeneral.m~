@@ -104,19 +104,17 @@ end
 % making corrdinatesOfSites
 locationOfZeroEdge = find(G3.Edges.Weight == 0);
 numOfEdges = numel(G3.Edges.Weight);
-startNode = G3.Edges.EndNodes(locationOfZeroEdge+numOfEdges);
-% endNode = G3.Edges.EndNodes(locationOfZeroEdge)
+startNode = G3.Edges.EndNodes(locationOfZeroEdge+numOfEdges)
+endNode = G3.Edges.EndNodes(locationOfZeroEdge)
 corrdinatesOfSites = [];
 for i = 1:numOfEdges
+    
     indexNode = findnode(G3, startNode);
-    corrdinatesOfSites(end+1, :) = [x4(indexNode), y4(indexNode)];
+    corrdinatesOfSites(end+1, :) = [x4(indexNode), y4(indexNode)]
     for j = 1:numOfEdges
-        locationOfEdge = findedge(G3, indexNode, j);
-        if locationOfEdge ~= 0
-            break;
-        end
+        
     end
-    startNode = G3.Edges.EndNodes(locationOfEdge+numOfEdges);
+    
     
 end
 
