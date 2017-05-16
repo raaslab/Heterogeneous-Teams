@@ -8,7 +8,7 @@ time = [];
 tTO = 4;
 tL = 4;
 rRate = 0;
-UGVS = 2;
+UGVS = 1;
 G = graph;
 x = 0;
 y = 0;
@@ -26,5 +26,5 @@ end
 
 finaltime = toc;
 filename = [num2str(tTO) num2str(tL) num2str(rRate) num2str(UGVS) '_' 'finalworkspace'];
-f = fullfile('/home/klyu/gitRepos/Heterogeneous-Teams/systemPaper', filename);
+f = fullfile('/home/klyu/lab/Heterogeneous-Teams/systemPaper', filename);
     save(f);
