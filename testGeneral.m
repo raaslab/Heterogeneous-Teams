@@ -88,6 +88,18 @@ plot(G4, 'XData', x5, 'YData', y5)
 graphingCluster(x1, y1, numPointsInit, numBatteryLevels, S3, T3, 'yes', nodeArray);        % graphing the cluster format of the solution
 title('UGV Tour');
 
+j = 0;
+while i == 0
+    x6 = circshift(x5, j);
+    y6 = circshift(y5, j);
+    if x6(end) == 0
+       i = 1;
+    else
+        j = j+1;
+    end
+end
+
+
 time = toc;
 f = fullfile('/home/klyu/gitRepos/Heterogeneous-Teams/systemPaper', filename);
 save(f);
