@@ -5,8 +5,8 @@
 % time = test(7, 3, filename)
 tic
 time = [];
-tTO = 4;
-tL = 4;
+tTO = 0;
+tL = 0;
 rRate = 0;
 UGVS = 2;
 G = graph;
