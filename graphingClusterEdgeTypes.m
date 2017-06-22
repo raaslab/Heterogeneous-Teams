@@ -92,7 +92,6 @@ for i = 1:numPoints                                                 % clusters t
 %     text(xRec, yRec+hRec-(hRec/16), str, 'Color', 'red', 'Fontsize', 7);
 end
 
-
-
+labelnode(h,[1:31],{' '})
 
 
