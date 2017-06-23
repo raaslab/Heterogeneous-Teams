@@ -49,12 +49,14 @@ grid on;
 
 %%% Creating UAV+UGV graph. This requires the combination of the UAV and
 %%% UGV graph using hold on.
-s2 = [16,19,1,9,18,13,12,15,14,11,6];
-t2 = [4,1,9,18,13,10,15,14,8,6,3];
-s3 = [14,16,1,2,3,4,6,7,8,10,11];
-t3 = [15,1,2,3,4,5,7,8,9,11,12];
-% highlight(h2,s2,t2,'LineStyle','--')
-% highlight(h3,s3,t3,'LineStyle','--')
+s21 = [8,10,13,1,19,5];
+t21 = [14,13,18,19,5,20];
+s31 = [7,9,10,12,1,2];
+t31 = [8,10,11,1,2,3];
+highlight(h2,s21,t21,'EdgeColor','g')
+highlight(h3,s31,t31,'EdgeColor','g')
+highlight(h2,s2,t2,'LineStyle','--')
+highlight(h3,s3,t3,'LineStyle','--')
 title('Final UAV & UGV Tour', 'FontSize',14)
 
 %%% UAV cluster tour ordered
