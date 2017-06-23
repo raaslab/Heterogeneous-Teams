@@ -11,7 +11,7 @@
 % clc;
 
 
-function [time, problem1, problem2] = testGeneral(numPointsInit, numBatteryLevels, filename, timeTO, timeL, rechargeRate, UGVSpeed, G1, x1, y1)
+function [time,gtspWeightMatrix, gtspTime] = testGeneral(numPointsInit, numBatteryLevels, filename, timeTO, timeL, rechargeRate, UGVSpeed, G1, x1, y1)
 
 tic;
 
@@ -63,7 +63,9 @@ plot(G2, 'XData', x2, 'YData', y2);
 
 % GTSP solver
 % [x_reshape, G_final, fval, exitflag, output] = call_gtsp_recursive_func(v_Cluster, v_Adj);
-[finalMatrix, G_init, edgeWeightsFinal, finalTour, problem1, problem2] = gtspSolver(v_Cluster, v_Adj, numPointsInit, numBatteryLevels, xOut, yOut);
+tic;
+[finalMatrix, G_init, edgeWeightsFinal, finalTour, gtspWeightMatrix] = gtspSolver(v_Cluster, v_Adj, numPointsInit, numBatteryLevels, xOut, yOut);
+gtspTime = toc;
 
 % recreating GTSP solution on plot (UAV's tour)
 [x3, y3] = createBaseStationPoint(h.XData, h.YData);                                       % creates the base station point

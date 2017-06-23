@@ -14,7 +14,7 @@
 % finalTour = the finished transformed tour
 % problem = means there was an error and this is not a valid run
 
-function [finalMatrix, G_init, weights, finalTour, problem1, problem2] = gtspSolver(v_Cluster, v_Adj, numPoints, numLevels, xOut, yOut)
+function [finalMatrix, G_init, weights, finalTour, atspAdjMatrix] = gtspSolver(v_Cluster, v_Adj, numPoints, numLevels, xOut, yOut)
 
 [G_init] = createNodeName(v_Adj);
 
