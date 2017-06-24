@@ -33,10 +33,10 @@ grid on;
 % addedge(G3,sUAV,tUAV)
 % highlight(h,sUAV,tUAV)
 % highlight(h,s,t)
-hold on;
+% hold on;
 
 %%% UGV tour
-% figure(3);
+figure(3);
 % G4 = rmedge(G4,[12]);
 h3 = plot(G4, 'XData', x5, 'YData', y5, 'LineWidth', 2, 'MarkerSize', 2, 'EdgeColor', 'r')
 title('Final UGV tour', 'FontSize', 14)
