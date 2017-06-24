@@ -1,12 +1,12 @@
 
 
+
+function [sumTimes] = calcTotalTimeUAVUGV(finalMatrix, roundedGtspMatrix)
 sumTimes = 0;
-ans3 = find(finalMatrix==1);
-
-for i = 1:numel(ans3)
-    ans4 = roundedGtspMatrix(ans3(i));
-    sumTimes = sumTimes + ans4;
-    
+indexOfUsedPoints = find(finalMatrix==1);
+for i = 1:numel(indexOfUsedPoints)
+    timeCost = roundedGtspMatrix(indexOfUsedPoints(i));
+    sumTimes = sumTimes + timeCost;
 end
-
+end
 

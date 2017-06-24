@@ -11,7 +11,7 @@
 % clc;
 
 
-function [time,gtspWeightMatrix, gtspTime] = testGeneral(numPointsInit, numBatteryLevels, filename, timeTO, timeL, rechargeRate, UGVSpeed, G1, x1, y1)
+function [time,gtspWeightMatrix2, gtspTime] = testGeneral(numPointsInit, numBatteryLevels, filename, timeTO, timeL, rechargeRate, UGVSpeed, G1, x1, y1)
 
 time = 0;
 % variables
@@ -63,7 +63,7 @@ plot(G2, 'XData', x2, 'YData', y2);
 % GTSP solver
 % [x_reshape, G_final, fval, exitflag, output] = call_gtsp_recursive_func(v_Cluster, v_Adj);
 tic;
-[finalMatrix, G_init, edgeWeightsFinal, finalTour, gtspWeightMatrix] = gtspSolver(v_Cluster, v_Adj, numPointsInit, numBatteryLevels, xOut, yOut);
+[finalMatrix, G_init, edgeWeightsFinal, finalTour, gtspWeightMatrix, gtspWeightMatrix2] = gtspSolver(v_Cluster, v_Adj, numPointsInit, numBatteryLevels, xOut, yOut);
 gtspTime = toc;
 
 % recreating GTSP solution on plot (UAV's tour)
