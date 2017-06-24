@@ -13,8 +13,7 @@
 
 function [time,gtspWeightMatrix, gtspTime] = testGeneral(numPointsInit, numBatteryLevels, filename, timeTO, timeL, rechargeRate, UGVSpeed, G1, x1, y1)
 
-tic;
-
+time = 0;
 % variables
 % numPointsInit = 7;
 % numBatteryLevels = 2;
@@ -123,7 +122,6 @@ for i = 1:numOfEdges
 end
 uavSites = 1:numPointsInit;
 
-time = toc;
 f = fullfile('/home/klyu/lab/Heterogeneous-Teams/MRS', filename);
 save(f);
 close all;
