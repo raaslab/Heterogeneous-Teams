@@ -124,7 +124,7 @@ end
 uavSites = 1:numPointsInit;
 
 time = toc;
-f = fullfile('/home/klyu/lab/Heterogeneous-Teams/systemPaper', filename);
+f = fullfile('/home/klyu/lab/Heterogeneous-Teams/MRS', filename);
 save(f);
 close all;
 end
