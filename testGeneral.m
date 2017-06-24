@@ -17,7 +17,7 @@ time = 0;
 % variables
 % numPointsInit = 7;
 % numBatteryLevels = 2;
-area = 60; % value used for graphMakingNew for defining the random numbers created
+area = 500; % value used for graphMakingNew for defining the random numbers created
 nodeArray = [];
 
 for i = 1:numPointsInit*numBatteryLevels
