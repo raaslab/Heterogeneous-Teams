@@ -1,6 +1,6 @@
 
 
-origin = [37.197710, -80.579524, 530];
+origin = [37.1979045, -80.5800240, 530];
 latitude(1:numPointsInit) = [0];
 longitude(1:numPointsInit) = [0];
 elevation(1:numPointsInit) = [0];
