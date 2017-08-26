@@ -16,6 +16,9 @@
 
 function [finalMatrix, G_init, weights, finalTour, atspAdjMatrix, v_AdjChecker] = gtspSolver(v_Cluster, v_Adj, numPoints, numLevels, xOut, yOut)
 
+finalMatrix = 0;
+finalTour = 0;
+
 [G_init] = createNodeName(v_Adj);
 
 % [alpha_noon, problem] = createAlphaNoon(v_Adj, numPoints);
@@ -56,8 +59,7 @@ edges_totsp = G_atsp2_tsp.numedges;
 [v_AdjChecker] = createBaseStationSimple(v_Adj, numPoints, numLevels);
 
 % [finalMatrix, finalTour, problem2] = concordeReconvert(G_atsp2_tsp, Out_sol, v_Cluster, v_AdjChecker, numLevels);
-finalMatrix = 0;
-finalTour = 0;
+
 
 [G_final, weights] = getWeights(G_init, finalMatrix, finalTour);        % weights for some reason don't seem right
 

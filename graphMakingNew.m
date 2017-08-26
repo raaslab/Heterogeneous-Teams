@@ -2,7 +2,7 @@
 % makes a graph with random points
 % INPUTS
 % numPoints = number of points
-% area = the value used to make the row x col random points
+% area = array of [xmax, xmin, ymax, ymin]
 % OUTPUTS
 % G = graph with points below
 % x = array of x points
@@ -21,8 +21,12 @@ G = graph;
 %     
 % end
 
-x = randperm(area, numPoints);
-y = randperm(area, numPoints);
+% x = randperm(area, numPoints);
+% y = randperm(area, numPoints);
+
+x = (rand(1,numPoints)*(area(1)-area(2)))+area(2);
+y = (rand(1,numPoints)*(area(3)-area(4)))+area(4);
+
 
 % x
 % y

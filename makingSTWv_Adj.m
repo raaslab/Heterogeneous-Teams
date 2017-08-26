@@ -14,7 +14,7 @@
 
 function [sNew, tNew, weights, v_AdjNew, allDistances] =  makingSTWv_Adj(area, x, y, numPoints, numLevels, v_Cluster)
 
-maxDistance = sqrt(area^2+area^2);
+maxDistance = sqrt((area(1)-area(2))^2+(area(3)-area(4))^2);
 maxDistancePerLevel = maxDistance/numLevels;
 tempLevelArray = [];
 
