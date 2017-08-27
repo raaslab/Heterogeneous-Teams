@@ -22,25 +22,27 @@ allTimes = [];
     G = 0;
     x = 0;
     y = 0;
-    i = 100;
-    j = 10;
+    i = 40;         % number of sites
+    j = 7;          % number of battery levels
     k = 1;
-    tTO = 4;
-    tL = 4;
-    rRate = 0;
-    UGVS = 1;
+    tTO = 4;        % take off cost
+    tL = 4;         % landing cost
+    rRate = 0;      % rate of recharge
+    UGVS = 4;       % speed of UGV  = UGVS * speed of UAV
 %     filename = [num2str(i) '_' num2str(j) 'GNLS' num2str(z)];
-    filename = [num2str(i) '_' num2str(j) 'GNLS'];
+%     filename = [num2str(i) '_' num2str(j) 'GNLS'];
+    filename = ['test'];
     [ansTime,gtspMatrix,gtspTime] = testGeneral(i, j, filename, tTO, tL, rRate, UGVS, G, x, y);
     roundedGtspMatrix = round(gtspMatrix);
     roundedGtspMatrix(roundedGtspMatrix == -1) = 999999;
 %     filename = [num2str(i) '_' num2str(j) 'GNLS' num2str(z) 'more'];
-    filename = [num2str(i) '_' num2str(j) 'GNLSmore'];
-    f = fullfile('/home/klyu/lab/Heterogeneous-Teams/MRS', filename);
+%     filename = [num2str(i) '_' num2str(j) 'GNLSmore'];
+    filename = ['test1'];
+    f = fullfile('/home/klyu/lab/Heterogeneous-Teams/kentland/8_20_2017', filename);
     save(f);
 %     filename = [num2str(i) '_' num2str(j) 'GNLS' num2str(z) '.gtsp'];
-    filename = [num2str(i) '_' num2str(j) 'GNLS.gtsp'];
-    createGTSPFile(filename,roundedGtspMatrix)
+%     filename = [num2str(i) '_' num2str(j) 'GNLS.gtsp'];
+%     createGTSPFile(filename,roundedGtspMatrix)
     clear all;
 % end
 % time(location, :) = [double(i), double(j), double(k), ansTime, double(problem2)];

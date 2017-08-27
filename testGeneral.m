@@ -17,7 +17,7 @@ time = 0;
 % variables
 % numPointsInit = 7;
 % numBatteryLevels = 2;
-area = 500; % value used for graphMakingNew for defining the random numbers created
+area = [100,0,100,0]; % value used for graphMakingNew [xmax, xmin,ymax,ymin]
 nodeArray = [];
 
 for i = 1:numPointsInit*numBatteryLevels
@@ -122,7 +122,7 @@ for i = 1:numOfEdges
 end
 uavSites = 1:numPointsInit;
 
-f = fullfile('/home/klyu/lab/Heterogeneous-Teams/MRS', filename);
+f = fullfile('/home/klyu/lab/Heterogeneous-Teams/kentland/8_20_2017', filename);
 save(f);
 close all;
 end
