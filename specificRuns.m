@@ -31,14 +31,14 @@ allTimes = [];
     UGVS = 4;       % speed of UGV  = UGVS * speed of UAV
 %     filename = [num2str(i) '_' num2str(j) 'GNLS' num2str(z)];
 %     filename = [num2str(i) '_' num2str(j) 'GNLS'];
-    filename = ['test'];
+    filename = ['test1_0'];
     [ansTime,gtspMatrix,gtspTime] = testGeneral(i, j, filename, tTO, tL, rRate, UGVS, G, x, y);
     roundedGtspMatrix = round(gtspMatrix);
     roundedGtspMatrix(roundedGtspMatrix == -1) = 999999;
 %     filename = [num2str(i) '_' num2str(j) 'GNLS' num2str(z) 'more'];
 %     filename = [num2str(i) '_' num2str(j) 'GNLSmore'];
-    filename = ['test1'];
-    f = fullfile('/home/klyu/lab/Heterogeneous-Teams/kentland/8_20_2017', filename);
+    filename = ['test1_1'];
+    f = fullfile('/Users/klyu//Documents/lab/Heterogeneous-Teams/kentland/', filename);
     save(f);
 %     filename = [num2str(i) '_' num2str(j) 'GNLS' num2str(z) '.gtsp'];
 %     filename = [num2str(i) '_' num2str(j) 'GNLS.gtsp'];
