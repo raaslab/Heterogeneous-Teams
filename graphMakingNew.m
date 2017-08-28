@@ -8,7 +8,7 @@
 % x = array of x points
 % y = array of y points
 
-function [G, x, y] = graphMakingNew(numPoints, area)
+function [G, x, y, xo, yo] = graphMakingNew(numPoints, area, rotation)
 
 % x = [];
 % y = [];
@@ -24,9 +24,12 @@ G = graph;
 % x = randperm(area, numPoints);
 % y = randperm(area, numPoints);
 
-x = (rand(1,numPoints)*(area(1)-area(2)))+area(2);
-y = (rand(1,numPoints)*(area(3)-area(4)))+area(4);
-
+xo = (rand(1,numPoints)*(area(1)-area(2)))+area(2);
+yo = (rand(1,numPoints)*(area(3)-area(4)))+area(4);
+originalPoints = [xo;yo;zeros(1,numPoints)];
+rotatedPoints = rotatePoints(originalPoints, rotation);
+x = rotatedPoints(1,:);
+y = rotatedPoints(2,:);
 
 % x
 % y
