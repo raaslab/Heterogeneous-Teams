@@ -38,7 +38,7 @@ allTimes = [];
 %     filename = [num2str(i) '_' num2str(j) 'GNLS' num2str(z) 'more'];
 %     filename = [num2str(i) '_' num2str(j) 'GNLSmore'];
     filename = ['test1_1'];
-    f = fullfile('/Users/klyu//Documents/lab/Heterogeneous-Teams/kentland/', filename);
+    f = fullfile('/Users/klyu/Documents/lab/Heterogeneous-Teams/kentland/9_3_2017', filename);
     save(f);
 %     filename = [num2str(i) '_' num2str(j) 'GNLS' num2str(z) '.gtsp'];
 %     filename = [num2str(i) '_' num2str(j) 'GNLS.gtsp'];

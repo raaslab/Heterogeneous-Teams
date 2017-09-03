@@ -123,7 +123,7 @@ gtspTime = toc;
 % end
 % uavSites = 1:numPointsInit;
 
-f = fullfile('/Users/klyu//Documents/lab/Heterogeneous-Teams/kentland/', filename);
+f = fullfile('/Users/klyu//Documents/lab/Heterogeneous-Teams/kentland/9_3_2017', filename);
 save(f);
 close all;
 end
