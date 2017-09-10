@@ -2,7 +2,7 @@
 % testing of program
 % for my own work
 % INPUTS
-% UGVSpeed = the absolute value of the UGV speed (has to be greater than equal to 1)
+% UGVSpeed = the time to travel one unit for the UGV (has to be greater than equal to 1)
 % OUTPUTS
 
 % house keeping
@@ -123,7 +123,7 @@ gtspTime = toc;
 % end
 % uavSites = 1:numPointsInit;
 
-f = fullfile('/Users/klyu//Documents/lab/Heterogeneous-Teams/kentland/9_3_2017', filename);
+f = fullfile('/home/klyu/lab/Heterogeneous-Teams/ICRA2018', filename);
 save(f);
 close all;
 end
