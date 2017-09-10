@@ -22,22 +22,22 @@ allTimes = [];
     G = 0;
     x = 0;
     y = 0;
-    i = 100;         % number of sites
-    j = 7;          % number of battery levels
+    i = 0;         % number of sites
+    j = 10;          % number of battery levels
     k = 1;
     tTO = 4;        % take off cost
     tL = 4;         % landing cost
     rRate = 0;      % rate of recharge
-    UGVS = 4;       %  time to travel one unit for the UGV
+    UGVS = 1;       %  time to travel one unit for the UGV
 %     filename = [num2str(i) '_' num2str(j) 'GNLS' num2str(z)];
 %     filename = [num2str(i) '_' num2str(j) 'GNLS'];
-    filename = ['test100_0'];
+    filename = ['test40_20'];
     [ansTime,gtspMatrix,gtspTime] = testGeneral(i, j, filename, tTO, tL, rRate, UGVS, G, x, y);
     roundedGtspMatrix = round(gtspMatrix);
     roundedGtspMatrix(roundedGtspMatrix == -1) = 999999;
 %     filename = [num2str(i) '_' num2str(j) 'GNLS' num2str(z) 'more'];
 %     filename = [num2str(i) '_' num2str(j) 'GNLSmore'];
-    filename = ['test100_1'];
+    filename = ['test40_21'];
     f = fullfile('/home/klyu/lab/Heterogeneous-Teams/ICRA2018', filename);
     save(f);
 %     filename = [num2str(i) '_' num2str(j) 'GNLS' num2str(z) '.gtsp'];
