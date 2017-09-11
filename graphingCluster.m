@@ -70,7 +70,7 @@ switch method
         end
         
         [G, xOut, yOut] = graphMakingWPoints(xOut, yOut, G, id);
-        [G] = createEdges(G, s, t);
+%         [G] = createEdges(G, s, t);
         
         if strcmp(withBaseStation, 'yes')
             xOut(end+1) = 0;
