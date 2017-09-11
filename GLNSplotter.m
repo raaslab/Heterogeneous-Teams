@@ -1,5 +1,6 @@
 
-GLNSSolution = [120,9,164,67,61,594,267,23,661,137,397,90,456,79,521,452,159,132,99,2,248,494,572,349,337,184,360,144,334,34,197,443,213,606,299,657,302,611,423,508,180,258,169,366,577,550,54,678,645,408,584,627,320,440,323,191,556,389,684,118,288,562,262,354,432,503,43,226,598,529,488,517,414,240,276,235,670,20,309,72,381,480,40,643,687,219,150,634,474,377,107,206,536,544,699,402,620,285,97,469,701];
+GLNSSolution = [2300,1585,4581,2064,2161,4354,1450,1641,4438,3432,3623,2418,613,3211,1202,1896,4189,3584,79,4972,968,3053,1141,1338,2332,4724,1720,2612,4202,897,195,3386,4674,4073,468,361,3946,2744,232,3122,1918,4810,507,2948,1039,736,2829,3818,2503,3701];
+GLNSSolution = fliplr(GLNSSolution);
 GLNSSolutionOriginalPoints = ceil(GLNSSolution./numBatteryLevels);
 
 GLNSx = zeros(1,numel(x1));
@@ -23,14 +24,17 @@ for a = 1:numPointsInit
 end
 
 GLNSg = addedge(GLNSg,S2,T2);
-plot(GLNSg,'XData',GLNSx,'YData',GLNSy)
+GLNSPlot = plot(GLNSg,'XData',GLNSx,'YData',GLNSy);
 
 S3 = [];
-S4 = S3
-S5 = S3
+S4 = S3;
+S5 = S3;
+T3 = S3;
+T4 = S3;
+T5 = S3;
 
 for a = 1:numPointsInit-1
-    typeChecker = v_Type(GLNSSolution(a),GLNSSolution(a+1));
+    typeChecker = v_Type(GLNSSolution(a),GLNSSolution(a+1))
     if typeChecker == 1
         S3(end+1) = GLNSSolution(a);
         T3(end+1) = GLNSSolution(a+1);
@@ -45,4 +49,11 @@ for a = 1:numPointsInit-1
     end
 end
 
-highlight(h,S4, T4,'EdgeColor','r','LineWidth',1.5, 'LineStyle', '--')
+if isempty(S4) == 0
+    highlight(GLNSPlot,S4, T4,'EdgeColor','r','LineWidth',10, 'LineStyle', '--')
+end
+if isempty(S5) == 0
+    highlight(GLNSPlot,S4, T4,'EdgeColor','r','LineWidth',10, 'LineStyle', '--')
+end
+figure(2)
+plot(GLNSg, 'XData', GLNSx, 'YData', GLNSy)
