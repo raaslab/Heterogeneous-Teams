@@ -32,14 +32,17 @@ S5 = S3
 for a = 1:numPointsInit-1
     typeChecker = v_Type(GLNSSolution(a),GLNSSolution(a+1));
     if typeChecker == 1
-        S3(end+1) = 
-        T3(end+1) = 
+        S3(end+1) = GLNSSolution(a);
+        T3(end+1) = GLNSSolution(a+1);
     elseif typeChecker == 2
-        S4(end+1)
-        T4(end+1)
+        S4(end+1) = GLNSSolution(a);
+        T4(end+1) = GLNSSolution(a+1);
     elseif typeChecker == 3
-        S5(end+1) = 
-        T5(end+1) = 
+        S5(end+1) = GLNSSolution(a);
+        T5(end+1) = GLNSSolution(a+1);
     else
         print('error')
+    end
 end
+
+highlight(h,S4, T4,'EdgeColor','r','LineWidth',1.5, 'LineStyle', '--')
