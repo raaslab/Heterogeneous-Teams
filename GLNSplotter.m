@@ -34,7 +34,7 @@ T4 = S3;
 T5 = S3;
 
 for a = 1:numPointsInit-1
-    typeChecker = v_Type(GLNSSolution(a),GLNSSolution(a+1))
+    typeChecker = v_Type(GLNSSolution(a),GLNSSolution(a+1));
     if typeChecker == 1
         S3(end+1) = GLNSSolution(a);
         T3(end+1) = GLNSSolution(a+1);
@@ -45,7 +45,7 @@ for a = 1:numPointsInit-1
         S5(end+1) = GLNSSolution(a);
         T5(end+1) = GLNSSolution(a+1);
     else
-        print('error')
+        disp('error')
     end
 end
 
@@ -53,7 +53,7 @@ if isempty(S4) == 0
     highlight(GLNSPlot,S4, T4,'EdgeColor','r','LineWidth',10, 'LineStyle', '--')
 end
 if isempty(S5) == 0
-    highlight(GLNSPlot,S4, T4,'EdgeColor','r','LineWidth',10, 'LineStyle', '--')
+    highlight(GLNSPlot,S5, T5,'EdgeColor','r','LineWidth',10, 'LineStyle', '--')
 end
 figure(2)
 plot(GLNSg, 'XData', GLNSx, 'YData', GLNSy)
