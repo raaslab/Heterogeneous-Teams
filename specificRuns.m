@@ -32,13 +32,13 @@ allTimes = [];
     method = 1;     % 1 = GLNS, 0 = concorde
 %     filename = [num2str(i) '_' num2str(j) 'GNLS' num2str(z)];
 %     filename = [num2str(i) '_' num2str(j) 'GNLS'];
-    filename = ['test40_20'];
+    filename = ['test40_30'];
     [ansTime,gtspMatrix,gtspTime] = testGeneral(i, j, filename, tTO, tL, rRate, UGVS, G, x, y, method);
     roundedGtspMatrix = round(gtspMatrix);
     roundedGtspMatrix(roundedGtspMatrix == -1) = 999999;
 %     filename = [num2str(i) '_' num2str(j) 'GNLS' num2str(z) 'more'];
 %     filename = [num2str(i) '_' num2str(j) 'GNLSmore'];
-    filename = ['test40_21'];
+    filename = ['test40_31'];
     f = fullfile('/home/klyu/lab/Heterogeneous-Teams/ICRA2018', filename);
     save(f);
 %     filename = [num2str(i) '_' num2str(j) 'GNLS' num2str(z) '.gtsp'];
