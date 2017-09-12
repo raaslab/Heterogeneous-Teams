@@ -24,7 +24,6 @@ for a = 1:numPointsInit-1
 end
 
 GLNSg = addedge(GLNSg,S2,T2);
-GLNSPlot = plot(GLNSg,'XData',GLNSx,'YData',GLNSy);
 
 S3 = [];
 S4 = S3;
@@ -36,24 +35,38 @@ T5 = S3;
 for a = 1:numPointsInit-1
     typeChecker = v_Type(GLNSSolution(a),GLNSSolution(a+1));
     if typeChecker == 1
-        S3(end+1) = GLNSSolution(a);
-        T3(end+1) = GLNSSolution(a+1);
+        S3(end+1) = a;
+        T3(end+1) = a+1;
     elseif typeChecker == 2
-        S4(end+1) = GLNSSolution(a);
-        T4(end+1) = GLNSSolution(a+1);
+        S4(end+1) = a;
+        T4(end+1) = a+1;
     elseif typeChecker == 3
-        S5(end+1) = GLNSSolution(a);
-        T5(end+1) = GLNSSolution(a+1);
+        S5(end+1) = a;
+        T5(end+1) = a+1;
     else
         disp('error')
     end
 end
 
-if isempty(S4) == 0
-    highlight(GLNSPlot,S4, T4,'EdgeColor','r','LineWidth',10, 'LineStyle', '--')
+S6 = [];
+T6 = [];
+for a = 1:numel(S4)                 %creating UGV edges
+    S6(end+1) = T4(a);
+    T6(end+1) = S4(a+1);
 end
-if isempty(S5) == 0
-    highlight(GLNSPlot,S5, T5,'EdgeColor','r','LineWidth',10, 'LineStyle', '--')
+
+GLNSg = addedge(GLNSg,S6,T6);
+GLNSPlot = plot(GLNSg,'XData',GLNSx,'YData',GLNSy, 'LineWidth',4);
+
+
+
+hold on
+if isempty(S4) == 0                 %highlight type 2 edges
+    highlight(GLNSPlot,S4, T4,'EdgeColor','r','LineWidth',4, 'LineStyle', '--')
 end
-figure(2)
-plot(GLNSg, 'XData', GLNSx, 'YData', GLNSy)
+if isempty(S5) == 0                 %highlight type 3 edges
+    highlight(GLNSPlot,S5, T5,'EdgeColor','r','LineWidth',4, 'LineStyle', '--')
+end
+highlight(GLNSPlot, S2)             %highlights nodes
+highlight(GLNSPlot, numel(S2)+1)    %highlights last node
+
