@@ -26,7 +26,7 @@ for i = 1:numPointsInit*numBatteryLevels
     nodeArray(end+1) = i;
 end
 nodeArray = nodeArray';
-disp('line 29')
+% disp('line 29')
 % code
 [G1, x1, y1, x0, y0] = graphMakingNew(numPointsInit, area, rotation);
 [G1] = createEdgesFull(G1, numPointsInit);
@@ -42,7 +42,7 @@ disp('line 29')
 % figure(3)
 h = scatter3(x3d, y3d, z3d);
 numPoints = numel(h.XData);
-disp('line 45')
+% disp('line 45')
 % creates new graph with existing points
 [G2, x2, y2] = graphMakingWPoints(h.XData, h.YData);
 [v_Cluster] = makingV_cluster(numPointsInit, numBatteryLevels);
@@ -51,10 +51,10 @@ v_Cluster = num2cell(v_Cluster);                                                
 % [S1, T1, weights] = makingSTW(x2, y2, z3d, numPointsInit, numBatteryLevels);
 % [S1, T1, weights, v_Adj] = makingSTWv_Adj(area, x1, y1, numPointsInit, numBatteryLevels, v_Cluster);
 %-------------------------------------------------------------------------%
-disp('line 54')
+% disp('line 54')
 [v_Adj, v_Type, S1, T1, weights] = makingSTWv_AdjGeneral(area, x1, y1, numPointsInit, numBatteryLevels, v_Cluster, timeTO, timeL, rechargeRate, UGVSpeed);
 %-------------------------------------------------------------------------%
-disp('line 57')
+% disp('line 57')
 [xOut, yOut] = graphingCluster(x1, y1, numPointsInit, numBatteryLevels, S1, T1, 0, nodeArray, method);            % graph in cluster format
 
 % [G2] = createEdgesFull(G2, numPoints);                                                     % removed for GLNS
@@ -66,7 +66,7 @@ disp('line 57')
 % GTSP solver
 % [x_reshape, G_final, fval, exitflag, output] = call_gtsp_recursive_func(v_Cluster, v_Adj);
 tic;
-disp('line 69')
+% disp('line 69')
 [finalMatrix, G_init, edgeWeightsFinal, finalTour, gtspWeightMatrix, gtspWeightMatrix2] = gtspSolver(v_Cluster, v_Adj, numPointsInit, numBatteryLevels, xOut, yOut, method);
 gtspTime = toc;
 
@@ -126,7 +126,7 @@ gtspTime = toc;
 % end
 % uavSites = 1:numPointsInit;
 
-f = fullfile('/home/klyu/lab/Heterogeneous-Teams/ICRA2018', filename);
+f = fullfile('/home/klyu/lab/Heterogeneous-Teams/ICRA2018/multi_run', filename);
 save(f);
 close all;
 end

@@ -22,16 +22,16 @@ UGVS = 1;       % time to travel one unit for the UGV
 method = 1;     % 1 = GLNS, 0 = concorde
 %     filename = [num2str(i) '_' num2str(j) 'GNLS' num2str(z)];
 %     filename = [num2str(i) '_' num2str(j) 'GNLS'];
-filename = ['test40_50'];
+filename = ['rando'];
 [ansTime,gtspMatrix,gtspTime] = testGeneral(i, j, filename, tTO, tL, rRate, UGVS, G, x, y, method);
 roundedGtspMatrix = round(gtspMatrix);
 roundedGtspMatrix(roundedGtspMatrix == -1) = 999999;
 % ---------------------------
 %     filename = [num2str(i) '_' num2str(j) 'GNLS' num2str(z) 'more'];
 %     filename = [num2str(i) '_' num2str(j) 'GNLSmore'];
-filename = ['zzzGLNSSolverInput.gtsp'];
+filename = ['rando'];
 createGTSPFile(filename,roundedGtspMatrix, i, j)
-filename = ['test40_51'];
+filename = ['rando'];
 f = fullfile('/home/klyu/lab/Heterogeneous-Teams/ICRA2018', filename);
 save(f);
 %     filename = [num2str(i) '_' num2str(j) 'GNLS' num2str(z) '.gtsp'];
