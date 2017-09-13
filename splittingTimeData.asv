@@ -1,0 +1,142 @@
+% temp50 = time(:, 2) == 50
+finalNew = [];
+indexOf = find(time(:, 2)==50);
+timeNew = [];
+hold off
+for a = 1:numel(indexOf)
+    timeNew(end+1,:) = time(indexOf(a),:);
+end
+
+indexOf20 = find(timeNew(:,1)==20);
+time20 = [];
+for a = 1:numel(indexOf20)
+    time20(end+1,:) = timeNew(indexOf20(a),:);
+end
+
+indexOf30 = find(timeNew(:,1)==30);
+time30 = [];
+for a = 1:numel(indexOf30)
+    time30(end+1,:) = timeNew(indexOf30(a),:);
+end
+
+indexOf40 = find(timeNew(:,1)==40);
+time40 = [];
+for a = 1:numel(indexOf40)
+    time40(end+1,:) = timeNew(indexOf40(a),:);
+end
+
+indexOf50 = find(timeNew(:,1)==50);
+time50 = [];
+for a = 1:numel(indexOf50)
+    time50(end+1,:) = timeNew(indexOf50(a),:);
+end
+
+final = [];
+final(end+1,:) = mean(time20);
+final(end+1,:) = mean(time30);
+final(end+1,:) = mean(time40);
+final(end+1,:) = mean(time50);
+upError = [];
+downError = [];
+upError(end+1) = max(time20(:,4))-mean(time20(:,4));
+downError(end+1) = min(time20(:,4))-mean(time20(:,4));
+upError(end+1) = max(time30(:,4))-mean(time30(:,4));
+downError(end+1) = min(time30(:,4))-mean(time30(:,4));
+upError(end+1) = max(time40(:,4))-mean(time40(:,4));
+downError(end+1) = min(time40(:,4))-mean(time40(:,4));
+upError(end+1) = max(time50(:,4))-mean(time50(:,4));
+downError(end+1) = min(time50(:,4))-mean(time50(:,4));
+errorbar(final(:,1),final(:,4),abs(downError),abs(upError),'Color', 'r')
+hold on
+
+finalNew = [finalNew;final];
+
+indexOf = find(time(:, 2)==100);
+timeNew = [];
+for a = 1:numel(indexOf)
+    timeNew(end+1,:) = time(indexOf(a),:);
+end
+
+indexOf20 = find(timeNew(:,1)==20);
+time20 = [];
+for a = 1:numel(indexOf20)
+    time20(end+1,:) = timeNew(indexOf20(a),:);
+end
+
+indexOf30 = find(timeNew(:,1)==30);
+time30 = [];
+for a = 1:numel(indexOf30)
+    time30(end+1,:) = timeNew(indexOf30(a),:);
+end
+
+indexOf40 = find(timeNew(:,1)==40);
+time40 = [];
+for a = 1:numel(indexOf40)
+    time40(end+1,:) = timeNew(indexOf40(a),:);
+end
+
+indexOf50 = find(timeNew(:,1)==50);
+time50 = [];
+for a = 1:numel(indexOf50)
+    time50(end+1,:) = timeNew(indexOf50(a),:);
+end
+
+final = [];
+final(end+1,:) = mean(time20);
+final(end+1,:) = mean(time30);
+final(end+1,:) = mean(time40);
+final(end+1,:) = mean(time50);
+upError = [];
+downError = [];
+upError(end+1) = max(time20(:,4))-mean(time20(:,4));
+downError(end+1) = min(time20(:,4))-mean(time20(:,4));
+upError(end+1) = max(time30(:,4))-mean(time30(:,4));
+downError(end+1) = min(time30(:,4))-mean(time30(:,4));
+upError(end+1) = max(time40(:,4))-mean(time40(:,4));
+downError(end+1) = min(time40(:,4))-mean(time40(:,4));
+upError(end+1) = max(time50(:,4))-mean(time50(:,4));
+downError(end+1) = min(time50(:,4))-mean(time50(:,4));
+errorbar(final(:,1),final(:,4),abs(downError),abs(upError),'Color', 'b')
+
+% plot(final(:,1),final(:,4), 'b')
+
+finalNew = [finalNew;final];
+indexOf = find(time(:, 2)==150);
+timeNew = [];
+for a = 1:numel(indexOf)
+    timeNew(end+1,:) = time(indexOf(a),:);
+end
+
+indexOf20 = find(timeNew(:,1)==20);
+time20 = [];
+for a = 1:numel(indexOf20)
+    time20(end+1,:) = timeNew(indexOf20(a),:);
+end
+
+indexOf30 = find(timeNew(:,1)==30);
+time30 = [];
+for a = 1:numel(indexOf30)
+    time30(end+1,:) = timeNew(indexOf30(a),:);
+end
+
+indexOf40 = find(timeNew(:,1)==40);
+time40 = [];
+for a = 1:numel(indexOf40)
+    time40(end+1,:) = timeNew(indexOf40(a),:);
+end
+
+indexOf50 = find(timeNew(:,1)==50);
+time50 = [];
+for a = 1:numel(indexOf50)
+    time50(end+1,:) = timeNew(indexOf50(a),:);
+end
+
+final = [];
+final(end+1,:) = mean(time20);
+final(end+1,:) = mean(time30);
+final(end+1,:) = mean(time40);
+final(end+1,:) = mean(time50);
+
+plot(final(:,1),final(:,4), 'g')
+
+finalNew = [finalNew;final];
