@@ -8,7 +8,7 @@ time = [];
 tTO = 4;
 tL = 4;
 rRate = 0;
-UGVS = 1;
+UGVS = 8;
 G = graph;
 x = 0;
 y = 0;
@@ -21,10 +21,10 @@ for k = 1:5                  % number of runs
             [ansTime, gtspMatrix, problem2] = testGeneral(i, j, filename1, tTO, tL, rRate, UGVS, G, x, y,1);
             roundedGtspMatrix = round(gtspMatrix);
             roundedGtspMatrix(roundedGtspMatrix == -1) = 999999;
-            filename2 = ['/home/klyu/lab/Heterogeneous-Teams/ICRA2018/multi_run/GLNS' filename1 '.gtsp'];
+            filename2 = ['/home/klyu/lab/heterogenous_teams/Heterogeneous-Teams/ICRA2018/multi_run/GLNS' filename1 '.gtsp'];
             createGTSPFile(filename2,roundedGtspMatrix, i, j)
             filename3 = [filename1 'extra'];
-            f = fullfile('/home/klyu/lab/Heterogeneous-Teams/ICRA2018/multi_run', filename3);
+            f = fullfile('/home/klyu/lab/heterogenous_teams/Heterogeneous-Teams/ICRA2018/multi_run', filename3);
             save(f);
             time(end+1, :) = [double(i), double(j), double(k), ansTime];
             disp(k)
