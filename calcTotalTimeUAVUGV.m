@@ -1,4 +1,4 @@
-
+% calcTotalTimeUAVUGV
 
 
 function [sumTimes] = calcTotalTimeUAVUGV(finalMatrix, roundedGtspMatrix, edgeWeights, method)

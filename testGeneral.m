@@ -126,7 +126,7 @@ gtspTime = toc;
 % end
 % uavSites = 1:numPointsInit;
 
-f = fullfile('/home/klyu/lab/Heterogeneous-Teams/ICRA2018/multi_run', filename);
+f = fullfile('/home/klyu/lab/heterogenous_teams/Heterogeneous-Teams/ICRA2018/multi_run', filename);
 save(f);
 close all;
 end
