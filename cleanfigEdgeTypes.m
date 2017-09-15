@@ -11,8 +11,8 @@ ca = gca;
 % ca.Children.NodeLabel = '';
 for i = 1 : 1 : length(ca.Children(end).XData)-1
     %     textOnGraph = (100/5) * ca.Children(end).YData(i);
-    textOnGraph = ['x_' num2str(ca.Children(end).XData(i)) '^' num2str(ca.Children(end).YData(i))]
+    textOnGraph = ['x_' num2str(ca.Children(end).XData(i)) '^' num2str(ca.Children(end).YData(i))];
     text(ca.Children(end).XData(i) - .15, ca.Children(end).YData(i) + .35, textOnGraph, 'FontSize', 14)
 end
 % text(ca.Children(end).XData(1) + 1.5, ca.Children(end).YData(1) - 1.5, num2str(1), 'FontSize', 14)
-% text(ca.Children(end).XData(end) + 1.5, ca.Children(end).YData(end) - 1.5, num2str(length(ca.Children(end).YData)), 'FontSize', 14)
+text(ca.Children(end).XData(end) + .15, ca.Children(end).YData(end) + .15, 'd', 'FontSize', 14)
