@@ -18,7 +18,7 @@ time = 0;
 % variables
 % numPointsInit = 7;
 % numBatteryLevels = 2;
-area = [200,0,100,0]; % value used for graphMakingNew [xmax, xmin,ymax,ymin]
+area = [300,0,110,0]; % value used for graphMakingNew [xmax, xmin,ymax,ymin]
 rotation = 51; % value used for rotating in graphMakingNew, in degrees
 nodeArray = [];
 
@@ -126,7 +126,7 @@ gtspTime = toc;
 % end
 % uavSites = 1:numPointsInit;
 
-f = fullfile('/home/klyu/lab/heterogenous_teams/Heterogeneous-Teams/ICRA2018/multi_run', filename);
+f = fullfile('/home/klyu/lab/heterogenous_teams/Heterogeneous-Teams/', filename);
 save(f);
 close all;
 end
