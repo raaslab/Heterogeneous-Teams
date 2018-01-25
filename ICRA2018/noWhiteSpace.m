@@ -13,4 +13,8 @@ fig.PaperPositionMode = 'auto'
 fig_pos = fig.PaperPosition;
 fig.PaperSize = [fig_pos(3) fig_pos(4)];
 
+<<<<<<< HEAD
 saveas(fig,'finalPlot','epsc')
+=======
+saveas(fig,'Cnew','epsc')
+>>>>>>> 832ef9c2e20aa7e081afea6b4ced325ee780e451
