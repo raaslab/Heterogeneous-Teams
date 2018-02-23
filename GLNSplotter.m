@@ -65,21 +65,21 @@ for a = 1:numel(S4)-1                 %creating UGV edges
 end
 
 GLNSg = addedge(GLNSg,S6,T6);
-% GLNSPlot = plot(GLNSg,'XData',GLNSx,'YData',GLNSy, 'LineWidth',4);
+GLNSPlot = plot(GLNSg,'XData',GLNSx,'YData',GLNSy, 'LineWidth',4);
 
 
 
-% hold on
+hold on
 % highlight edges for UAV
-% if isempty(S4) == 0                 %highlight type 2 edges
-%     highlight(GLNSPlot,S4, T4,'EdgeColor','r','LineWidth',4, 'LineStyle', '--')
-% end
-% if isempty(S5) == 0                 %highlight type 3 edges
-%     highlight(GLNSPlot,S5, T5,'EdgeColor','r','LineWidth',4, 'LineStyle', '--')
-% end
+if isempty(S4) == 0                 %highlight type 2 edges
+    highlight(GLNSPlot,S4, T4,'EdgeColor','r','LineWidth',4, 'LineStyle', '--')
+end
+if isempty(S5) == 0                 %highlight type 3 edges
+    highlight(GLNSPlot,S5, T5,'EdgeColor','r','LineWidth',4, 'LineStyle', '--')
+end
 % highlighting edges for UGV
-% highlight(GLNSPlot, S6, T6, 'EdgeColor', 'r', 'LineWidth', 4)
+highlight(GLNSPlot, S6, T6, 'EdgeColor', 'r', 'LineWidth', 4)
 
-% highlight(GLNSPlot, S2)             %highlights nodes
-% highlight(GLNSPlot, numel(S2)+1)    %highlights last node
+highlight(GLNSPlot, S2)             %highlights nodes
+highlight(GLNSPlot, numel(S2)+1)    %highlights last node
 
