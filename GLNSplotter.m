@@ -20,7 +20,10 @@ end
 % GLNSy(end+1) = 0;
 GLNSg = digraph;
 GLNSg = addnode(GLNSg, numel(GLNSx));
-
+figure(1)
+plot(GLNSx, GLNSy,'.')
+axis equal
+title('Initial Graph Without Edge Costs Edges are Euclidean Distance Between Points')
 S2 = zeros(1,numel(GLNSx)-1);
 T2 = S2;
 for a = 1:numPointsInit-1
@@ -65,7 +68,9 @@ for a = 1:numel(S4)-1                 %creating UGV edges
 end
 
 GLNSg = addedge(GLNSg,S6,T6);
+figure(2)
 GLNSPlot = plot(GLNSg,'XData',GLNSx,'YData',GLNSy, 'LineWidth',4);
+axis equal
 
 
 
