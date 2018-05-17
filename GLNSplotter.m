@@ -77,10 +77,10 @@ axis equal
 hold on
 % highlight edges for UAV
 if isempty(S4) == 0                 %highlight type 2 edges
-    highlight(GLNSPlot,S4, T4,'EdgeColor','r','LineWidth',4, 'LineStyle', '--')
+    highlight(GLNSPlot,S4, T4,'EdgeColor','r','LineWidth',4, 'LineStyle', '-')
 end
 if isempty(S5) == 0                 %highlight type 3 edges
-    highlight(GLNSPlot,S5, T5,'EdgeColor','r','LineWidth',4, 'LineStyle', '--')
+    highlight(GLNSPlot,S5, T5,'EdgeColor','r','LineWidth',4, 'LineStyle', '-')
 end
 % highlighting edges for UGV
 highlight(GLNSPlot, S6, T6, 'EdgeColor', 'r', 'LineWidth', 4)
