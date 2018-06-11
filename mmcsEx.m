@@ -14,9 +14,9 @@ y2=[4.25,3.5]
 s = [1,2,3,4]
 t = [2,3,4,5]
 weights = [1, 1, 1, 1]
-nodenames = {'h','i','j','k'}
-names = ['y_hi', 'y_ij', 'y_jk', 'y_kl'];
-G = digraph(s,t, weights, nodenames)
+% nodenames = {'h','i','j','k'}
+% names = ['y_hi', 'y_ij', 'y_jk', 'y_kl'];
+G = digraph(s,t, weights)
 figure(1)
 plot(G)
 plot(G,'XData',x,'YData',y,'EdgeLabel',G.Edges.Weight)
