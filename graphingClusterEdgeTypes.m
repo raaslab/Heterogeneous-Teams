@@ -18,7 +18,7 @@
 
 % inputs
 withBaseStation = 'yes';
-numPoints = 6;
+numPoints = 2;
 numLevels = 5;
 nodeArray = [];
 
@@ -43,19 +43,21 @@ end
 
 [G, xOut, yOut] = graphMakingWPoints(xOut, yOut, G, nodeArray);
 
+s1 = [4,4,4,4]
+t1 = [6,7,8,9]
 % create type 1 edges
-s1 = [1, 2, 3, 4];
-t1 = [7, 8, 9, 10];
+% s1 = [1, 2, 3, 4];
+% t1 = [7, 8, 9, 10];
 % create type 2 edges
-s2 = [14, 14, 14, 14];
-t2 = [16, 17, 18, 19];
+% s2 = [14, 14, 14, 14];
+% t2 = [16, 17, 18, 19];
 % create type 3 edges
-s3 = [24, 24, 24, 24, 24];
-t3 = [26 ,27 ,28, 29, 30];
+% s3 = [24, 24, 24, 24, 24];
+% t3 = [26 ,27 ,28, 29, 30];
 
 [G] = createEdges(G, s1, t1);
-[G] = createEdges(G, s2, t2);
-[G] = createEdges(G, s3, t3);
+% [G] = createEdges(G, s2, t2);
+% [G] = createEdges(G, s3, t3);
 
 if strcmp(withBaseStation, 'yes')
     xOut(end+1) = 0;
@@ -65,19 +67,19 @@ end
 
 figure()                                                            % plots graph
 h = plot(G, 'XData', xOut, 'YData', yOut, 'LineStyle', '-.', 'LineWidth', 2, 'MarkerSize', 2);
-axis([-0.5, 7, -0.5, 6.5]);
+axis([0.5, 2.5, 0, 6]);
 % create type 1 edges
-s1 = [1, 2, 3, 4];
-t1 = [7, 8, 9, 10];
-highlight(h, s1, t1, 'EdgeColor', 'r');
+% s1 = [1, 2, 3, 4];
+% t1 = [7, 8, 9, 10];
+% highlight(h, s1, t1, 'EdgeColor', 'r');
 % create type 2 edges
-s2 = [14, 14, 14, 14];
-t2 = [16, 17, 18, 19];
-highlight(h, s2, t2, 'EdgeColor', 'g');
+% s2 = [14, 14, 14, 14];
+% t2 = [16, 17, 18, 19];
+% highlight(h, s2, t2, 'EdgeColor', 'g');
 % create type 3 edges
-s3 = [24, 24, 24, 24, 24];
-t3 = [26 ,27 ,28, 29, 30];
-highlight(h, s3, t3, 'EdgeColor', 'b');
+% s3 = [24, 24, 24, 24, 24];
+% t3 = [26 ,27 ,28, 29, 30];
+% highlight(h, s3, t3, 'EdgeColor', 'b');
 
 yRec = 0;
 wRec = 1;
@@ -92,7 +94,7 @@ for i = 1:numPoints                                                 % clusters t
 %     text(xRec, yRec+hRec-(hRec/16), str, 'Color', 'red', 'Fontsize', 7);
 end
 
-labelnode(h,[1:31],{' '})
+% labelnode(h,[1:31],{' '})
 
 fname = 'EdgeTypes';
 
