@@ -12,14 +12,14 @@ allTimes = [];
 G = 0;
 x = 0;
 y = 0;
-i = 5;         % number of sites
-j = 3;        % number of battery levels
+i = 50;         % number of sites
+j = 100;        % number of battery levels
 k = 1;
 tTO = 4;        % take off cost
 tL = 4;         % landing cost
 rRate = 0;      % rate of recharge
 UGVS = 4;       % time to travel one unit for the UGV
-method = 0;     % 1 = GLNS, 0 = concorde
+method = 1;     % 1 = GLNS, 0 = concorde
 %     filename = [num2str(i) '_' num2str(j) 'GNLS' num2str(z)];
 %     filename = [num2str(i) '_' num2str(j) 'GNLS'];
 filename = ['rando1'];
