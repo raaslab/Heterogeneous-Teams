@@ -57,11 +57,11 @@ switch method
         nodes_totsp = G_atsp2_tsp.numnodes;
         edges_totsp = G_atsp2_tsp.numedges;
 
-        % [Out_sol, ~] = TSP_tour_Dat(G_atsp2_tsp,'/home/klyu/software/concorde/concorde/TSP/concorde');
+        [Out_sol, ~] = TSP_tour_Dat(G_atsp2_tsp,'/home/klyu/software/concorde/concorde/TSP/concorde');
 
         [v_AdjChecker] = createBaseStationSimple(v_Adj, numPoints, numLevels);
 
-        % [finalMatrix, finalTour, problem2] = concordeReconvert(G_atsp2_tsp, Out_sol, v_Cluster, v_AdjChecker, numLevels);
+        [finalMatrix, finalTour, problem2] = concordeReconvert(G_atsp2_tsp, Out_sol, v_Cluster, v_AdjChecker, numLevels);
 
 
         [G_final, weights] = getWeights(G_init, finalMatrix, finalTour);        % weights for some reason don't seem right

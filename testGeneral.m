@@ -79,9 +79,9 @@ gtspTime = toc;
 % [G3] = createEdges(G3, edgeWeightsFinal(:, 1), edgeWeightsFinal(:, 2), edgeWeightsFinal(:, 3));
 % figure(5);
 % plot(G3, 'XData', x4, 'YData', y4, 'EdgeLabel', G3.Edges.Weight)
-% graphingCluster(x1, y1, numPointsInit, numBatteryLevels, S2, T2, 'yes', nodeArray);        % graphing the cluster format of the solution
+% graphingCluster(x1, y1, numPointsInit, numBatteryLevels, S2, T2, 'yes', nodeArray, method);        % graphing the cluster format of the solution
 % title('UAV Tour');
-% 
+% % 
 % % recreating GTSP solution on plot (UGV's tour)
 % [x5, y5, nodeArrayUGV] = createUGVTourTypes(x3, y3, finalTour, numPointsInit, numBatteryLevels, v_Type, finalMatrix);
 % G4 = digraph;
@@ -90,7 +90,7 @@ gtspTime = toc;
 % [G4] = createEdges(G4, S3, T3);
 % figure(7);
 % plot(G4, 'XData', x5, 'YData', y5)
-% graphingCluster(x1, y1, numPointsInit, numBatteryLevels, S3, T3, 'yes', nodeArray);        % graphing the cluster format of the solution
+% graphingCluster(x1, y1, numPointsInit, numBatteryLevels, S3, T3, 'yes', nodeArray, method);        % graphing the cluster format of the solution
 % title('UGV Tour');
 % 
 % % making x6 & y6

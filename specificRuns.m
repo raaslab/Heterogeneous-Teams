@@ -12,14 +12,14 @@ allTimes = [];
 G = 0;
 x = 0;
 y = 0;
-i = 50;         % number of sites
-j = 100;        % number of battery levels
+i = 5;         % number of sites
+j = 3;        % number of battery levels
 k = 1;
 tTO = 4;        % take off cost
 tL = 4;         % landing cost
 rRate = 0;      % rate of recharge
-UGVS = 1;       % time to travel one unit for the UGV
-method = 1;     % 1 = GLNS, 0 = concorde
+UGVS = 4;       % time to travel one unit for the UGV
+method = 0;     % 1 = GLNS, 0 = concorde
 %     filename = [num2str(i) '_' num2str(j) 'GNLS' num2str(z)];
 %     filename = [num2str(i) '_' num2str(j) 'GNLS'];
 filename = ['rando1'];
@@ -29,7 +29,7 @@ roundedGtspMatrix(roundedGtspMatrix == -1) = 999999;
 % ---------------------------
 %     filename = [num2str(i) '_' num2str(j) 'GNLS' num2str(z) 'more'];
 %     filename = [num2str(i) '_' num2str(j) 'GNLSmore'];
-filename = ['rando2'];
+filename = ['rando2.gtsp'];
 createGTSPFile(filename,roundedGtspMatrix, i, j)
 filename = ['rando3'];
 f = fullfile('/home/klyu/lab/heterogenous_teams/Heterogeneous-Teams/', filename);
