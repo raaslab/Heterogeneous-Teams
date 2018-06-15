@@ -1,5 +1,5 @@
 
-load rando1.mat;
+load 0rando1.mat;
 method = 0;
 numUGVs = 2;
 sitesPerUGV = numPointsInit/numUGVs;
@@ -65,6 +65,12 @@ for i = 1:numUGVs-1
     UGVlegs = UGVlegs + pdist(points, 'euclidean');
 end
 totCost = sum(totCosts) + UGVlegs;
+
+% totCostMine = 0;
+% for i = 1:numPointsInit-1
+%     points = [GLNSx(i), GLNSy(i); GLNSx(i+1), GLNSy(i+1)];
+%     totCostMine = totCostMine + pdist(points, 'euclidean');
+% end
 % gtspSolver(compCluster, v_Adj, sitesPerUGV,
 
 % rangemaxDistance/numUGVs;
