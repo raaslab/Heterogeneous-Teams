@@ -70,8 +70,19 @@ radii = ones([length(keptCenters), 1]) * (budget/2);
 viscircles(keptCenters, radii)
 
 totalUGVCostPath = 0;
-for i = 1:length(circleKeep)-1 % TODO: make this a depth first search instead of in order of circleKeep
-    [tempPath, tempCostUGVPath] = shortestpath(minTree, circleKeep(i), circleKeep(i+1));
+DFS = dfsearch(minTree,1);
+tempCircleKeep = nan([length(circleKeep),1]);
+for i = 1:length(circleKeep)
+        tempCircleKeep(i) = find(DFS==circleKeep(i));
+end
+for i = 1:length(circleKeep)
+    tempTempCircleKeep(tempCircleKeep(i)) = circleKeep(i);
+end
+UGVcircleKeep = tempTempCircleKeep;
+UGVcircleKeep(UGVcircleKeep==0) = [];
+
+for i = 1:length(UGVcircleKeep)-1 % TODO: make this a depth first search instead of in order of circleKeep
+    [tempPath, tempCostUGVPath] = shortestpath(minTree, UGVcircleKeep(i), UGVcircleKeep(i+1));
     totalUGVCostPath = totalUGVCostPath + tempCostUGVPath;
 end
 
@@ -102,7 +113,7 @@ for k = 1: numUGVs
     concordeG = graph([], []);
     tempX = UGVsitesX(k,:);
     tempY = UGVsitesY(k,:);
-    tempX(isnan(tempX)) = [];
+    tempX(isnan(tempX)) = []; % removing NaN
     tempY(isnan(tempY)) = [];
     for i = 1:length(tempX)
         for j = i+1:length(tempX)
@@ -142,9 +153,7 @@ for k = 1: numUGVs
         removalDist = [0];
         tempXNew = tempX;
         tempYNew = tempY;
-        %     checker = sitesCircleKeep(k,:)
         for i = 1:length(Out_sol)
-            %         tempCheck = Out_sol(i);
             tempX(i) = tempXNew(Out_sol(i));
             tempY(i) = tempYNew(Out_sol(i));
         end
