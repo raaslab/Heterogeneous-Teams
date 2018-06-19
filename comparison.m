@@ -32,12 +32,14 @@ for i = 1:numPointsInit
 end
 
 circleKeep = [];
+sitesCircleKeep = [];
 while(min(min(isnan(tempCircleHits)))~=1)
     lengthsOfTempCircleHits = sum(~isnan(tempCircleHits),2);
     maxOfTempCircleHits = max(lengthsOfTempCircleHits);
     locationOfMax = find(lengthsOfTempCircleHits==maxOfTempCircleHits);
     circleKeep(end+1) = locationOfMax(1); %#ok<*SAGROW>
     tempCircleKeep = tempCircleHits(locationOfMax(1), :);
+    sitesCircleKeep(end+1, :) = tempCircleKeep;
     hitSites = tempCircleKeep(~isnan(tempCircleKeep));
     for i = 1:length(hitSites)
         tempCircleHits(tempCircleHits == hitSites(i)) = NaN;
@@ -56,7 +58,7 @@ viscircles(keptCenters, radii)
 1;
 
 
-
+% TODO: run concorde on sitesCircleKeep for each row
 
 
 
