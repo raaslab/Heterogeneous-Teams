@@ -5,12 +5,12 @@ compG1 = G1;
 [compLen, compLen1] = size(compG1.Edges);
 tempWeights = zeros([compLen, compLen1]);
 counter = 1;
-budget = 300;
+budget = 40;
 for i = 1:numPointsInit
     for j = i+1:numPointsInit
-        points = [x1(i), y1(i); x1(j), y1(j)];
-        tempWeights(counter) = pdist(points, 'euclidean');
-        counter = counter+1;
+    points = [x1(i), y1(i); x1(j), y1(j)];
+    tempWeights(counter) = pdist(points, 'euclidean');
+    counter = counter+1;
     end
 end
 compG1.Edges.Weight = tempWeights;
@@ -26,48 +26,21 @@ tempCircleHits = [];
 for i = 1:numPointsInit
     rowAdd = find(tempSolution(i,:) < (budget/2));
     while length(rowAdd) ~= numPointsInit
-        rowAdd = [rowAdd, NaN];
+    rowAdd = [rowAdd, NaN];
     end
     tempCircleHits = [tempCircleHits; rowAdd];
 end
 
 circleKeep = [];
-while(min(min(isnan(tempCircleHits)))~=1)
-    lengthsOfTempCircleHits = sum(~isnan(tempCircleHits),2);
-    maxOfTempCircleHits = max(lengthsOfTempCircleHits);
-    locationOfMax = find(lengthsOfTempCircleHits==maxOfTempCircleHits);
-    circleKeep(end+1) = locationOfMax(1); %#ok<*SAGROW>
-    tempCircleKeep = tempCircleHits(locationOfMax(1), :);
-    hitSites = tempCircleKeep(~isnan(tempCircleKeep));
-    for i = 1:length(hitSites)
-        tempCircleHits(tempCircleHits == hitSites(i)) = NaN;
-    end
-end
-
-keptCenters = zeros([length(circleKeep), 2]);
-for i = 1:length(circleKeep)
-    keptCenters(i,1) = x1(circleKeep(i));
-    keptCenters(i,2) = y1(circleKeep(i));
-end
-figure()
-plot(minTree, 'XData', x1, 'YData', y1);
-radii = ones([length(keptCenters), 1]) * (budget/2);
-viscircles(keptCenters, radii)
-1;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+% while(tempCircleHits ~= isnan)
+lengthsOfTempCircleHits = sum(~isnan(tempCircleHits),2);
+maxOfTempCircleHits = max(lengthsOfTempCircleHits);
+locationOfMax = find(lengthsOfTempCircleHits==maxOfTempCircleHits);
+circleKeep(end+1) = locationOfMax;
+tempCircleKeep = tempCircleHits(locationOfMax, :);
+hitSites = tempCircleKeep(~isnan(tempCircleKeep));
+tempCircleHits(tempCircleHits == hitSites(i)) = [
+% end
 
 
 method = 0;
