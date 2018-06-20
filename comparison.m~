@@ -73,7 +73,7 @@ totalUGVCostPath = 0;
 DFS = dfsearch(minTree,1);
 tempCircleKeep = nan([length(circleKeep),1]);
 for i = 1:length(circleKeep)
-    tempCircleKeep(i) = find(DFS==circleKeep(i));
+        tempCircleKeep(i) = find(DFS==circleKeep(i));
 end
 for i = 1:length(circleKeep)
     tempTempCircleKeep(tempCircleKeep(i)) = circleKeep(i);
@@ -81,13 +81,8 @@ end
 UGVcircleKeep = tempTempCircleKeep;
 UGVcircleKeep(UGVcircleKeep==0) = [];
 
-UGVPaths = []
 for i = 1:length(UGVcircleKeep)-1 % TODO: make this a depth first search instead of in order of circleKeep
     [tempPath, tempCostUGVPath] = shortestpath(minTree, UGVcircleKeep(i), UGVcircleKeep(i+1));
-    for j = length(tempPath):numPointsInit-1
-        tempPath = [tempPath, NaN];
-    end
-    UGVPaths(end+1,:) = tempPath;
     totalUGVCostPath = totalUGVCostPath + tempCostUGVPath;
 end
 
@@ -189,9 +184,9 @@ for k = 1: numUGVs
         points = [tempX(end), tempY(end); tempX(1), tempY(1)];
         lastLeg = pdist(points, 'euclidean');
         totCosts(end+1) = totDist - sum(removalDist) + extraDist + stops*(timeL+timeTO) + lastLeg;
-        %         for i = length(tempX):numPointsInit-1
-        %             Out_sol = [Out_sol; NaN];
-        %         end
+%         for i = length(tempX):numPointsInit-1
+%             Out_sol = [Out_sol; NaN];
+%         end
         correctedOut_sol = nan([length(Out_sol),1]);
         for i = 1:length(Out_sol)
             correctedOut_sol(i) = sitesCircleKeep(k,Out_sol(i));
@@ -211,34 +206,14 @@ end
 totCost = sum(totCosts) + totalUGVCostPath;
 close all
 figure(1)
-
-for i = 1:numUGVs
-    tempHighlight = solutions(i, :);
-    tempHighlight(isnan(tempHighlight)) = [];
-    for j = 1:length(tempHighlight)-1
-        if findedge(minTree,tempHighlight(j),tempHighlight(j+1)) == 0
-            points = [x1(tempHighlight(j)), y1(tempHighlight(j)); x1(tempHighlight(j+1)), y1(tempHighlight(j+1))];
-            minTree = addedge(minTree, tempHighlight(j), tempHighlight(j+1), pdist(points, 'euclidean'));
-        end
-    end
-end
-
 H = plot(minTree, 'XData', x1, 'YData', y1);
 viscircles(keptCenters, radii, 'LineStyle', '--', 'Color', 'G')
 highlight(H,circleKeep,'NodeColor','r')
-
-for i = 1:numUGVs
+for i = 1:
     tempHighlight = solutions(i, :);
     tempHighlight(isnan(tempHighlight)) = [];
-    for j = 1:length(tempHighlight)-1
-        highlight(H,tempHighlight, 'EdgeColor','b','LineWidth', 5)
-    end
-end
-for i = 1:numUGVs-1
-    tempHighlight = UGVPaths(i, :);
-    tempHighlight(isnan(tempHighlight)) = [];
+    for j = 1: length
     highlight(H,tempHighlight, 'EdgeColor','r','LineWidth', 5)
-
 end
 
 
