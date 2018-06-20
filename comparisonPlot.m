@@ -16,5 +16,5 @@ errorbar(x,y2,y2neg, y2pos, 'LineWidth', 1.5);
 title('Comparison of Optimal and Suboptimal Method')
 xlabel('Number of Random Input Sites')
 ylabel('Cost (UAV Travel Time)')
-legend('Proposed Method', 'Stationary Charging Stations Dispersed Throughout the Environment')
+legend('Proposed Method', 'Base Line Method')
 axis([25 55 600 2700])
