@@ -5,7 +5,7 @@ compG1 = G1;
 [compLen, compLen1] = size(compG1.Edges);
 tempWeights = zeros([compLen, compLen1]);
 counter = 1;
-budget = 300;
+budget = 150;
 for i = 1:numPointsInit
     for j = i+1:numPointsInit
         points = [x1(i), y1(i); x1(j), y1(j)];
@@ -113,8 +113,10 @@ for k = 1: numUGVs
     concordeG = graph([], []);
     tempX = UGVsitesX(k,:);
     tempY = UGVsitesY(k,:);
+    tempOutSites = sitesCircleKeep(k,:);
     tempX(isnan(tempX)) = []; % removing NaN
     tempY(isnan(tempY)) = [];
+    tempOutSites(isnan(tempOutSites)) = [];
     for i = 1:length(tempX)
         for j = i+1:length(tempX)
             points = [tempX(i), tempY(i); tempX(j), tempY(j)];
@@ -144,8 +146,13 @@ for k = 1: numUGVs
         
     else
         [Out_sol, ~] = TSP_tour_Dat(concordeG,'/home/klyu/software/concorde/concorde/TSP/concorde');
-        while Out_sol(1) ~= circleKeep(k)
+        outSites = nan([length(Out_sol), 1]);
+        for i = 1:length(Out_sol)
+            outSites(i) = tempOutSites(Out_sol(i));
+        end
+        while outSites(1) ~= circleKeep(k)
             Out_sol = circshift(Out_sol,1);
+            outSites = circshift(outSites,1);
         end
         totDist = 0;
         stops = 1;
