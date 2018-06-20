@@ -222,8 +222,8 @@ for i = 1:numUGVs
         end
     end
 end
-
-H = plot(minTree, 'XData', x1, 'YData', y1);
+tempMinTree = minTree;
+H = plot(minTree, 'XData', x1, 'YData', y1, 'EdgeColor','w');
 viscircles(keptCenters, radii, 'LineStyle', '--', 'Color', 'G')
 highlight(H,circleKeep,'NodeColor','r')
 
@@ -231,26 +231,25 @@ for i = 1:numUGVs
     tempHighlight = solutions(i, :);
     tempHighlight(isnan(tempHighlight)) = [];
     for j = 1:length(tempHighlight)-1
-        highlight(H,tempHighlight, 'EdgeColor','b','LineWidth', 5)
+        highlight(H,tempHighlight, 'EdgeColor','b','LineWidth', 2)
     end
 end
 for i = 1:numUGVs-1
     tempHighlight = UGVPaths(i, :);
     tempHighlight(isnan(tempHighlight)) = [];
-    highlight(H,tempHighlight, 'EdgeColor','r','LineWidth', 5)
+    highlight(H,tempHighlight, 'EdgeColor','r','LineWidth', 2)
 
 end
+hold on;
 
+h = zeros(3, 1);
+h(1) = plot(NaN,NaN,'--g');
+h(2) = plot(NaN,NaN,'-b');
+h(3) = plot(NaN,NaN,'-r');
+legend(h, 'Flight Radius','UAV Flight','UAV+UGV Travel');
+title('Base Line Method Output')
+% Remove axis after creating graph
 
-% totCostMine = 0;
-% for i = 1:numPointsInit-1
-%     points = [GLNSx(i), GLNSy(i); GLNSx(i+1), GLNSy(i+1)];
-%     totCostMine = totCostMine + pdist(points, 'euclidean');
-% end
-% gtspSolver(compCluster, v_Adj, sitesPerUGV,
-
-% rangemaxDistance/numUGVs;
-% [finalMatrix, G_init, weights, finalTour, atspAdjMatrix, v_AdjChecker] = gtspSolver(v_Cluster, v_Adj, numPointsInit, numBatteryLevels, xOut, yOut, method);
 
 
 finalMatrix;
