@@ -1,4 +1,4 @@
-% createeUGVTourTypes
+% createUGVTourTypes
 % creates UGV for general case
 % INPUTS
 

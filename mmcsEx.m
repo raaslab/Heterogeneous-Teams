@@ -18,28 +18,28 @@ weights = [1, 1, 1, 1];
 G = digraph(s,t, weights);
 figure(1)
 % plot(G)
-h = plot(G,'XData',x,'YData',y);
+h = plot(G,'XData',x,'YData',y,'LineWidth',3, 'ArrowSize', 15, 'EdgeColor', 'b', 'EdgeAlpha', 1);
 labelnode(h,[1 2 3 4 5],{'h' 'i' 'j' 'k' 'l'})
-title('UGV Example Edges')
+title('UGV Example Edges', 'FontSize', 14)
 set(gca, 'xtick', []);
 set(gca, 'ytick', []);
 % G.Nodes.Name
 axis([0.5 4 0.75 4.5])
-arrowS = [0.23 0.32];
+arrowS = [0.25 0.32];
 arrowT = [0.8 0.7];
-annotation('textarrow',arrowS,arrowT,'String','g_{hi} = 1')
+annotation('textarrow',arrowS,arrowT,'String','g_{hi} = 1','LineWidth',2, 'FontSize', 12)
 
 arrowS = [0.7 0.62];
 arrowT = [0.8 0.76];
-annotation('textarrow',arrowS,arrowT,'String','g_{ij} = 1')
+annotation('textarrow',arrowS,arrowT,'String','g_{ij} = 1','LineWidth',2, 'FontSize', 12)
 
 arrowS = [0.8 0.66];
 arrowT = [0.5 0.55];
-annotation('textarrow',arrowS,arrowT,'String','g_{jk} = 1')
+annotation('textarrow',arrowS,arrowT,'String','g_{jk} = 1','LineWidth',2, 'FontSize', 12)
 
 arrowS = [0.75 0.59];
 arrowT = [0.25 0.32];
-annotation('textarrow',arrowS,arrowT,'String','g_{kl} = 1')
+annotation('textarrow',arrowS,arrowT,'String','g_{kl} = 1','LineWidth',2, 'FontSize', 12)
 
 % change
 % line width = 1

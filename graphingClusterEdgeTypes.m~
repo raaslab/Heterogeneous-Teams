@@ -43,8 +43,8 @@ end
 
 [G, xOut, yOut] = graphMakingWPoints(xOut, yOut, G, nodeArray);
 
-s1 = [1,2,3,4]
-t1 = [7,8,9,10]
+s1 = [4,4,4,4]
+t1 = [6,7,8,9]
 % create type 1 edges
 % s1 = [1, 2, 3, 4];
 % t1 = [7, 8, 9, 10];
@@ -89,16 +89,12 @@ for i = 1:numPoints                                                 % clusters t
     xRec = i-(wRec/2);                                              % parameters for creating clusters
     pos = [xRec+skinny/2, yRec+skinny/2, wRec-skinny, hRec-skinny];                                 % creates oval, but needs to be fixed
     rectangle('Position', pos, 'Curvature', [1 1])
-    %     xStr = num2str(x(i));
-    %     yStr = num2str(y(i));
-    %     str = sprintf('%s, %s', xStr, yStr);
-    %     text(xRec, yRec+hRec-(hRec/16), str, 'Color', 'red', 'Fontsize', 7);
+%     xStr = num2str(x(i));
+%     yStr = num2str(y(i));
+%     str = sprintf('%s, %s', xStr, yStr);
+%     text(xRec, yRec+hRec-(hRec/16), str, 'Color', 'red', 'Fontsize', 7);
 end
-labelnode(h,[1,2,3,4,5,6,7,8,9,10],{'100%', '80%', '60%', '40%', '20%','100%', '80%', '60%', '40%', '20%'})
-xticks([0,1,2])
-xticklabels({'h=0i','g_i','g_j'})
-yticks([])
-title('Type 1', 'FontSize', 14)
+labelnode(h,[1,2,3,4,5,6,7,8,9,10],{'100%', '80%', '60%', '40%', '20%','100%', '80%', '60%', '40%', '20%'}, )
 % labelnode(h,[1:31],{' '})
 
 fname = 'EdgeTypes';

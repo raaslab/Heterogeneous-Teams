@@ -210,8 +210,6 @@ end
 % end
 totCost = sum(totCosts) + totalUGVCostPath;
 close all
-figure(1)
-
 for i = 1:numUGVs
     tempHighlight = solutions(i, :);
     tempHighlight(isnan(tempHighlight)) = [];
@@ -222,32 +220,50 @@ for i = 1:numUGVs
         end
     end
 end
-tempMinTree = minTree;
-H = plot(minTree, 'XData', x1, 'YData', y1, 'EdgeColor','w');
-viscircles(keptCenters, radii, 'LineStyle', '--', 'Color', 'G')
-highlight(H,circleKeep,'NodeColor','r')
 
+tempMinTree = minTree;
 for i = 1:numUGVs
+    figure(i)
+    H = plot(minTree, 'XData', x1, 'YData', y1, 'EdgeColor','w');
+    % rectDist = sqrt(2*(radii^2));
+    rectangle('Position',[keptCenters(i,1)-radii(i), keptCenters(i,2)-radii(i), radii(i)*2, radii(i)*2],'Curvature',1, 'EdgeColor','None', 'FaceColor',[0.8, 0.8, 0.8, 0.4])
+    % viscircles(keptCenters, radii, 'LineStyle', '--', 'Color', 'G')
+    highlight(H,circleKeep(i),'NodeColor','r')
+    
     tempHighlight = solutions(i, :);
     tempHighlight(isnan(tempHighlight)) = [];
     for j = 1:length(tempHighlight)-1
         highlight(H,tempHighlight, 'EdgeColor','b','LineWidth', 2)
     end
+    
+    hold on;
+    h = zeros(2, 1);
+    %     h(1) = plot(NaN,NaN,'--g');
+    h(1) = plot(NaN,NaN,'-b');
+    h(2) = plot(NaN,NaN,'-r');
+    legend(h,'Location','northwest','UAV Flight','UAV+UGV Travel');
+    titleName = ['Baseline Method UAV flight ', num2str(i), ' Output' ];
+    title(titleName)
+    axis equal
 end
+
+figure()
+H = plot(minTree, 'XData', x1, 'YData', y1, 'EdgeColor','w');
 for i = 1:numUGVs-1
     tempHighlight = UGVPaths(i, :);
     tempHighlight(isnan(tempHighlight)) = [];
     highlight(H,tempHighlight, 'EdgeColor','r','LineWidth', 2)
-
+    
+    hold on;
+    h = zeros(2, 1);
+    %     h(1) = plot(NaN,NaN,'--g');
+    h(1) = plot(NaN,NaN,'-b');
+    h(2) = plot(NaN,NaN,'-r');
+    legend(h,'Location','northwest', 'UAV Flight','UAV+UGV Travel');
+    title('Baseline Method UGV Output')
+    axis equal
 end
-hold on;
 
-h = zeros(3, 1);
-h(1) = plot(NaN,NaN,'--g');
-h(2) = plot(NaN,NaN,'-b');
-h(3) = plot(NaN,NaN,'-r');
-legend(h, 'Flight Radius','UAV Flight','UAV+UGV Travel');
-title('Base Line Method Output')
 % Remove axis after creating graph
 
 
