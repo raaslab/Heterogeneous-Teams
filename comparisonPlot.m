@@ -1,7 +1,7 @@
 close all
 clear
 
-load('comparison.mat')
+load('comparisonTSP.mat')
 
 x = [50,40,30];
 y1 = [mean(data(:,1)), mean(data(:,3)), mean(data(:,5))];
@@ -18,4 +18,4 @@ title(ttl,'FontSize', 12)
 xlabel('Number of Random Input Sites','FontSize', 12)
 ylabel('Cost (UAV Travel Time)','FontSize', 12)
 legend('Location','northwest','Proposed Method', 'Baseline Method')
-axis([25 55 600 2700])
+axis([25 55 600 2200])
