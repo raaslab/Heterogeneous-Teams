@@ -1,5 +1,5 @@
 
-load 9rando1.mat;
+load 0rando1.mat;
 % G = graph(s,t,weights);
 compG1 = G1;
 [compLen, compLen1] = size(compG1.Edges);
@@ -75,6 +75,7 @@ tempCircleKeep = nan([length(circleKeep),1]);
 for i = 1:length(circleKeep)
     tempCircleKeep(i) = find(DFS==circleKeep(i));
 end
+tempTempCircleKeep = [];
 for i = 1:length(circleKeep)
     tempTempCircleKeep(tempCircleKeep(i)) = circleKeep(i);
 end
@@ -110,15 +111,17 @@ end
 
 
 
-% UGVPaths = []; % This is using Depth First Search method for finding the path of the UGV
-% for i = 1:length(UGVcircleKeep)-1
-%     [tempPath, tempCostUGVPath] = shortestpath(minTree, UGVcircleKeep(i), UGVcircleKeep(i+1));
-%     for j = length(tempPath):numPointsInit-1
-%         tempPath = [tempPath, NaN];
-%     end
-%     UGVPaths(end+1,:) = tempPath;
-%     totalUGVCostPath = totalUGVCostPath + tempCostUGVPath;
-% end
+UGVPaths = []; % This is using Depth First Search method for finding the path of the UGV
+for i = 1:length(trueUGVPath)-1
+    [tempPath, tempCostUGVPath] = shortestpath(minTree, trueUGVPath(i), trueUGVPath(i+1));
+    for j = length(tempPath):numPointsInit-1
+        tempPath = [tempPath, NaN];
+    end
+    UGVPaths(end+1,:) = tempPath;
+    totalUGVCostPath = totalUGVCostPath + tempCostUGVPath;
+end
+
+
 
 numUGVs = length(circleKeep);
 % sitesPerUGV = numPointsInit/numUGVs;
@@ -251,91 +254,92 @@ end
 totCost = sum(totCosts) + totalUGVCostPath;
 close all
 
-% % Below is for plotting the outputs
-% for i = 1:numUGVs
-%     tempHighlight = solutions(i, :);
-%     tempHighlight(isnan(tempHighlight)) = [];
-%     for j = 1:length(tempHighlight)-1
-%         if findedge(minTree,tempHighlight(j),tempHighlight(j+1)) == 0
-%             points = [x1(tempHighlight(j)), y1(tempHighlight(j)); x1(tempHighlight(j+1)), y1(tempHighlight(j+1))];
-%             minTree = addedge(minTree, tempHighlight(j), tempHighlight(j+1), pdist(points, 'euclidean'));
-%         end
-%     end
-% end
-%
-% tempMinTree = minTree;
-% for i = 1:numUGVs
-%     figure(i)
-%     H = plot(compG1, 'XData', x1, 'YData', y1, 'EdgeColor','w');
-%     rectangle('Position',[keptCenters(i,1)-radii(i), keptCenters(i,2)-radii(i), radii(i)*2, radii(i)*2],'Curvature',1, 'EdgeColor','None', 'FaceColor',[0.8, 0.8, 0.8, 0.4])
-%     highlight(H,circleKeep(i),'NodeColor','r')
-%
-%     tempHighlight = solutions(i, :);
-%     tempHighlight(isnan(tempHighlight)) = [];
-%     tempExtraPoints = extraPoints(i, :);
-%     tempExtraPoints(isnan(tempExtraPoints)) = [];
-%     j = 1;
-%     graphExtraPoints = [];
-%     counter = 1;
-%     while j < length(tempExtraPoints)+1 % adding the UAV returns to the UGV for each disk
-%         wantToFind = tempExtraPoints(j);
-%         addLocation = find(tempHighlight == wantToFind);
-%         tempHighlight = [tempHighlight(1:addLocation), tempHighlight(1), tempHighlight(addLocation+1:end)];
-%         graphExtraPoints(counter,1) = tempExtraPoints(j);
-%         graphExtraPoints(counter,2) = tempHighlight(1);
-%         graphExtraPoints(counter,3) = tempExtraPoints(j+1);
-%         counter = counter+1;
-%         j = j+2;
-%     end
-%
-%     tempHighlight = [tempHighlight, tempHighlight(1)];
-%     highlight(H,tempHighlight, 'EdgeColor','b','LineWidth', 2)
-%     for j = 1:counter-1
-%         edgeToHighlight = graphExtraPoints(j,:);
-%         highlight(H,edgeToHighlight,'EdgeColor', 'g', 'LineWidth', 2)
-%     end
-%     hold on;
-%     h = zeros(2, 1);
-%     h(1) = plot(NaN,NaN,'-b');
-%     h(2) = plot(NaN,NaN,'-g');
-%     legend(h,'Location','northwest','UAV Flight','UAV Traveling Back to UGV to Charge');
-%     titleName = ['Baseline Method UAV flight Output' ];
-%     title(titleName)
-%     axis([-75, 200, 0,300]);
-% end
-%
-% figure()
-% H = plot(compG1, 'XData', x1, 'YData', y1, 'EdgeColor','w');
-%
+% Below is for plotting the outputs
+for i = 1:numUGVs
+    tempHighlight = solutions(i, :);
+    tempHighlight(isnan(tempHighlight)) = [];
+    for j = 1:length(tempHighlight)-1
+        if findedge(minTree,tempHighlight(j),tempHighlight(j+1)) == 0
+            points = [x1(tempHighlight(j)), y1(tempHighlight(j)); x1(tempHighlight(j+1)), y1(tempHighlight(j+1))];
+            minTree = addedge(minTree, tempHighlight(j), tempHighlight(j+1), pdist(points, 'euclidean'));
+        end
+    end
+end
+
+tempMinTree = minTree;
+for i = 1:numUGVs
+    figure(i)
+    H = plot(compG1, 'XData', x1, 'YData', y1, 'EdgeColor','w');
+    rectangle('Position',[keptCenters(i,1)-radii(i), keptCenters(i,2)-radii(i), radii(i)*2, radii(i)*2],'Curvature',1, 'EdgeColor','None', 'FaceColor',[0.8, 0.8, 0.8, 0.4])
+    highlight(H,circleKeep(i),'NodeColor','r')
+    
+    tempHighlight = solutions(i, :);
+    tempHighlight(isnan(tempHighlight)) = [];
+    tempExtraPoints = extraPoints(i, :);
+    tempExtraPoints(isnan(tempExtraPoints)) = [];
+    j = 1;
+    graphExtraPoints = [];
+    counter = 1;
+    while j < length(tempExtraPoints)+1 % adding the UAV returns to the UGV for each disk
+        wantToFind = tempExtraPoints(j);
+        addLocation = find(tempHighlight == wantToFind);
+        tempHighlight = [tempHighlight(1:addLocation), tempHighlight(1), tempHighlight(addLocation+1:end)];
+        graphExtraPoints(counter,1) = tempExtraPoints(j);
+        graphExtraPoints(counter,2) = tempHighlight(1);
+        graphExtraPoints(counter,3) = tempExtraPoints(j+1);
+        counter = counter+1;
+        j = j+2;
+    end
+    
+    tempHighlight = [tempHighlight, tempHighlight(1)];
+    highlight(H,tempHighlight, 'EdgeColor','b','LineWidth', 2)
+    for j = 1:counter-1
+        edgeToHighlight = graphExtraPoints(j,:);
+        highlight(H,edgeToHighlight,'EdgeColor', 'g', 'LineWidth', 2)
+    end
+    hold on;
+    h = zeros(2, 1);
+    h(1) = plot(NaN,NaN,'-b');
+    h(2) = plot(NaN,NaN,'-g');
+    legend(h,'Location','northwest','UAV Flight','UAV Traveling Back to UGV to Charge');
+    titleName = ['Baseline Method UAV flight Output' ];
+    title(titleName)
+    axis equal;
+end
+
+figure()
+H = plot(compG1, 'XData', x1, 'YData', y1, 'EdgeColor','w');
+
+% % This is for the TSP solution for UGV
 % % for i = 1:numUGVs-1
 % %     tempHighlight = UGVPaths(i, :);
 % %     tempHighlight(isnan(tempHighlight)) = [];
 % highlight(H,trueUGVPath, 'EdgeColor','r','LineWidth', 2)
-%
+% 
 % hold on;
 % h = zeros(1, 1);
 % %     h(1) = plot(NaN,NaN,'-b');
 % h(1) = plot(NaN,NaN,'-r');
 % legend(h,'Location','northwest', 'UAV+UGV Travel');
 % title('Baseline Method UGV Output')
-% axis([-75, 200, 0,300]);
+% axis equal;
 % % end
-%
-%
-% % for i = 1:numUGVs-1 % This is for Depth First Search for UGV
-% %     tempHighlight = UGVPaths(i, :);
-% %     tempHighlight(isnan(tempHighlight)) = [];
-% %     highlight(H,tempHighlight, 'EdgeColor','r','LineWidth', 2)
-% %
-% %     hold on;
-% %     h = zeros(1, 1);
-% %     %     h(1) = plot(NaN,NaN,'-b');
-% %     h(1) = plot(NaN,NaN,'-r');
-% %     legend(h,'Location','northwest', 'UAV+UGV Travel');
-% %     title('Baseline Method UGV Output')
-% %     axis([-75, 200, 0,300]);
-% % end
-%
-% % Remove axis after creating graph
+
+
+for i = 1:numUGVs-1 % This is for Depth First Search for UGV
+    tempHighlight = UGVPaths(i, :);
+    tempHighlight(isnan(tempHighlight)) = [];
+    highlight(H,tempHighlight, 'EdgeColor','r','LineWidth', 2)
+    
+    hold on;
+    h = zeros(1, 1);
+    %     h(1) = plot(NaN,NaN,'-b');
+    h(1) = plot(NaN,NaN,'-r');
+    legend(h,'Location','northwest', 'UAV+UGV Travel');
+    title('Baseline Method UGV Output')
+    axis equal;
+end
+
+% Remove axis after creating graph
 
 finalMatrix;
